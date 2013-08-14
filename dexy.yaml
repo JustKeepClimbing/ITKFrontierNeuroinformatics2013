@@ -1,0 +1,9 @@
+frontiers.tex|jinja|latex:
+    - .cls
+    - .bst
+    - .bbl
+    - .BIB
+    - .sty
+    - .eps
+    - _*.tex:
+        - output: False
