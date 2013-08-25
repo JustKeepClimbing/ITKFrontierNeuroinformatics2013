@@ -9,6 +9,8 @@
 \usepackage{url,lineno}
 \linenumbers
 
+\usepackage{graphicx}
+
 % Leave a blank line between paragraphs in stead of using \\
 
 \copyrightyear{}
@@ -54,7 +56,7 @@ See the Summary Table at \\ \url{http://www.frontiersin.org/}\texttt{\journal}\u
 
 
 \tiny
- \keyFont{ \section{Keywords:} Text Text Text Text Text Text Text Text } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+ \keyFont{ \section{Keywords:} Reproducibilty ITK InsightToolkit Review Text Text Text Text } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
 
@@ -226,6 +228,12 @@ Combination & Image contains halftone + text or line art elements. & TIFF, EPS, 
 \item Any lines in the graphic are no smaller than 2 points width.
 \end{enumerate}
 
+\begin{figure}
+  \centering
+    \includegraphics[width=0.5\textwidth]{gerrit_patch_set_histogram.eps}
+    \caption{Histogram of the number of revisions (Patch Sets) for a given change.}
+    \label{fig:gerrit_patch_set_histogram}
+\end{figure}
 \textbf{Figure 2.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures.}\label{fig:02}
 
 \section{Discussion}

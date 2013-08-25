@@ -10,6 +10,7 @@ import numpy as np
 mpl.rcParams['axes.labelsize'] = 'x-large'
 mpl.rcParams['xtick.labelsize'] = 'large'
 mpl.rcParams['ytick.labelsize'] = 'large'
+mpl.rcParams['figure.dpi'] = 900
 
 def plot_patchset_histogram(changes, outputfile=None):
     number_of_patchsets = []
