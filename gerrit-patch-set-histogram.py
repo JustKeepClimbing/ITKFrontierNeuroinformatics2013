@@ -21,6 +21,7 @@ def plot_patchset_histogram(changes, outputfile=None):
     ax.hist(number_of_patchsets, bins=np.max(number_of_patchsets))
     ax.set_xlabel('Number of Patch Sets')
     ax.set_ylabel('Change Count')
+    ax.set_xlim(0, 20)
     if outputfile:
         fig.savefig(outputfile)
     else:
