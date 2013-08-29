@@ -6,6 +6,7 @@ import pickle
 import sys
 
 import git
+from git.exc import GitCommandError
 
 
 class FixUpCounter(object):
@@ -80,7 +81,10 @@ class FixUpCounter(object):
 
     def _following_commits(self, commit):
         git = self.git
-        commit_date = git.show(commit, s=True, format="%ct")
+        try:
+            commit_date = git.show(commit, s=True, format="%ct")
+        except GitCommandError:
+            return tuple()
         until_date = int(commit_date) + self.fixup_seconds
         following_commits = git.rev_list(commit + '..',
                                          until=str(until_date),
@@ -97,8 +101,11 @@ class FixUpCounter(object):
         if not changed_files:
             return hunks
         for changed_file in changed_files:
-            blame = git.blame(commit + '^!', '--', changed_file,
-                              incremental=True)
+            try:
+                blame = git.blame(commit + '^!', '--', changed_file,
+                                  incremental=True)
+            except GitCommandError:
+                continue
             blame = blame.split('\n')
             hh = [tuple([int(x) for x in blame[0].split()[2:4]]),]
             blame = blame[1:]
@@ -128,10 +135,13 @@ class FixUpCounter(object):
                 added_lines = set()
                 for hh in hunks[changed]:
                     added_lines.update(range(hh[0], hh[0] + hh[1]))
-                blame = git.blame(followup + '^!', '--',
-                                  changed,
-                                  incremental=True,
-                                  reverse=True)
+                try:
+                    blame = git.blame(followup + '^!', '--',
+                                      changed,
+                                      incremental=True,
+                                      reverse=True)
+                except GitCommandError:
+                    continue
                 blame = blame.split('\n')
                 first = blame[0].split()
                 boundary = first[0]
@@ -171,8 +181,8 @@ fixup_counter = FixUpCounter(git_repo)
 print('Starting post-Gerrit analysis...')
 fixup_counts, fixups = fixup_counter.fixup_counts('2010-08-25', '2013-08-25')
 with open('PostGerrit.pkl', 'wb') as fp:
-    pickle.dump((fixup_counts, fixups), fp)
+    pickle.dump((fixup_counts, fixups, 2), fp)
 print('Starting pre-Gerrit analysis...')
-fixup_counts, fixups = fixup_counter.fixup_counts('2017-08-25', '2010-08-25')
+fixup_counts, fixups = fixup_counter.fixup_counts('2007-08-25', '2010-08-25')
 with open('PreGerrit.pkl', 'wb') as fp:
-    pickle.dump((fixup_counts, fixups), fp)
+    pickle.dump((fixup_counts, fixups, 2), fp)
