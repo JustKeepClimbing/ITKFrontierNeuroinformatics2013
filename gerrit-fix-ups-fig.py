@@ -30,9 +30,11 @@ def plot_fixups(pre_gerrit, post_gerrit, outputfile=None):
     for bar in patches[1]:
         bar.set_hatch('\\')
     ax.set_xlabel('Number of Fix-up Commits')
-    ax.set_ylabel('Commit Fraction')
+    ax.set_ylabel('Commit Percentage')
     ax.set_xlim(fixup_range[0] - 0.5, fixup_range[1] + 0.5)
+    ax.set_yticklabels([str(int(100*ii)) for ii in np.linspace(0.0, 1.0, 6)])
     ax.set_ylim(0.0, 1.0)
+
     ax.legend()
     if outputfile:
         fig.savefig(outputfile)
