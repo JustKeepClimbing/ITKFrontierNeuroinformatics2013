@@ -10,3 +10,7 @@ frontiers.tex|jinja|latex:
     - gerrit-patch-set-histogram.py|py:
       - py: { scriptargs: 'gerrit_data.json gerrit_patch_set_histogram.eps', add-new-files: True, output-extensions: ['.eps']}
       - gerrit_data.json
+    - gerrit-fix-ups-fig.py|py:
+      - py: { scriptargs: 'PreGerrit.pkl PostGerrit.pkl gerrit_fix_ups.eps', add-new-files: True, output-extensions: ['.eps']}
+      - PreGerrit.pkl
+      - PostGerrit.pkl
