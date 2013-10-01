@@ -5,6 +5,7 @@ import sys
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from prettyplotlib import hist
 import numpy as np
 
 mpl.rcParams['axes.labelsize'] = 'x-large'
@@ -18,7 +19,7 @@ def plot_patchset_histogram(changes, outputfile=None):
         number_of_patchsets.append(len(change['patchSets']))
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.hist(number_of_patchsets, bins=np.max(number_of_patchsets))
+    hist(ax, number_of_patchsets, bins=np.max(number_of_patchsets))
     ax.set_xlabel('Number of Patch Sets')
     ax.set_ylabel('Change Count')
     ax.set_xlim(0, 20)

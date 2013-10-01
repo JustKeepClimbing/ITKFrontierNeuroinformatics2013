@@ -7,7 +7,7 @@ Dependencies
 
   - texlive-humanities
 
-* matplotlib
+* prettyplotlib
 
 Build
 -----
