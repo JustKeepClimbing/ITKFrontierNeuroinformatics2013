@@ -1,4 +1,13 @@
-frontiers.tex|jinja|latex:
+figures:
+    - src/gerrit-patch-set-histogram.py|py:
+      - py: { scriptargs: '../data/gerrit_data.json ../doc/gerrit_patch_set_histogram.eps', add-new-files: True, output-extensions: ['.eps']}
+      - data/gerrit_data.json
+    - src/gerrit-fix-ups-fig.py|py:
+      - py: { scriptargs: '../data/PreGerrit.pkl ../data/PostGerrit.pkl ../doc/gerrit_fix_ups.eps', add-new-files: True, output-extensions: ['.eps']}
+      - data/PreGerrit.pkl
+      - data/PostGerrit.pkl
+
+doc/frontiers.tex|jinja|latex:
     - .cls
     - .bst
     - .bbl
@@ -7,10 +16,4 @@ frontiers.tex|jinja|latex:
     - .eps
     - _*.tex:
         - output: False
-    - gerrit-patch-set-histogram.py|py:
-      - py: { scriptargs: 'gerrit_data.json gerrit_patch_set_histogram.eps', add-new-files: True, output-extensions: ['.eps']}
-      - gerrit_data.json
-    - gerrit-fix-ups-fig.py|py:
-      - py: { scriptargs: 'PreGerrit.pkl PostGerrit.pkl gerrit_fix_ups.eps', add-new-files: True, output-extensions: ['.eps']}
-      - PreGerrit.pkl
-      - PostGerrit.pkl
+    - figures

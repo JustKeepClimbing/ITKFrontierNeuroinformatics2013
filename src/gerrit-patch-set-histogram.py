@@ -2,6 +2,7 @@
 
 import json
 import sys
+import os
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -12,6 +13,7 @@ mpl.rcParams['axes.labelsize'] = 'x-large'
 mpl.rcParams['xtick.labelsize'] = 'large'
 mpl.rcParams['ytick.labelsize'] = 'large'
 mpl.rcParams['figure.dpi'] = 900
+
 
 def plot_patchset_histogram(changes, outputfile=None):
     number_of_patchsets = []
@@ -30,7 +32,8 @@ def plot_patchset_histogram(changes, outputfile=None):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('Usage: ' + sys.argv[0] + ' <gerrit_data.json> [output_file.eps]')
+        print('Usage: ' + sys.argv[0] +
+              ' <gerrit_data.json> [output_file.eps]')
         sys.exit(1)
 
     gerrit_data = sys.argv[1]
@@ -38,6 +41,9 @@ if __name__ == '__main__':
         data = json.load(fp)
     if len(sys.argv) > 2:
         outputfile = sys.argv[2]
+        dirname = os.path.dirname(outputfile)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
     else:
         outputfile = None
     plot_patchset_histogram(data['changes'], outputfile)
