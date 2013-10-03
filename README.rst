@@ -8,6 +8,7 @@ Dependencies
   - texlive-humanities
 
 * prettyplotlib
+* networkx
 
 Build
 -----
