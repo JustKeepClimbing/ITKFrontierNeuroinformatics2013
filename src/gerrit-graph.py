@@ -7,6 +7,9 @@ import json
 import os
 import sys
 
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
 import networkx as nx
 
 class hashdict(dict):
@@ -67,31 +70,34 @@ class hashdict(dict):
         return result
 
 
-def reviewer_graph(changes):
-    # TODO: temp for efficiency
-    changes = changes[:100]
+def reviewer_identifier(reviewer):
+    #return hashdict(reviewer)
+    return reviewer.get('name', 'Unknown')
 
+
+def reviewer_graph(changes):
     # Nodes are contributors identified by name and email
     contributors = set()
     for change in changes:
-        contributors.add(hashdict(change['owner']))
+        contributors.add(reviewer_identifier(change['owner']))
 
     # Node attribute -- number of changes created
     created = collections.Counter({cc: 0 for cc in contributors})
     for change in changes:
-        created[hashdict(change['owner'])] += 1
+        created[reviewer_identifier(change['owner'])] += 1
 
     # Node attribute -- number of change reviews
     reviewed = collections.Counter({cc: 0 for cc in contributors})
     for change in changes:
         for patch_set in change['patchSets']:
             for approval in patch_set.get('approvals', []):
-                reviewed[hashdict(approval['by'])] += 1
+                reviewed[reviewer_identifier(approval['by'])] += 1
 
     # Add the nodes to the graph
-    graph = nx.Graph()
+    graph = nx.DiGraph()
     for contributor in contributors:
         graph.add_node(contributor,
+                       weights=created[contributor],
                        created=created[contributor],
                        reviewed=reviewed[contributor])
 
@@ -99,10 +105,10 @@ def reviewer_graph(changes):
     review_counts = collections.Counter()
     review_accumulated_values = collections.Counter()
     for change in changes:
-        owner = hashdict(change['owner'])
+        owner = reviewer_identifier(change['owner'])
         for patch_set in change['patchSets']:
             for approval in patch_set.get('approvals', []):
-                reviewer = hashdict(approval['by'])
+                reviewer = reviewer_identifier(approval['by'])
                 review_counts[(reviewer, owner)] += 1
                 review_accumulated_values[(reviewer, owner)] += \
                     int(approval['value'])
@@ -110,9 +116,45 @@ def reviewer_graph(changes):
     for edge in review_counts.keys():
         graph.add_edge(*edge,
                        count=review_counts[edge],
+                       weights=review_counts[edge],
                        accumulated_value=review_accumulated_values[edge])
 
     return graph
+
+
+def plot_graph(graph, outputfile=None):
+    fig, ax = plt.subplots(1, num=1)
+
+    pos = nx.spring_layout(graph, iterations=200)
+
+    nodes = graph.nodes(data=True)
+    node_weights = np.zeros((len(nodes),))
+    for ii in range(len(nodes)):
+        node_weights[ii] = nodes[ii][1].get('weights', 0.0)
+    max_size = 500
+    node_sizes = max_size * node_weights / node_weights.max()
+    nx.draw_networkx_nodes(graph, pos, node_color='#A0CBE2', alpha=0.6,
+            node_size=node_sizes, linewidths=0.5)
+
+    edges = graph.edges(data=True)
+    edge_weights = np.zeros((len(edges),))
+    for ii in range(len(edges)):
+        edge_weights[ii] = edges[ii][2].get('weights', 0.0)
+    max_width = 10.0
+    edge_widths = max_width * edge_weights / edge_weights.max()
+    nx.draw_networkx_edges(graph, pos, alpha=0.5, edge_cmap=mpl.cm.Blues,
+                           width=edge_widths, edge_color="#0E59A2")
+
+    nx.draw_networkx_labels(graph, pos, fontsize=20)
+
+    plt.axis('off')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.0])
+
+    if outputfile:
+        fig.savefig(outputfile)
+    else:
+        plt.show()
 
 
 if __name__ == '__main__':
@@ -133,3 +175,4 @@ if __name__ == '__main__':
         outputfile = None
 
     graph = reviewer_graph(data['changes'])
+    plot_graph(graph, outputfile)
