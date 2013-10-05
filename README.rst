@@ -7,7 +7,8 @@ Dependencies
 
   - texlive-humanities
 
-* matplotlib
+* prettyplotlib
+* networkx
 
 Build
 -----
