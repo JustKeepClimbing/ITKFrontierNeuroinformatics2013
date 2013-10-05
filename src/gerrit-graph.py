@@ -12,6 +12,9 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import networkx as nx
 
+mpl.rcParams['text.fontsize'] = 10
+
+
 class hashdict(dict):
     """
     hashable dict implementation, suitable for use as a key into
@@ -36,34 +39,43 @@ class hashdict(dict):
     """
     def __key(self):
         return tuple(sorted(self.items()))
+
     def __repr__(self):
         return "{0}({1})".format(self.__class__.__name__,
-            ", ".join("{0}={1}".format(
-                    str(i[0]),repr(i[1])) for i in self.__key()))
+               ", ".join("{0}={1}".format(str(i[0]),
+                                          repr(i[1])) for i in self.__key()))
 
     def __hash__(self):
         return hash(self.__key())
+
     def __setitem__(self, key, value):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def __delitem__(self, key):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def clear(self):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def pop(self, *args, **kwargs):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def popitem(self, *args, **kwargs):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def setdefault(self, *args, **kwargs):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def update(self, *args, **kwargs):
         raise TypeError("{0} does not support item assignment"
-                         .format(self.__class__.__name__))
+                        .format(self.__class__.__name__))
+
     def __add__(self, right):
         result = hashdict(self)
         dict.update(result, right)
@@ -123,7 +135,11 @@ def reviewer_graph(changes):
 
 
 def plot_graph(graph, outputfile=None):
-    fig, ax = plt.subplots(1, num=1)
+    fig_width = 18.0
+    golden_mean = (np.sqrt(5)-1.0)/2.0
+    fig_height = fig_width * golden_mean
+
+    fig, ax = plt.subplots(1, num=1, figsize=(fig_width, fig_height))
 
     pos = nx.spring_layout(graph, iterations=200)
 
@@ -133,8 +149,8 @@ def plot_graph(graph, outputfile=None):
         node_weights[ii] = nodes[ii][1].get('weights', 0.0)
     max_size = 500
     node_sizes = max_size * node_weights / node_weights.max()
-    nx.draw_networkx_nodes(graph, pos, node_color='#A0CBE2', alpha=0.6,
-            node_size=node_sizes, linewidths=0.5)
+    nx.draw_networkx_nodes(graph, pos, node_color='#A0CBE2', alpha=0.5,
+                           node_size=node_sizes, linewidths=0.5)
 
     edges = graph.edges(data=True)
     edge_weights = np.zeros((len(edges),))
@@ -145,11 +161,11 @@ def plot_graph(graph, outputfile=None):
     nx.draw_networkx_edges(graph, pos, alpha=0.5, edge_cmap=mpl.cm.Blues,
                            width=edge_widths, edge_color="#0E59A2")
 
-    nx.draw_networkx_labels(graph, pos, fontsize=20)
+    nx.draw_networkx_labels(graph, pos, fontsize=10)
 
     plt.axis('off')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.0])
+    plt.xlim([-0.1, 1.1])
+    plt.ylim([-0.1, 1.1])
 
     if outputfile:
         fig.savefig(outputfile)
