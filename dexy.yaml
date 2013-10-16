@@ -20,3 +20,5 @@ doc/frontiers.tex|jinja|latex:
     - _*.tex:
         - output: False
     - figures
+    - src/gerrit-results.py|idio|py:
+      - data/gerrit_data.json
