@@ -240,9 +240,10 @@ Combination & Image contains halftone + text or line art elements. & TIFF, EPS, 
 \subsection{Open Review System: Gerrit Review}
 
 In the three years that the community has applied the Gerrit Code review
-system, << d['src/gerrit-results.py|idio|py']['changes'] >> changes have
-been submitted to the review server.
-
+system, << d['src/gerrit_results.json'].from_json()['changes'] >> changes have
+been submitted to the review server and
+<< d['src/gerrit_results.json'].from_json()['reviews'] >> were performed.
+ 
 \begin{figure}
   \centering
     \includegraphics[width=0.5\textwidth]{gerrit_patch_set_histogram.eps}

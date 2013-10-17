@@ -20,5 +20,6 @@ doc/frontiers.tex|jinja|latex:
     - _*.tex:
         - output: False
     - figures
-    - src/gerrit-results.py|idio|py:
+    - src/gerrit-results.py|py:
       - data/gerrit_data.json
+      - py: { 'add-new-files': True }
