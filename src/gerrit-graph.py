@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import networkx as nx
+from networkx.readwrite import json_graph
 
 mpl.rcParams['text.fontsize'] = 10
 
@@ -176,7 +177,7 @@ def plot_graph(graph, outputfile=None):
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Usage: ' + sys.argv[0] +
-              ' <gerrit_data.json> [output_file.eps]')
+              ' <gerrit_data.json> [output_render.eps] [gerrit_graph.json]')
         sys.exit(1)
 
     gerrit_data = sys.argv[1]
@@ -191,4 +192,14 @@ if __name__ == '__main__':
         outputfile = None
 
     graph = reviewer_graph(data['changes'])
+
     plot_graph(graph, outputfile)
+
+    if len(sys.argv) > 3:
+        gerrit_json_file = sys.argv[3]
+        dirname = os.path.dirname(gerrit_json_file)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        data = json_graph.node_link_data(graph)
+        with open(gerrit_json_file, 'wb') as fp:
+            json.dump(data, fp)
