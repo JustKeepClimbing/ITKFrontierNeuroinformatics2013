@@ -122,52 +122,85 @@ The lists average 326 messages per month from October 2012 to October 2013.
 
 \subsubsection{Source Code Version Control: Git}
 
-\subsubsection{Open Review System: Gerrit Review} Recently, recognition of
-software’s importance in the progression of science has evoked movements such
-as the Science Code Manifesto \cite{Barnes2010}.  While a number of journals
-are beginning to adopt practices similar to The Insight Journal, where code is
-submitted along with the article, evaluation tools and procedures for peer
-review of the code and article are not in parity.  Commonplace practices have
-evolved to facilitate article review such as evaluation rubrics,
-instrumentation of the text with line and page numbers for reference during
-discussion, and a process to distribute an article to reviewers and communicate
-author replies.  While this provides the reviewers a mechanism to evaluate the
-reproducibility (i.e., merit) of the article, the technical nature of code
-solicits greater technical capabilities of the tools and methods used to
-evaluate its reproducibility.
+\subsubsection{Open Review System: Gerrit Review}
+
+In the context of reproducible science, the detailed description of the methods
+and materials used to perform an experiment are a fundamental piece of the
+article that disseminates the results. As research activities become more and
+more dependent on software for the preparation, execution and analysis of
+experiments, it becomes necessary to include all the details related to the
+software as part of a reproducible publication. Given the complexities of
+software implementation, mere algorithmic descriptions, or even pseudo-code are
+not sufficient to ensure reproducibility through reimplementation. Only the
+delivery of original source code can provide enough assurances that the
+recipient of the materials will be able to replicate the reported work with a
+reasonable limited amount of effort.
+
+The code must therefore be subject to peer review processes similar to the ones
+currently used for scientific publications. Such reviews should examine both
+the quality and correctness of the code, as well as proceed to verify the
+reproducibility of the code through its execution.
+
+Recently, recognition of software’s importance for the progress of science has
+elicited movements such as the Science Code Manifesto \cite{Barnes2010}. While
+a number of journals are beginning to adopt practices similar to The Insight
+Journal, where code is submitted along with the article, evaluation tools and
+procedures for peer review of the code are not in parity with those used for
+the article.  Commonplace practices have evolved to facilitate article review
+such as evaluation rubrics, instrumentation of the text with line and page
+numbers for reference during discussion, and a process to distribute an article
+to reviewers and communicate author replies.  While this provides the reviewers
+with a mechanism to evaluate the reproducibility, and therefore the merit, of
+the article, the technical nature of code solicits greater technical
+capabilities of the tools and methods used to evaluate its reproducibility.
 
 While this problem is multi-faceted, some progress has been made through ITK’s
 adoption of the Gerrit Code Review system.  Gerrit is an open source project
-maintained by the Google Android mobile phone project, and we have contributed
-fixes and features back to the Gerrit project.
+maintained by the Google Android mobile phone project. This systems enables a
+large community of developers to inspect and comment on the code changes that
+are proposed for inclusion in a software system. Not only has the ITK community
+embraced the use of Gerrit, it has also contributed fixes and features back to
+the Gerrit project.
 
-The Gerrit server provides a mechanism to effectively evaluate code changes,
-obtain and test those changes locally, notification and transmission of the
-changes and comments for authors and reviewers, and management of the system to
-accept merges.  Gerrit is a technology that is built around the Git distributed
-version control system.  With distributed version control system, contributors
-can independently develop and test patches branched from the ITK master branch.
-Next, the patch can be shared with the community by pushing the topic branch to
-the Gerrit server \cite{ITKGerrit}.  Once on the server, the change is
-publically accessible via a web browser differences are easily identified with
-a color-highlighted, side-by-side, file-based diff.  Contributors can add
-reviewers through a web-interface that will auto-complete names any community
-member that has registered an account with the server.  The reviewers for a
-given change can be added or removed throughout the review process by community
-members, and they will be notified via email any new comments or change
-revisions.  In the Gerrit system, each change is identified by a Change Id,
-which allows multiple revisions, i.e. Patch Sets, to be uploaded in response to
-comments.  A discussion of the change between author and reviewers occurs via
-three mechanisms: overall comments on the change, inline comments, and
-numerical ratings.  Overall comments conveying general remarks can be added per
-Patch Set, and the history of comments is retained and easily navigated.
-Questions and suggestions can be directed at specific codes with the inline
-comments.  Whether the code can reproducibly be built and pass tests is
-indicated with a numerical Verified score, and overall evaluation is indicated
-with a numerical Code Review score.  With the Gerrit Code Review system,
-reproducibility is improved through continual refinement of the corpus of
-Insight Toolkit knowledge, i.e. the code repository, through experimentation,
-i.e. unit tests, and peer review, i.e. code reviews.
+Gerrit is implemented as a combination of a web-based front end with a Git
+repository backend. Most of the interactions that developers have with Gerrit,
+happen with the web-based front end server. The Gerrit server provides a
+mechanism to effectively evaluate code changes, obtain and test those changes
+locally, and perform notification and transmission of the changes and comments
+for authors and reviewers, as well as management of the system to accept
+merges.
+
+Gerrit is a technology that is built around the Git distributed version control
+system.  With Git, contributors can independently develop and test patches that
+are put in topic branches created out of the ITK master branch.  Next, the
+patch can be shared with the community by pushing the topic branch to the
+Gerrit server \cite{ITKGerrit}.  Once in the server, the change is publicly
+accessible via the web-based front end.  Developers can then use a web-browser
+to see side-by-side differences that are easily identified with
+color-highlighting, on a file-based diff page.
+
+From the web interface, contributors can request the attention of specific
+reviewers to comment on their patch. As a convenience, the web-interface
+provides auto-completion of names for any community member that has registered
+an account with the server.  The reviewers for a given change can be added or
+removed throughout the review process by any community members, and they will
+be notified via email of any new comments or change revisions.  In the Gerrit
+system, every change is identified by a unique Change Id, which allows multiple
+revisions, also known as Patch Sets, to be uploaded consistently in response to
+comments.
+
+The discussion of the change between author and reviewers occurs via three
+mechanisms: overall comments on the change, inline comments, and numerical
+ratings. Overall comments conveying general remarks can be added per Patch
+Set, and the history of comments is retained and easily navigated. Questions
+and suggestions can be directed at specific sections of the code with the
+inline comments. Whether the code can reproducibly be built and pass tests is
+indicated by the reviewer with a numerical Verified score, and overall
+evaluation is indicated with a numerical Code Review score. With the Gerrit
+Code Review system, reproducibility is improved through continual refinement of
+the corpus of Insight Toolkit knowledge, as embodied in the code repository,
+through experimentation as implemented in the unit tests, and through peer
+review as exercised in the code reviews.
 
 \subsubsection{Open Dashboard} ITK has a stringent system of quality control
 that uses a combination of unit testing, regression testing, multi-platform
