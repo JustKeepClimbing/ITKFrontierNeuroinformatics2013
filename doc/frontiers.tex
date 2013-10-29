@@ -235,7 +235,7 @@ Combination & Image contains halftone + text or line art elements. & TIFF, EPS, 
 \item Any lines in the graphic are no smaller than 2 points width.
 \end{enumerate}
 
-\textbf{Figure 2.}{ Enter the caption for your figure here.  Repeat as  necessary for each of your figures.}\label{fig:02}
+\textbf{Figure 2.}{Enter the caption for your figure here.  Repeat as  necessary for each of your figures.}\label{fig:02}
 
 \subsection{Open Review System: Gerrit Review}
 
@@ -243,6 +243,19 @@ In the three years that the community has applied the Gerrit Code review
 system, << d['src/gerrit_results.json'].from_json()['changes'] >> changes have
 been submitted to the review server and
 << d['src/gerrit_results.json'].from_json()['reviews'] >> were performed.
+As a matter of policy, all merged changes should have at least one review,
+but the number of iterations on a change varies flexibly depending on the
+requirements. This results in a roughly negative exponential distribution in
+revisions, as evident in the histogram of revisions in
+Figure~\ref{fig:gerrit_patch_set_histogram}.  The highest number of reviews
+for a single change was
+<< d['src/gerrit_results.json'].from_json()['max_reviews'] >>.
+
+Two direct but notable conclusions follow from this data. First, at least one
+other person examined and reproduced a proposed code.  This certainly exceeds
+publication systems where the code is never dissemminated, and it likely
+exceeds validation systems where the code is published, but there is no
+incentive or check that reviewers looked at it or applied it.
  
 \begin{figure}
   \centering
