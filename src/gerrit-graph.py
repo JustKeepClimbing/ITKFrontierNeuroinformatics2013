@@ -200,6 +200,8 @@ if __name__ == '__main__':
         dirname = os.path.dirname(gerrit_json_file)
         if not os.path.exists(dirname):
             os.makedirs(dirname)
+        for nn in graph:
+            graph.node[nn]['name'] = nn
         data = json_graph.node_link_data(graph)
         with open(gerrit_json_file, 'wb') as fp:
             json.dump(data, fp)
