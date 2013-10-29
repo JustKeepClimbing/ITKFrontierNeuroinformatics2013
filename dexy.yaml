@@ -17,6 +17,7 @@ doc/frontiers.tex|jinja|latex:
     - .BIB
     - .sty
     - .eps
+    - .png
     - _*.tex:
         - output: False
     - figures
