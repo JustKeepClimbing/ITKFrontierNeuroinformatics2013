@@ -145,7 +145,6 @@ One of the very active areas in the ITK BarCamp is a series of participatory, sh
 \item Recommended tools and workflows for ITK development.
 \end{enumerate}
 
-
 So far we have created 29 short tutorial videos, which have received 2,234 views and attracted 30 subscribers. ITK Bar Camp materials are hosted in Github as written documentation and video archives. Information on previous and current webinars and hangouts can be found at http://www.itk.org/ITK/resources/webinars.html.
 
 We believe these efforts are crucial to attracting, training, and retaining new community members in the long run, and through that mechanism replenish the community with active members. We plan to continue collecting bar camp tutorials and encourage other community members to contribute to the repository.
@@ -162,6 +161,19 @@ In the three years that the community has applied the Gerrit Code review
 system, << d['src/gerrit_results.json'].from_json()['changes'] >> changes have
 been submitted to the review server and
 << d['src/gerrit_results.json'].from_json()['reviews'] >> were performed.
+As a matter of policy, all merged changes should have at least one review,
+but the number of iterations on a change varies flexibly depending on the
+requirements. This results in a roughly negative exponential distribution in
+revisions, as evident in the histogram of revisions in
+Figure~\ref{fig:gerrit_patch_set_histogram}.  The highest number of reviews
+for a single change was
+<< d['src/gerrit_results.json'].from_json()['max_reviews'] >>.
+
+Two direct but notable conclusions follow from this data. First, at least one
+other person examined and reproduced a proposed code.  This certainly exceeds
+publication systems where the code is never dissemminated, and it likely
+exceeds validation systems where the code is published, but there is no
+incentive or check that reviewers looked at it or applied it.
 
 
 Insight Journal
