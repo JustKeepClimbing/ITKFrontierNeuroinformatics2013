@@ -34,3 +34,21 @@ itktreeobjecthash=`git hash-object -t tree /dev/null`
 itkfirstcommit=`git log  --reverse | head -n 1 | cut -d' ' -f 2`
 git diff --shortstat $itkfirstcommit | cut -d' ' -f 5
 
+
+#
+# Compute the number of commits, excluding merges
+#
+echo "Number of Commits (excluding merges)"
+git rev-list --no-merges --count HEAD
+
+#
+# Compute the number of authors
+#
+echo "Number of Authors"
+git shortlog -s -n | wc | cut -d' ' -f 5
+
+#
+# Compute the ranking of authors by number of commits
+#
+echo "Authors ranked by number of commits"
+git shortlog -s -n
