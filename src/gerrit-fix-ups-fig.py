@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import json
 import pickle
 import sys
 import os
@@ -42,9 +43,18 @@ def plot_fixups(pre_gerrit, post_gerrit, outputfile=None):
         bar.set_hatch('\\')
     ax.set_xlabel('Number of Fix-up Commits')
     ax.set_ylabel('Commit Percentage')
-    ax.set_xlim(fixup_range[0] - 0.5, fixup_range[1] + 0.5)
-    ax.set_yticklabels([str(int(100*ii)) for ii in np.linspace(0.0, 1.0, 6)])
-    ax.set_ylim(0.0, 1.0)
+    ax.set_xlim(fixup_range[0] + 1 - 0.5, fixup_range[1] + 0.5)
+    y_max = 0.18
+    ticklocs = np.linspace(0.0, y_max, 5)
+    ax.set_yticks(ticklocs)
+    ax.set_yticklabels([str(int(100*ii)) for ii in ticklocs])
+    ax.set_ylim(0.0, y_max)
+
+    with open('fix_up_bins.json', 'wb') as fp:
+        fix_up_bins = {}
+        fix_up_bins['single_pre'] = '{0:0.3g}'.format(percent[0][1] * 100)
+        fix_up_bins['single_post'] = '{0:0.3g}'.format(percent[1][1] * 100)
+        json.dump(fix_up_bins, fp)
 
     ax.legend()
     if outputfile:

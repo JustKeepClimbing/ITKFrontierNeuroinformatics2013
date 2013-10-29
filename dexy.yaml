@@ -6,7 +6,7 @@ figures:
       - py: { scriptargs: '../data/gerrit_data.json ../doc/gerrit_patch_set_histogram.eps', add-new-files: True, output-extensions: ['.eps']}
       - data/gerrit_data.json
     - src/gerrit-fix-ups-fig.py|py:
-      - py: { scriptargs: '../data/PreGerrit.pkl ../data/PostGerrit.pkl ../doc/gerrit_fix_ups.eps', add-new-files: True, output-extensions: ['.eps']}
+      - py: { scriptargs: '../data/PreGerrit.pkl ../data/PostGerrit.pkl ../doc/gerrit_fix_ups.eps', add-new-files: True, output-extensions: ['.eps', '.json']}
       - data/PreGerrit.pkl
       - data/PostGerrit.pkl
 
@@ -18,6 +18,7 @@ doc/frontiers.tex|jinja|latex:
     - .sty
     - .eps
     - .png
+    - .json
     - _*.tex:
         - output: False
     - figures

@@ -204,8 +204,30 @@ incentives or checks that reviewers looked at or applied the code.
 The number of Patch Sets greater than one also implicitly indicates that
 improvements were made and errors were identified by this process.  This is
 hypothesis is further supported by Figure~\ref{fig:gerrit_fix_ups}.  In this
-figure, the number of "fix-up" changes are quantified. A fix-up change 
+figure, the number of "fix-up" changes are quantified. A fix-up change is
+defined in an objective way that roughly captures changes that were likely
+intended to correct or improve a recent defect that was introduced.  Sections
+of a patch, traditionally called hunks, that are additions or modification are
+identified, and all commits in the following five days are examined.  If
+content in the committed hunk is modified in that period, it is labelled as
+fix-up commit.  If addition or modification hunks in the fix-up commit are again
+modified in the following five days, then the original change is said to have
+two fix-up commits, and so on.
 
+We computed fix-up commits in the ITK repository for a three year period
+preceeding the adoption of the peer code review system from August 25th, 2007
+to August 25th, 2010 to the three year period following from August 25th, 2010
+to August 25th, 2013.  There were
+<< d['src/gerrit_results.json'].from_json()['pre_gerrit_commits'] >>
+changes during the pre-peer code review period and
+<< d['src/gerrit_results.json'].from_json()['post_gerrit_commits'] >>
+during the post-peer code review period.  As shown in
+Figure~\ref{fig:gerrit_fix_ups}, this reduces the number of
+single fix-up commits from <<
+d['src/fix_up_bins.json'].from_json()['single_pre'] >>\%
+to << d['src/fix_up_bins.json'].from_json()['single_post'] >>\% and
+dramatically reduces the percent fix-up commits by approximately half for
+higher numbers.
 
 Insight Journal
 * Number of Submissions
