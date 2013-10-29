@@ -34,6 +34,11 @@ itktreeobjecthash=`git hash-object -t tree /dev/null`
 itkfirstcommit=`git log  --reverse | head -n 1 | cut -d' ' -f 2`
 git diff --shortstat $itkfirstcommit | cut -d' ' -f 5
 
+#
+#  Compute the current number of files
+#
+echo "Number of Files"
+git ls-files | wc -l
 
 #
 # Compute the number of commits, excluding merges
