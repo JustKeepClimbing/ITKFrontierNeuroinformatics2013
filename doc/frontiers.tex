@@ -123,18 +123,106 @@ The lists average 326 messages per month from October 2012 to October 2013.
 \subsubsection{Source Code Version Control: Git}
 
 \subsubsection{Open Review System: Gerrit Review}
-Recently, recognition of software’s importance in the progression of science has evoked movements such as the Science Code Manifesto \cite{Barnes2010}. While a number of journals are beginning to adopt practices similar to The Insight Journal, where code is submitted along with the article, evaluation tools and procedures for peer review of the code and article are not in parity.  Commonplace practices have evolved to facilitate article review such as evaluation rubrics, instrumentation of the text with line and page numbers for reference during discussion, and a process to distribute an article to reviewers and communicate author replies.  While this provides the reviewers a mechanism to evaluate the reproducibility (i.e., merit) of the article, the technical nature of code solicits greater technical capabilities of the tools and methods used to evaluate its reproducibility.
 
-While this problem is multi-faceted, some progress has been made through ITK’s adoption of the Gerrit Code Review system.  Gerrit is an open source project maintained by the Google Android mobile phone project, and we have contributed fixes and features back to the Gerrit project.
+In the context of reproducible science, the detailed description of the methods
+and materials used to perform an experiment are a fundamental piece of the
+article that disseminates the results. As research activities become more and
+more dependent on software for the preparation, execution and analysis of
+experiments, it becomes necessary to include all the details related to the
+software as part of a reproducible publication. Given the complexities of
+software implementation, mere algorithmic descriptions, or even pseudo-code are
+not sufficient to ensure reproducibility through reimplementation. Only the
+delivery of original source code can provide enough assurances that the
+recipient of the materials will be able to replicate the reported work with a
+reasonable limited amount of effort.
 
-The Gerrit server provides a mechanism to effectively evaluate code changes, obtain and test those changes locally, notification and transmission of the changes and comments for authors and reviewers, and management of the system to accept merges.  Gerrit is a technology that is built around the Git distributed version control system.  With distributed version control system, contributors can independently develop and test patches branched from the ITK master branch. Next, the patch can be shared with the community by pushing the topic branch to the Gerrit server \cite{ITKGerrit}.  Once on the server, the change is publically accessible via a web browser differences are easily identified with a color-highlighted, side-by-side, file-based diff.  Contributors can add reviewers through a web-interface that will auto-complete names any community member that has registered an account with the server.  The reviewers for a given change can be added or removed throughout the review process by community members, and they will be notified via email any new comments or change revisions.  In the Gerrit system, each change is identified by a Change Id, which allows multiple revisions, i.e. Patch Sets, to be uploaded in response to comments.  A discussion of the change between author and reviewers occurs via three mechanisms: overall comments on the change, inline comments, and numerical ratings.  Overall comments conveying general remarks can be added per Patch Set, and the history of comments is retained and easily navigated. Questions and suggestions can be directed at specific codes with the inline comments.  Whether the code can reproducibly be built and pass tests is indicated with a numerical Verified score, and overall evaluation is indicated with a numerical Code Review score.  With the Gerrit Code Review system, reproducibility is improved through continual refinement of the corpus of Insight Toolkit knowledge, i.e. the code repository, through experimentation, i.e. unit tests, and peer review, i.e. code reviews.
+The code must therefore be subject to peer review processes similar to the ones
+currently used for scientific publications. Such reviews should examine both
+the quality and correctness of the code, as well as proceed to verify the
+reproducibility of the code through its execution.
 
-\subsubsection{Open Dashboard}
-ITK has a stringent system of quality control that uses a combination of unit testing, regression testing, multi-platform verification, and continuous integration. The testing infrastructure of ITK includes more than 2,400 unit tests, which provide a code coverage of 84\% of ITK code lines. This is well above the industry averages of 50\% code coverage.
+Recently, recognition of software’s importance for the progress of science has
+elicited movements such as the Science Code Manifesto \cite{Barnes2010}. While
+a number of journals are beginning to adopt practices similar to The Insight
+Journal, where code is submitted along with the article, evaluation tools and
+procedures for peer review of the code are not in parity with those used for
+the article.  Commonplace practices have evolved to facilitate article review
+such as evaluation rubrics, instrumentation of the text with line and page
+numbers for reference during discussion, and a process to distribute an article
+to reviewers and communicate author replies.  While this provides the reviewers
+with a mechanism to evaluate the reproducibility, and therefore the merit, of
+the article, the technical nature of code solicits greater technical
+capabilities of the tools and methods used to evaluate its reproducibility.
 
-The collection of unit tests are executed nightly by computers contributed by community members all around the world, and reporting to a central online dashboard that summarizes the results. This web-based dashboard system (CDash) \cite{ITK dashboard} ensures ITK’s software quality as developers around the world continuously make changes to the code base. Build status and regression test status are visualized in a tabular form. The dashboard is an important coordination and communication tool that empowers developers to share the results of a local test with other developers by pushing them to the online summary pages.
+While this problem is multi-faceted, some progress has been made through ITK’s
+adoption of the Gerrit Code Review system.  Gerrit is an open source project
+maintained by the Google Android mobile phone project. This systems enables a
+large community of developers to inspect and comment on the code changes that
+are proposed for inclusion in a software system. Not only has the ITK community
+embraced the use of Gerrit, it has also contributed fixes and features back to
+the Gerrit project.
 
-Continuous builds triggered by patches submitted to the Gerrit code review system also give feedback to developers on the impact of recent changes. Nightly builds of the project spanning a wide variety of platforms and configurations ensure that ITK can be built on a diversity of operating systems and hardware.
+Gerrit is implemented as a combination of a web-based front end with a Git
+repository backend. Most of the interactions that developers have with Gerrit,
+happen with the web-based front end server. The Gerrit server provides a
+mechanism to effectively evaluate code changes, obtain and test those changes
+locally, and perform notification and transmission of the changes and comments
+for authors and reviewers, as well as management of the system to accept
+merges.
+
+Gerrit is a technology that is built around the Git distributed version control
+system.  With Git, contributors can independently develop and test patches that
+are put in topic branches created out of the ITK master branch.  Next, the
+patch can be shared with the community by pushing the topic branch to the
+Gerrit server \cite{ITKGerrit}.  Once in the server, the change is publicly
+accessible via the web-based front end.  Developers can then use a web-browser
+to see side-by-side differences that are easily identified with
+color-highlighting, on a file-based diff page.
+
+From the web interface, contributors can request the attention of specific
+reviewers to comment on their patch. As a convenience, the web-interface
+provides auto-completion of names for any community member that has registered
+an account with the server.  The reviewers for a given change can be added or
+removed throughout the review process by any community members, and they will
+be notified via email of any new comments or change revisions.  In the Gerrit
+system, every change is identified by a unique Change Id, which allows multiple
+revisions, also known as Patch Sets, to be uploaded consistently in response to
+comments.
+
+The discussion of the change between author and reviewers occurs via three
+mechanisms: overall comments on the change, inline comments, and numerical
+ratings. Overall comments conveying general remarks can be added per Patch
+Set, and the history of comments is retained and easily navigated. Questions
+and suggestions can be directed at specific sections of the code with the
+inline comments. Whether the code can reproducibly be built and pass tests is
+indicated by the reviewer with a numerical Verified score, and overall
+evaluation is indicated with a numerical Code Review score. With the Gerrit
+Code Review system, reproducibility is improved through continual refinement of
+the corpus of Insight Toolkit knowledge, as embodied in the code repository,
+through experimentation as implemented in the unit tests, and through peer
+review as exercised in the code reviews.
+
+\subsubsection{Open Dashboard} ITK has a stringent system of quality control
+that uses a combination of unit testing, regression testing, multi-platform
+verification, and continuous integration. The testing infrastructure of ITK
+includes more than 2,400 unit tests, which provide a code coverage of 84\% of
+ITK code lines. This is well above the industry averages of 50\% code coverage.
+
+The collection of unit tests are executed nightly by computers contributed by
+community members all around the world, and reporting to a central online
+dashboard that summarizes the results. This web-based dashboard system (CDash)
+\cite{ITK dashboard} ensures ITK’s software quality as developers around the
+world continuously make changes to the code base. Build status and regression
+test status are visualized in a tabular form. The dashboard is an important
+coordination and communication tool that empowers developers to share the
+results of a local test with other developers by pushing them to the online
+summary pages.
+
+Continuous builds triggered by patches submitted to the Gerrit code review
+system also give feedback to developers on the impact of recent changes.
+Nightly builds of the project spanning a wide variety of platforms and
+configurations ensure that ITK can be built on a diversity of operating systems
+and hardware.
 
 
 
@@ -142,39 +230,103 @@ Continuous builds triggered by patches submitted to the Gerrit code review syste
 
 \subsubsection{Community Enablement}
 
-In particular, we have successfully hosted a series of webinars to promote ITK and the new features available in ITKv4. The webinar videos received more than 1,000 plays in total. We have begun moving to hosting more advanced topics, such as “Raspberry Pi Likes ITK” and “Raspberry Pi Likes ITK with VTK”. To empower new developers and lower the barrier of entry for new users, we have initiated a web framework to better distribute ITK examples and put together a large collection of examples on various ITK classes and filters.
+In particular, we have successfully hosted a series of webinars to promote ITK
+and the new features available in ITKv4. The webinar videos received more than
+1,000 plays in total. We have begun moving to hosting more advanced topics,
+such as “Raspberry Pi Likes ITK” and “Raspberry Pi Likes ITK with VTK”. To
+empower new developers and lower the barrier of entry for new users, we have
+initiated a web framework to better distribute ITK examples and put together a
+large collection of examples on various ITK classes and filters.
 
-In a very focused effort to grow the ITK community, an online space called ITKBarCamp was created to train new community members on the software technologies that are essential to ITK. This space provides a combination of source code, documentation and video tutorials that guide newcomers at their own pace through training materials aimed at honing their software development skills.
+In a very focused effort to grow the ITK community, an online space called
+ITKBarCamp was created to train new community members on the software
+technologies that are essential to ITK. This space provides a combination of
+source code, documentation and video tutorials that guide newcomers at their
+own pace through training materials aimed at honing their software development
+skills.
 
-One of the very active areas in the ITK BarCamp is a series of participatory, short YouTube.com videos with associated documentation covering various topics related to ITK, including:
-\begin{enumeruate}
-\item Mastery of the command line
-\item Basic C++ programming skills
-\item Good software practices, including unit testing
-\item Recommended tools and workflows for ITK development.
+One of the very active areas in the ITK BarCamp is a series of participatory,
+short YouTube.com videos with associated documentation covering various topics
+related to ITK, including: \begin{enumeruate} \item Mastery of the command line
+\item Basic C++ programming skills \item Good software practices, including
+unit testing \item Recommended tools and workflows for ITK development.
 \end{enumerate}
 
-So far we have created 29 short tutorial videos, which have received 2,234 views and attracted 30 subscribers. ITK Bar Camp materials are hosted in Github as written documentation and video archives. Information on previous and current webinars and hangouts can be found at http://www.itk.org/ITK/resources/webinars.html.
+So far we have created 29 short tutorial videos, which have received 2,234
+views and attracted 30 subscribers. ITK Bar Camp materials are hosted in Github
+as written documentation and video archives. Information on previous and
+current webinars and hangouts can be found at
+http://www.itk.org/ITK/resources/webinars.html.
 
-We believe these efforts are crucial to attracting, training, and retaining new community members in the long run, and through that mechanism replenish the community with active members. We plan to continue collecting bar camp tutorials and encourage other community members to contribute to the repository.
+We believe these efforts are crucial to attracting, training, and retaining new
+community members in the long run, and through that mechanism replenish the
+community with active members. We plan to continue collecting bar camp
+tutorials and encourage other community members to contribute to the
+repository.
 
-\subsubsection{Modularization}
-Since its inception in 2000, ITK was designed as a collection of about seven core libraries and about ten third party libraries. This monolithic organization of the code over time led to very large sub-libraries as more classes were added to the toolkit. Once the core code of ITK surpassed the half-a-million lines of code, it became evident that a more modular approach was needed in order to support the future continued growth of the toolkit.
+\subsubsection{Modularization} Since its inception in 2000, ITK was designed as
+a collection of about seven core libraries and about ten third party libraries.
+This monolithic organization of the code over time led to very large
+sub-libraries as more classes were added to the toolkit. Once the core code of
+ITK surpassed the half-a-million lines of code, it became evident that a more
+modular approach was needed in order to support the future continued growth of
+the toolkit.
 
 \textbf{Figure 1.}{An illustration on ITK modules' dependencies.}\label{fig:01}
 
-As a result of the modularization, the initial monolithic code base of about 12,000 files was partitioned into more than 100 modules.  And as of Oct of 2013, ITK contains 141 modules in total, four of which are remote modules \cite{remote modules}.  Dependencies \ref{fig:01} between modules were identified and explicitly declared in the CMake-based configuration system. By making the CMake-based configuration system aware of the new ITK modularization, the modularization empowers ITK adopters to select the pieces of ITK that they wanted to use in their own projects at configuration time. Support for integrating externally distributed modules was built into the modularization infrastructure.The Remote Module infrastructure enables fast dissemination of research code through ITK without increasing the size of the main repository.
+As a result of the modularization, the initial monolithic code base of about
+12,000 files was partitioned into more than 100 modules.  And as of Oct of
+2013, ITK contains 141 modules in total, four of which are remote modules
+\cite{remote modules}.  Dependencies \ref{fig:01} between modules were
+identified and explicitly declared in the CMake-based configuration system. By
+making the CMake-based configuration system aware of the new ITK
+modularization, the modularization empowers ITK adopters to select the pieces
+of ITK that they wanted to use in their own projects at configuration time.
+Support for integrating externally distributed modules was built into the
+modularization infrastructure.The Remote Module infrastructure enables fast
+dissemination of research code through ITK without increasing the size of the
+main repository.
 
 
 \subsection{Open Publication: The Insight Journal}
 
-ITK has been conceived as a usable encyclopedia of image analysis algorithms that are of particular utility to the medical imaging community. Given the rapid pace at which technology develops in this area, and the proliferation of both generic and specialized image analysis algorithms, it is important for ITK and its community to continuously update the content of the toolkit by adding new algorithms while simultaneously improving and extending existing ones. To do this, the ITK community relies on contributions made by its members, as they use the toolkit to support their own projects and run into situations where additions and improvement are required for them to achieve their goals. In order to absorb these contributions, the ITK community has used the Insight Journal \cite{Insight Journal} }since 2005. The online Insight Journal publishes practical articles written by developers for developers, and requires those articles to be fully reproducible.
+ITK has been conceived as a usable encyclopedia of image analysis algorithms
+that are of particular utility to the medical imaging community. Given the
+rapid pace at which technology develops in this area, and the proliferation of
+both generic and specialized image analysis algorithms, it is important for ITK
+and its community to continuously update the content of the toolkit by adding
+new algorithms while simultaneously improving and extending existing ones. To
+do this, the ITK community relies on contributions made by its members, as they
+use the toolkit to support their own projects and run into situations where
+additions and improvement are required for them to achieve their goals. In
+order to absorb these contributions, the ITK community has used the Insight
+Journal \cite{Insight Journal} }since 2005. The online Insight Journal
+publishes practical articles written by developers for developers, and requires
+those articles to be fully reproducible.
 
-The Insight Journal is a free, open-access publication covering the domain of medical image processing and visualization.It enables community members to publish their contributions to medical projects for open peer-review, full reproducibility verification, and open-rating by readers worldwide.
+The Insight Journal is a free, open-access publication covering the domain of
+medical image processing and visualization.It enables community members to
+publish their contributions to medical projects for open peer-review, full
+reproducibility verification, and open-rating by readers worldwide.
 
-The journal is very active, and since its inception in 2005, it has published 542 articles with 826 public reviews and has more than 2,500 subscribed readers. The top four articles have been downloaded more than 5,000 times and viewed more than 10,000 times. The Insight Journal is currently the only technical publication in the domain of image analysis that not only allows but also requires verification of reproducibility as part of the submission and review process. The importance of restoring the practice of reproducibility verification in scientific research has resurged in recent years in light of worrisome findings of inconsistency, lack of quality and even fraud in what were otherwise considered to be high-quality publications. By adhering to a reproducibility verification requirement, the Insight Journal ensures that community members get rapid access to reliable publications that include open source software that they can readily use in their projects.
+The journal is very active, and since its inception in 2005, it has published
+542 articles with 826 public reviews and has more than 2,500 subscribed
+readers. The top four articles have been downloaded more than 5,000 times and
+viewed more than 10,000 times. The Insight Journal is currently the only
+technical publication in the domain of image analysis that not only allows but
+also requires verification of reproducibility as part of the submission and
+review process. The importance of restoring the practice of reproducibility
+verification in scientific research has resurged in recent years in light of
+worrisome findings of inconsistency, lack of quality and even fraud in what
+were otherwise considered to be high-quality publications. By adhering to a
+reproducibility verification requirement, the Insight Journal ensures that
+community members get rapid access to reliable publications that include open
+source software that they can readily use in their projects.
 
-Insight Journal now accepts ITK module submissions. This feature empowers community members to take advantage of the new modular structure in ITK and makes future code integration easier. Readers can then download Insight Journal articles and directly plug-them-in as modules of their local ITK installation.
+Insight Journal now accepts ITK module submissions. This feature empowers
+community members to take advantage of the new modular structure in ITK and
+makes future code integration easier. Readers can then download Insight Journal
+articles and directly plug-them-in as modules of their local ITK installation.
 
 
 \section{Results}
