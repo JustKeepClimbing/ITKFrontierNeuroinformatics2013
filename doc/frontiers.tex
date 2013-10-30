@@ -401,15 +401,40 @@ dramatically reduces the percent fix-up commits by approximately half for
 higher numbers.
 
 The underlying cause of this apparent reduction in errors is suggested by the
-graph visualization of Figure~\ref{}. This graph sources the three years of
-reviews performed by the Insight Toolkit community. Each node is a community
-member, and the size of the node is logarithmically related to the accumulated
-number of changes created by that community member.  The edges in the directed
-graph represent accumulated reviews given by one community to another. A
-number of high level observations can be made from this graph.  First, there
-is a spectrum of node sizes and connectivities that correspond to varying
-degrees of contribution. While there are some node pairs that have mutually
-strong connections, the reviews are generally well distributed.
+graph visualization of Figure~\ref{git:gerrit_graph}. This graph represents
+the three years of reviews performed by the Insight Toolkit community. Each
+node is a community member, and the size of the node is logarithmically
+related to the accumulated number of changes created by that community member.
+The edges in the directed graph represent accumulated reviews given by one
+community to another. A number of high level observations can be made from
+this graph.  There is a spectrum of node sizes and connectivities that
+correspond to varying degrees of contribution. While there are some node pairs
+that have mutually strong connections, the reviews are generally well
+distributed.  Cohesiveness of the community is evident by the well-connected
+property of the graph and the closeness of all nodes.  This is further
+quantified in Figure~\ref{git:gerrit_closeness}.  Here an undirected version
+of the graph is used to compute the closeness centrality of each node against
+the logarithm of changes created.  Closeness centrality is defined
+as\cite{Freeman1979}
+
+    % TODO.. [1] Freeman, L.C., 1979. Centrality in networks: I.
+       %Conceptual clarification.  Social Networks 1, 215--239.
+       %http://www.soc.ucsb.edu/faculty/friedkin/Syllabi/Soc146/Freeman78.PDF
+
+\begin{equation}
+   C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)},
+\end{equation}
+
+where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
+is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of the
+average distance between nodes, i.e., how close the nodes are from each other % TODO: https://en.wikipedia.org/wiki/Centrality#cite_note-7 into citations
+or how long it will take to spread information from one node to all other
+nodes sequentially\cite{Newman2005}. Overall, this measure of communication is
+rather high across the board, and individuals with a higher
+number of changes also have a higher centrality measure.  There are three
+outliers, but all other contributors are members of the primary connected
+component.
+
 
 Insight Journal
 * Number of Submissions
