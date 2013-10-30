@@ -1,6 +1,6 @@
 figures:
     - src/gerrit-graph.py|py:
-      - py: { scriptargs: '../data/gerrit_data.json ../doc/gerrit_graph.pdf ../data/GerritGraph.json', add-new-files: True, output-extensions: ['.eps']}
+      - py: { scriptargs: '../data/gerrit_data.json ../doc/gerrit_graph.pdf ../data/GerritGraph.json ../doc/gerrit_closeness.eps', add-new-files: True, output-extensions: ['.eps']}
       - data/gerrit_data.json
     - src/gerrit-patch-set-histogram.py|py:
       - py: { scriptargs: '../data/gerrit_data.json ../doc/gerrit_patch_set_histogram.eps', add-new-files: True, output-extensions: ['.eps']}
