@@ -120,21 +120,40 @@ The lists average 326 messages per month from October 2012 to October 2013.
 
 \subsection{Software Quality Assurance}
 
-\subsubsection{Source Code Version Control: Git}
+To ensure the code quality of the toolkit and the growth of the community,
+adaptation to modern software practices are necessary. In particular, the
+recent modernization of ITK includes a version control system (Git) , a code
+review system (Gerrit), a Gerrit-integrated dashboard testing system
+(CDash@Home) and modularization.
 
-\subsubsection{Open Review System: Gerrit Review}
+\subsubsection{Source Code Version Control: Git} Git is an open source
+distributed version control system designed to perform with speed and
+efficiency. It features with cheap local branching, convenient staging areas,
+and multiple workflows, which are particually useful for large open source
+projects like ITK. When migrating the source code repository from CVS to Git,
+we managed to preserve the entire ten year history of the project, and  a Git
+workflow was customized for the pracices of the ITK developers.
 
-In the context of reproducible science, the detailed description of the methods
-and materials used to perform an experiment are a fundamental piece of the
-article that disseminates the results. As research activities become more and
-more dependent on software for the preparation, execution and analysis of
-experiments, it becomes necessary to include all the details related to the
-software as part of a reproducible publication. Given the complexities of
-software implementation, mere algorithmic descriptions, or even pseudo-code are
-not sufficient to ensure reproducibility through reimplementation. Only the
-delivery of original source code can provide enough assurances that the
-recipient of the materials will be able to replicate the reported work with a
-reasonable limited amount of effort.
+The adoption of Git empowered ITK developers to easily create flexible
+workflows of branching and merging. It also allows developers to
+make commits even when they are not connected to the network. Despite the
+initial learning curve to master several commonly used git commands, Git creates
+a superior collaboration platform for the commumity.  It also make it possible
+to embrace the most popular open source code repository site GitHub and adopt
+the code review system: Gerrit.
+
+
+\subsubsection{Open Review System: Gerrit Review} In the context of
+reproducible science, the detailed description of the methods and materials
+used to perform an experiment are a fundamental piece of the article that
+disseminates the results. As research activities become more and more dependent
+on software for the preparation, execution and analysis of experiments, it
+becomes necessary to include all the details related to the software as part of
+a reproducible publication. Given the complexities of software implementation,
+mere algorithmic descriptions, or even pseudo-code are not sufficient to ensure
+reproducibility through reimplementation. Only the delivery of original source
+code can provide enough assurances that the recipient of the materials will be
+able to replicate the reported work with a reasonable limited amount of effort.
 
 The code must therefore be subject to peer review processes similar to the ones
 currently used for scientific publications. Such reviews should examine both
