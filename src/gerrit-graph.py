@@ -188,7 +188,7 @@ def plot_closeness(graph, closenessfile=None):
         closeness = [nx.closeness_centrality(undirected, u=cc) for cc in connected_component]
         prettyplotlib.scatter(ax, created, closeness)
         print(closeness)
-    ax.set_xlabel('Logarithm of Changes Authored')
+    ax.set_xlabel('Changes Authored')
     ax.set_ylabel('Closeness Centrality')
     ax.set_ylim(0.0, 1.0)
     ax.set_xscale('log')
