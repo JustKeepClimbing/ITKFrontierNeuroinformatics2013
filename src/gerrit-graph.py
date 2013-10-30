@@ -12,8 +12,14 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import networkx as nx
 from networkx.readwrite import json_graph
+import prettyplotlib
 
 mpl.rcParams['text.fontsize'] = 10
+
+mpl.rcParams['axes.labelsize'] = 'x-large'
+mpl.rcParams['xtick.labelsize'] = 'large'
+mpl.rcParams['ytick.labelsize'] = 'large'
+mpl.rcParams['figure.dpi'] = 900
 
 
 class hashdict(dict):
@@ -174,10 +180,28 @@ def plot_graph(graph, outputfile=None):
         plt.show()
 
 
+def plot_closeness(graph, closenessfile=None):
+    fig, ax = plt.subplots(1)
+    undirected = graph.to_undirected()
+    for connected_component in nx.connected_components(undirected):
+        created = [graph.node[cc].get('weights', 1) for cc in connected_component]
+        closeness = [nx.closeness_centrality(undirected, u=cc) for cc in connected_component]
+        prettyplotlib.scatter(ax, created, closeness)
+        print(closeness)
+    ax.set_xlabel('Logarithm of Changes Authored')
+    ax.set_ylabel('Closeness Centrality')
+    ax.set_ylim(0.0, 1.0)
+    ax.set_xscale('log')
+    if closenessfile:
+        fig.savefig(closenessfile)
+    else:
+        plt.show()
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Usage: ' + sys.argv[0] +
-              ' <gerrit_data.json> [output_render.eps] [gerrit_graph.json]')
+              ' <gerrit_data.json> [output_render.eps] [gerrit_graph.json] [closeness_centrality.eps]')
         sys.exit(1)
 
     gerrit_data = sys.argv[1]
@@ -205,3 +229,10 @@ if __name__ == '__main__':
         data = json_graph.node_link_data(graph)
         with open(gerrit_json_file, 'wb') as fp:
             json.dump(data, fp)
+
+    if len(sys.argv) > 4:
+        closenessfile = sys.argv[4]
+        dirname = os.path.dirname(closenessfile)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
+        plot_closeness(graph, closenessfile)

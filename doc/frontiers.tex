@@ -381,6 +381,17 @@ to << d['src/fix_up_bins.json'].from_json()['single_post'] >>\% and
 dramatically reduces the percent fix-up commits by approximately half for
 higher numbers.
 
+The underlying cause of this apparent reduction in errors is suggested by the
+graph visualization of Figure~\ref{}. This graph sources the three years of
+reviews performed by the Insight Toolkit community. Each node is a community
+member, and the size of the node is logarithmically related to the accumulated
+number of changes created by that community member.  The edges in the directed
+graph represent accumulated reviews given by one community to another. A
+number of high level observations can be made from this graph.  First, there
+is a spectrum of node sizes and connectivities that correspond to varying
+degrees of contribution. While there are some node pairs that have mutually
+strong connections, the reviews are generally well distributed.
+
 Insight Journal
 * Number of Submissions
 ** Number of Revisions
@@ -396,6 +407,27 @@ The code review system helps catch bugs, results in design improvements, assists
 Insight Journal
 Past barriers from getting from the Insight Journal into the Toolkit.  Opinions on the
 non-blinded review effectiveness.
+
+The review graph indicates there is not a binary distribution of "users" and
+"developers", but there a continuous transition in contribution and experience
+by community members. There are not a few single nodes from which radiate all
+knowledge and advancement, but a bi-directional network where knowledge and
+experience can flow thoroughly.  Indeed, all the large nodes have many
+incoming edges. The graph is also not grouped into islands of
+isolated knowledge, but it is fully connected with few hops from any given
+community member to another community member.
+
+These properties are the result of policies and practices that encourage their
+emergence. Firstly, the adoption of the Gerrit Code Review tool places an
+explicit emphasis on code review.  Registration for an account is publically
+without any permissions required, and the default permissions allow community
+members to not only submit changes but also perform reviews. All community
+members, including the novice ones, are also highly encouraged to perform
+reviews in project documenation, which promotes the culture of open code
+review. Second, the policy of requiring a positive code review, even for the
+most experienced community members, encourages continuous improvement of even
+senior members while promoting civility. It discourages obstructionism and
+encourages collaboration by promoting reciprocal constructive criticism.
 
 
 
@@ -434,11 +466,20 @@ Thank NLM, ITK community
   \centering
     \showthe\textwidth
     \includegraphics[width=1.0\textwidth]{GerritGraphRender.png}
-    \caption{Peer code reviews.  Nodes are individual community members and
-      size of the circle at the node is related to logarithm of the number of changes
+    \caption{Peer code reviews graph.  Nodes are individual community members and
+      size of the circle at the node is related logarithmically to the number of changes
       created by that community member.  The widths of the edges in this directed
-      graph are proportional to the number of reviews performed.}
-    \label{fig:gerrit_fix_ups}
+      graph are logarithmically proportional to the number of reviews performed.}
+    \label{fig:gerrit_graph}
+\end{figure}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=1.0\textwidth]{gerrit_closeness.eps}
+    \caption{Normalized closeness centrality of peer code review graph versus
+      the number of created changes.  Different connected components are shown
+      in different colors.}
+    \label{fig:gerrit_closeness}
 \end{figure}
 
 
