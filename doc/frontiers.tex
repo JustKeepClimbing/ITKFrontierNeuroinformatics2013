@@ -105,9 +105,10 @@ changes made to the code, also known as commits, and the number of source code
 line additions or deletions. In its 14 years of history, ITK has received
 37,626 commits, in 13,184 files, by 209 different authors.
 
-Ohloh.net \cite{OhlohITK2013} \cite{Neuro2013} is a public directory of open source projects that performs analytics on the code history of communities surrounding projects. According to its
-Project Cost Calculator, the effort in the toolkit is an
-estimated 730 person-years, amounting to an estimated cost of 40 million
+Ohloh.net \cite{OhlohITK2013} is a public directory of open source projects
+that performs analytics on the code history of communities surrounding
+projects. According to its Project Cost Calculator, the effort in the toolkit
+is an estimated 730 person-years, amounting to an estimated cost of 40 million
 dollars given an average salary of \$55,000 per year.
 
 As of October 29, 2013, the combined subscribers to the \textit{community},
@@ -160,7 +161,7 @@ the quality and correctness of the code, as well as proceed to verify the
 reproducibility of the code through its execution.
 
 Recently, recognition of software’s importance for the progress of science has
-elicited movements such as the Science Code Manifesto \cite{Barnes2010}. While
+elicited movements such as the Science Code Manifesto \cite{Barnes2011}. While
 a number of journals are beginning to adopt practices similar to The Insight
 Journal, where code is submitted along with the article, evaluation tools and
 procedures for peer review of the code are not in parity with those used for
@@ -229,7 +230,7 @@ ITK code lines. This is well above the industry averages of 50\% code coverage.
 The collection of unit tests are executed nightly by computers contributed by
 community members all around the world, and reporting to a central online
 dashboard that summarizes the results. This web-based dashboard system (CDash)
-\cite{ITK dashboard} ensures ITK’s software quality as developers around the
+\cite{ITKDashboard} ensures ITK’s software quality as developers around the
 world continuously make changes to the code base. Build status and regression
 test status are visualized in a tabular form. The dashboard is an important
 coordination and communication tool that empowers developers to share the
@@ -320,7 +321,7 @@ Such modularization was implemented in 2010-2011 as part of the larger
 refactoring effort leading to ITKv4.  As a result of the modularization, the
 initial monolithic code base of about 12,000 files was partitioned into more
 than 100 modules.  And as of Oct of 2013, ITK contains 141 modules in total,
-four of which are remote modules \cite{remote modules}.
+four of which are remote modules.
 
 Dependencies \ref{fig:01} between modules were identified and explicitly
 declared in the CMake-based configuration system. By making the CMake-based
@@ -352,7 +353,7 @@ do this, the ITK community relies on contributions made by its members, as they
 use the toolkit to support their own projects and run into situations where
 additions and improvement are required for them to achieve their goals. In
 order to absorb these contributions, the ITK community has used the Insight
-Journal \cite{Insight Journal} }since 2005. The online Insight Journal
+Journal \cite{InsightJournal} since 2005. The online Insight Journal
 publishes practical articles written by developers for developers, and requires
 those articles to be fully reproducible.
 
@@ -450,17 +451,13 @@ of the graph is used to compute the closeness centrality of each node against
 the logarithm of changes created.  Closeness centrality is defined
 as\cite{Freeman1979}
 
-    % TODO.. [1] Freeman, L.C., 1979. Centrality in networks: I.
-       %Conceptual clarification.  Social Networks 1, 215--239.
-       %http://www.soc.ucsb.edu/faculty/friedkin/Syllabi/Soc146/Freeman78.PDF
-
 \begin{equation}
    C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)},
 \end{equation}
 
 where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
-is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of the
-average distance between nodes, i.e., how close the nodes are from each other % TODO: https://en.wikipedia.org/wiki/Centrality#cite_note-7 into citations
+is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
+average distance between nodes, i.e., how close the nodes are from each other
 or how long it will take to spread information from one node to all other
 nodes sequentially\cite{Newman2005}. Overall, this measure of communication is
 rather high across the board, and individuals with a higher
