@@ -307,7 +307,6 @@ tutorials and to encourage other community members to contribute to the
 repository.
 
 \subsubsection{Modularization}
-
 Since its inception in 2000, ITK was designed as a collection of about seven
 core libraries and about ten third party libraries.  This monolithic
 organization of the code led over time to very large sub-libraries, as more
@@ -320,14 +319,14 @@ was needed in order to support the future continued growth of the toolkit.
 Such modularization was implemented in 2010-2011 as part of the larger
 refactoring effort leading to ITKv4.  As a result of the modularization, the
 initial monolithic code base of about 12,000 files was partitioned into more
-than 100 modules.  And as of Oct of 2013, ITK contains 141 modules in total,
-four of which are remote modules.
+than 100 modules.  And as of Oct of 2013, ITK main code repository contains
+137 modules in total.
 
-Dependencies \ref{fig:01} between modules were identified and explicitly
-declared in the CMake-based configuration system. By making the CMake-based
-configuration system aware of the new ITK modularization, ITK adopters became
-enabled to select, at configuration time, the pieces of ITK that they wanted to
-use in their own projects.
+Dependencies, see Figure 1 \ref{fig:01}), between modules were identified and
+explicitly declared in the CMake-based configuration system. By making the
+CMake-based configuration system aware of the new ITK modularization, ITK
+adopters became enabled to select, at configuration time, the pieces of ITK
+that they wanted to use in their own projects.
 
 Support for adding Remote Modules was also built into the ITK modularization
 infrastructure. These are custom modules that can be couple with a particular
@@ -338,11 +337,31 @@ dissemination of research code through ITK without increasing the size of the
 main repository. These Remote Modules can be exchanged across members of the
 community, based upon interest and need, making possible to accelerate the rate
 of dissemination of emerging modules, as well as helping those modules mature
-faster through the rapid use, testing and commentary by early adopters.
+faster through the rapid use, testing and commentary by early adopters. Currently
+there are four ITK remote modules hosted on GitHub.
+
+\textbf{Figure 2.}{ Code contribution process in ITK.}\label{fig:02} The
+modularization effort significantly improves the extensibility of the toolkit
+and lowered the barrier of contribution. The recommended contribution process
+is illustrated in Figure 2\ref{fig:02}.  All new modules can be dropped into
+the ITK source tree as external modules for testing, and they should be
+submitted to Insight Journal for review. Once the External module passes
+dashboard testing and peer review,  it can be made into a Remote module, which
+will be disseminated  from ITK itself while allowing its source code to be
+distributed independently of the main ITK repository. To be more specific, the
+source code of a Remote module can be downloaded via CMake at CMake
+configuration time, making it a convenient way to distribute modular source
+code without increasing the size of the main repository. After the Remote
+Module has experienced sufficient testing, and community members express broad
+interests in the contribution, the submitter can then move the contribution
+into the ITK repository via Gerrit code review.  It is possible but not
+recommended to directly submit a module to Gerrit for review without submitting
+to Insight Journal first. But a nice IJ article describing the functionalities
+and the designs behind the module  is a great way to provide extra
+documentations on the code and serves as great documentation material itself.
 
 
 \subsection{Open Publication: The Insight Journal}
-
 ITK has been conceived as a usable encyclopedia of image analysis algorithms
 that are of particular utility to the medical imaging community. Given the
 rapid pace at which technology develops in this area, and the proliferation of
@@ -648,15 +667,23 @@ Services award number HHSN276201000490P as part of the American Recovery and
 Reinvestment Act of 2009 and "ITK Help Desk and Information Technology Support
 of the NLM's Insight Toolkit (ITK-v4)" contract number HHSN276201300003I.
 
-
+\section*{Acknowledgement}
+We would like to thank everyone from the ITK community for their hard work and great contributions over the years. The US National Institutes of Health National Library of Medicine (NIH-NLM) has been a primary funder of the Toolkit since its inception 14 years and currently supports the work of authors McCormick, Liu and Ibanez.
 
 
 
 %----- all the figures ----------------
 \begin{figure}
   \centering
-    \includegraphics[width=0.5\textwidth]{itk_module_dependency.png}
-    \caption{An illustration on ITK modules' dependencies.}
+    \includegraphics[width=0.4\textwidth]{itk_module_dependency.png}
+    \caption{ An illustration on ITK modules' dependencies.}
+    \label{fig:itk_module_dependency}
+\end{figure}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.3\textwidth]{itk_code_contribution.png}
+    \caption{ Code contribution process in ITK.}
     \label{fig:itk_module_dependency}
 \end{figure}
 
