@@ -57,11 +57,11 @@ $^{3}$University of Michigan, Ann Arbor, MI, USA\\
 \begin{abstract}
 
 Reproducibility verification is essential to the practice of the scientific
-method. As researchers report their findings to the public, what enables such
-findings to be considered part of the knowledge base of the scientific
-community is whether they have been replicated by independent groups or not. In
+method. As researchers report their findings to the public, the criteria
+to be considered part of the knowledge base of the scientific
+community is whether the work has been replicated by independent groups or not. In
 the many scientific fields where software has become a fundamental tool for
-capturing, and analyzing data, this requirement of reproduciblity implies that
+capturing and analyzing data, this requirement of reproduciblity implies that
 reliable and comprehensive software platforms and tools should be made
 available to the scientific community, to empower them and the public, to verify
 in practice the reproducibility of observations that are reported in the
@@ -72,64 +72,53 @@ resources, both software and hardware, are an essential platform for performing
 experimental work. In this arena, the introduction of the Insight Toolkit (ITK)
 in 1999 has transformed the field, and propulsed its progress by accelerating
 the rate at which algorithmic implementations are developed, tested,
-disseminated and improved. By building on the efficiency and quality of Open
-Source methodologies, ITK has provided the medical image community with an
+disseminated and improved. By building on the efficiency and quality of open
+source methodologies, ITK has provided the medical image community with an
 effective platform on which to build a daily workflow that incorporates the
 true scientific practices of reproducibility verifcation.
 
 This article describes the multiple tools, methodologies and practices that the
 ITK community has adopted, refined and followed during the past decade, in
-order to become on of the research fields with the most modern reproducibility
+order to become one of the research fields with the most modern reproducibility
 verification infrastructure. Some of the elements described here include
 software development methodologies, advanced publishing practices, and a
-cohesive community culture.
+cohesive community culture. An analysis of the data and statistics that have
+developed over the past 14 years of the project is presented.
 
 \section{}
-%As a primary goal, the abstract should render the general significance and
-%conceptual advance of the work clearly accessible to a broad readership.
-%References should not be cited in the abstract.
 
-%See the Summary Table at \\
-%\url{http://www.frontiersin.org/}\texttt{\journal}\url{/authorguidelines}
-%\\for abstract requirement and length according to article type.
 
 \tiny
- \keyFont{ \section{Keywords:} Reproducibilty, ITK,Insight Journal, Code Review, Open Science} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+ \keyFont{ \section{Keywords:} Reproducibilty, ITK, Insight Toolkit, Insight Journal, Code Review, Open Science} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
 
 \section{Introduction}
 
-% For Original Research Articles, Clinical Trial Articles, and Technology
-% Reports the introduction should be succinct, with no subheadings.
-%
-%For Clinical Case Studies the Introduction should include symptoms at
-%presentation, physical exams and lab results.
-%
 The essential feature of the scientific method is the practice of verification
-of reproducibility.The large majority of research activity today is focused on
-generating novelty, and only in exceptional cases, concerned with the
-verification of reproducibility. The practice of peer-review has been assumed
+of reproducibility. The large majority of research activity today is focused on
+generating novelty, and, only in exceptional cases, concerned with the
+verification of reproducibility. The practice of peer review has been assumed
 to be a suitable replacement for the verification of reproducibility, a mistake
 by which experimental work has been replaced by thought experiments and
-opinion-based evaluations that do little to further the scientific enterprise.
-This drift has denigrated, what used to be scientific work, back into the
-practice of the ``natural philosophy'' in which we simply imagine models of the
+opinion-based evaluations that deviate from empirical evidence.
+This drift has denigrated what used to be scientific work, back to the
+practice of the ``natural philosophy'', in which we simply imagine models of the
 natural word and evaluate them based on aesthetic appeals and desire for
 self-consistency.
 
 The Insight Toolkit (ITK) has made it possible to restore the true practice of
 the scientific method in the field of medical image analysis. By providing a
 common platform in which image analysis algorithms and processing techniques
-can be implemented and can be freely disseminated. ITK empowers all to verify
-the experimental work of image analysis research activities. This of course,
+can be implemented and can be freely disseminated, ITK empowers all to verify
+the experimental work of image analysis research activities. This
 requires that researchers adhere to the true practice of the scientific method
 and publish the full details of their methodology, including the source code,
 data, parameters and auxiliary documents that are required for a third party to
-independently repeat the work and verify the findings.
+independently repeat the work and verify its findings.
 
-The ITK community created in 2005 a scientific journal, the Insight Journal,
-truly fulfilling the practice of the scientific method, where all articles are
+In 2005, The ITK community created a scientific journal, the Insight Journal,
+to truly fulfil the practice of the scientific method.  In this journal, all articles are
 required to provide the full set of source code, data and parameters needed to
 reproduce the finding of the authors. These materials are immediately made
 available to readers and reviewers, empowering them to indeed perform such
@@ -142,10 +131,9 @@ support of the Reproducible Research movement, these progressive publication
 venues are creating the conditions for a new age of enlightenment in which the
 methodologies of practical research work will not be subject to secrecy, nor be
 subject to the veil of suspicion that many incidents of scientific fraud and
-data manufacturing that have left us with in recent months~\cite{Sandve2013}.
+data manufacturing reported in recent months~\cite{Sandve2013}.
 
-
-The National Library of Medicine’s Insight Segmentation and Registration
+The National Library of Medicine$’$s Insight Segmentation and Registration
 Toolkit (ITK) was conceived in 1999 to support analysis of The Visible Human
 Project data. In order to maximize its impact, the project embraced an open
 source development model from its inception. Not only was the project
@@ -175,8 +163,21 @@ As of October 29, 2013, the combined subscribers to the \textit{community},
 \textit{insight-users}, and \textit{insight-developers} mailing lists are 2,698.
 The lists average 326 messages per month from October 2012 to October 2013.
 
+This article describes the methods employed in ITK to enable reproducible
+research in the medical imaging community, including version control, peer
+code review, on online dashboard to display test results, community enablement
+for sustainability, modularization, and the Insight Journal.  Next, the
+results of these methods are presented, including test code coverage, the impact
+of peer review on finding errors, knowledge propagation implicit in a graph
+representation of peer code review, and contributions and utilization of the
+Insight Journal.  Finally, a high level reflection on these experiences is
+presented.
+
+
 
 \section{Materials \& Methods}
+
+
 
 \subsection{Reproducibility Assurance Practices}
 
@@ -199,11 +200,16 @@ recent modernization of ITK includes adopting a version control system (Git),
  a code review system (Gerrit), a Gerrit-integrated dashboard testing system
 (CDash@Home), and modularization of the toolkit.
 
-\subsubsection{Source Code Version Control: Git} Version control is an
+
+\subsubsection{Source Code Version Control: Git}
+
+Version control is an
 essential practice that must be applied to all software used to support the
 quest for knowledge in a reproducible research environment. A good source code
 version control system allows developers to easily keep track of the entire
-history of the software development. Git is an open source, distributed version
+history of the software development. Researchers can reference the complete
+state of experimental source code, and a reviewer can reliably and easily
+check out that archived state for examination.  Git is an open source, distributed version
 control system designed to perform with speed and efficiency. Its features
 include easy local branching, convenient staging areas, and multiple workflows,
 which are particularly useful for large open source projects like ITK.
@@ -222,7 +228,10 @@ has become the new standard for source code version control.  And more
 importantly, great tools that are base on Git are accessible to ITK, such as
 the peer code review system: Gerrit Review.
 
-\subsubsection{Open Review System: Gerrit Review} In the context of
+
+\subsubsection{Open Review System: Gerrit Review}
+
+In the context of
 reproducible science, the detailed description of the methods and materials
 used to perform an experiment are a fundamental piece of the article that
 disseminates the results. As research activities become more and more dependent
@@ -300,7 +309,10 @@ the corpus of Insight Toolkit knowledge, as embodied in the code repository,
 through experimentation as implemented in the unit tests and through peer
 review as exercised in the code reviews.
 
-\subsubsection{Open Dashboard} ITK has a stringent system of quality control
+
+\subsubsection{Open Dashboard}
+
+ITK has a stringent system of quality control
 that uses a combination of unit testing, regression testing, multi-platform
 verification, and continuous integration. The testing infrastructure of ITK
 includes more than 2,400 unit tests, which provide a code coverage of 84\% of
@@ -321,7 +333,6 @@ system also give feedback to developers on the impact of recent changes.
 Nightly builds of the project spanning a wide variety of platforms and
 configurations ensure that ITK can be built on a diversity of operating systems
 and hardware.
-
 
 
 \subsection{Sustainability}
@@ -386,6 +397,7 @@ tutorials and to encourage other community members to contribute to the
 repository.
 
 \subsubsection{Modularization}
+
 Since its inception in 2000, ITK was designed as a collection of about seven
 core libraries and about ten third party libraries.  This monolithic
 organization of the code led over time to very large sub-libraries, as more
@@ -419,7 +431,7 @@ of dissemination of emerging modules as well as helping those modules mature
 faster through the rapid use, testing, and commentary by early adopters. Currently
 there are four ITK remote modules hosted on GitHub.
 
-\textbf{Figure 2.}{ Code contribution process in ITK.}\label{fig:02}
+\textbf{Figure 2.}{Code contribution process in ITK.}\label{fig:02}
 
 The modularization effort significantly improves the extensibility of the
 toolkit and lowered the barrier of contribution. A recommended contribution
@@ -488,7 +500,11 @@ articles and directly plug them in as Remote Modules on their local ITK
 installation.
 
 
+
+
 \section{Results}
+
+
 
 \subsection{Contribution Statistics}
 
@@ -514,6 +530,8 @@ released. The head and the tail of the distribution have interacting dynamics
 that complement each other and ensure that innovation makes its way into the
 software, while at the same time it matures and gets adjusted to the true needs
 of the larger number of adopters.
+
+
 
 \subsection{Software Quality Assurance}
 
@@ -554,6 +572,8 @@ This process is supported by stringent testing requirements. In ITK it is
 expected that every C++ class should have its own unit test and that
 algorithmic combinations should have additional tests. As a consequence, ITK
 carries more than 2,200 tests, which result in a code coverage higher than 84\%.
+
+
 
 \subsection{Open Science Publication and Review}
 
@@ -641,6 +661,8 @@ with the rate of submissions tapering off since 2010.  The number of reviews
 is proportional but considerably less than the number of submissions.
 
 
+
+
 \section{Discussion}
 
 The code review system helps catch bugs, results in design improvements,
@@ -649,7 +671,7 @@ platform for collaborative development. Since it has so many software quality
 advantages, code reviews are as critical to ITK as the creation of new patches.
 
 The review graph indicates there is not a binary distribution of ``users'' and
-``developers'' but there a continuous transition in contribution and experience
+``developers'' but there is a continuous transition in contribution and experience
 by community members. There are not a few single nodes from which radiate all
 knowledge and advancement, but a bi-directional network where knowledge and
 experience can flow thoroughly.  Indeed, all the large nodes have many
