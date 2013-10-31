@@ -22,7 +22,7 @@
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{McCormick {et~al.}} %use et al only if is more than 1 author
 \def\Authors{Matthew McCormick\,$^{1,*}$,
-  Xiaxiao Liu\,$^{1}$,
+  Xiaoxiao Liu\,$^{1}$,
   Julien Jomier\,$^{2}$,
   Charles Marion\,$^{2}$,
   Joshua Carp\,$^{3}$,
@@ -118,30 +118,32 @@ The lists average 326 messages per month from October 2012 to October 2013.
 
 \section{Materials \& Methods}
 
-\subsection{Software Quality Assurance}
+\subsection{Reproducibility Assuarance Practices}
 
 To ensure the code quality of the toolkit and the growth of the community,
 adaptation to modern software practices are necessary. In particular, the
-recent modernization of ITK includes a version control system (Git) , a code
-review system (Gerrit), a Gerrit-integrated dashboard testing system
-(CDash@Home) and modularization.
+recent modernization of ITK includes adopting a version control system (Git),
+ a code review system (Gerrit), a Gerrit-integrated dashboard testing system
+(CDash@Home) and modularization of the toolkit.
 
-\subsubsection{Source Code Version Control: Git} Git is an open source
-distributed version control system designed to perform with speed and
-efficiency. It features with cheap local branching, convenient staging areas,
-and multiple workflows, which are particually useful for large open source
-projects like ITK. When migrating the source code repository from CVS to Git,
-we managed to preserve the entire ten year history of the project, and  a Git
-workflow was customized for the pracices of the ITK developers.
+\subsubsection{Source Code Version Control: Git} Version control is the basic
+requirement for any reproducible knowledge. A good source code version control
+system allows developers to keep track of the entire history of the software
+development with ease. Git is an open source distributed version control system
+designed to perform with speed and efficiency. It features with easy local
+branching, convenient staging areas, and multiple workflows, which are
+particularly useful for large open source projects like ITK. 
 
-The adoption of Git empowered ITK developers to easily create flexible
-workflows of branching and merging. It also allows developers to
-make commits even when they are not connected to the network. Despite the
-initial learning curve to master several commonly used git commands, Git creates
-a superior collaboration platform for the commumity.  It also make it possible
-to embrace the most popular open source code repository site GitHub and adopt
-the code review system: Gerrit.
-
+When migrating the source code repository from CVS to Git, the history of the
+development was perserved and a simple Git workflow was customized for ITK
+developers.  The adoption of Git empowered ITK developers to easily create
+flexible workflows of branching and merging. It also allows developers to make
+commits even when they are not connected to the network. Despite the initial
+learning curve to learn commonly used git commands, Git provides a superior
+welcoming collaboration platform for the community. It is becoming the new
+standards for source code version control. And more importantly, great tools that
+are base on Git are becoming available to ITK. For example, the code review
+system:Gerrit Review.
 
 \subsubsection{Open Review System: Gerrit Review} In the context of
 reproducible science, the detailed description of the methods and materials
@@ -251,7 +253,7 @@ In order to facilitate the long term viability of a project, it is essential to
 cultivate an active community around it. The adoption of proper cultural
 practices by the community ensure the long term quality and sustainability of
 the project, in a manner that is consistent with the principles of
-reproducibility and therfore, with the practices of open science.
+reproducibility and therefore, with the practices of open science.
 
 \subsubsection{Community Enablement}
 
@@ -356,7 +358,7 @@ Module has experienced sufficient testing, and community members express broad
 interests in the contribution, the submitter can then move the contribution
 into the ITK repository via Gerrit code review.  It is possible but not
 recommended to directly submit a module to Gerrit for review without submitting
-to Insight Journal first. But a nice IJ article describing the functionalities
+to Insight Journal first. But a nice Insight Journal article describing the functionalities
 and the designs behind the module  is a great way to provide extra
 documentations on the code and serves as great documentation material itself.
 
@@ -428,7 +430,7 @@ a concentrated number of contributors are responsible for the majority of the
 commits, while a large number of contributors make small contributions.  This
 phenomenon is known as the ``Long Tail'' and it is quite important for the
 structure of the community. The long tail of contributors who make small
-changes are an important strenght of the community since they tend to provide
+changes are an important strength of the community since they tend to provide
 the majority of the quality control after versions of the software have been
 released. The head and the tail of the distribution have interacting dynamics
 that complement each other and ensure that innovation makes its way into the
@@ -448,7 +450,7 @@ and the code review system Gerrit. These infrastructure is complemented by
 coordination and communication tools such as the mailing lists, the wikis,
 weekly phone calls, and regular online teleconference meetings.
 
-The lifecycle of a code change starts in the communication channels when
+The life cycle of a code change starts in the communication channels when
 community members raise issues in the code. These issues might relate to lack
 of correctness, or lack of desirable features, run-time performance
 bottlenecks, misuse of memory, lack of support for specific platforms, or
@@ -492,7 +494,7 @@ for a single change was
 
 Two direct but notable conclusions follow from this data. First, at least one
 other person examined and reproduced a proposed code.  This certainly exceeds
-publication systems where the code is never dissemminated, and it likely
+publication systems where the code is never disseminated, and it likely
 exceeds validation systems where the code is published, but there are not
 incentives or checks that reviewers looked at or applied the code.
 
@@ -546,7 +548,7 @@ as \cite{Freeman1979}
 \end{equation}
 
 where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
-is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
+is normalized by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
 average distance between nodes, i.e., how close the nodes are from each other
 or how long it will take to spread information from one node to all other
 nodes sequentially \cite{Newman2005}. Overall, this measure of communication is
@@ -564,7 +566,6 @@ is proportional but considerably less than the number of submissions.
 
 
 \section{Discussion}
-Software Quality assurance
 The code review system helps catch bugs, results in design improvements, assists in the training of new developers, and provides a great communication platform for collaborative development. Since it has so many software quality advantages, code reviews are as critical to ITK as the creation of new patches.
 
 
@@ -579,11 +580,11 @@ community member to another community member.
 
 These properties are the result of policies and practices that encourage their
 emergence. Firstly, the adoption of the Gerrit Code Review tool places an
-explicit emphasis on code review.  Registration for an account is publically
+explicit emphasis on code review.  Registration for an account is publicly
 without any permissions required, and the default permissions allow community
 members to not only submit changes but also perform reviews. All community
 members, including the novice ones, are also highly encouraged to perform
-reviews in project documenation, which promotes the culture of open code
+reviews in project documentation, which promotes the culture of open code
 review. Second, the policy of requiring a positive code review, even for the
 most experienced community members, encourages continuous improvement of even
 senior members while promoting civility. It discourages obstructionism and
@@ -612,13 +613,13 @@ theory underlying the reported algorithm at all -- the implementation provides
 a concrete solution to address a tangential problem at hand. Indeed,
 algorithms and solutions published in many academic journals are heralded for
 their ability to address important problems, but solutions often never see
-tranlation into pragmatic application because they are irreproducible and
+translation into pragmatic application because they are irreproducible and
 false or because they lack an easy to apply incarnation in quality, clean
 code.
 
 The age of the journal has revealed a practical challenge in source code
 submitted with articles. Since software is a constantly evolving creature that
-must be nutured and maintained, older articles will more often than not fail
+must be nurtured and maintained, older articles will more often than not fail
 to build or run even if they passed their initial quality assurance testing.
 This can not be avoided as computer architectures progress, operating systems
 upgrade, and libraries mature. A recent flourishment of technologies such as
