@@ -52,8 +52,3 @@ git rev-list --no-merges --count HEAD
 echo "Number of Authors"
 git shortlog -s -n | wc | cut -d' ' -f 5
 
-#
-# Compute the ranking of authors by number of commits
-#
-echo "Authors ranked by number of commits"
-git shortlog -s -n
