@@ -9,6 +9,9 @@ figures:
       - py: { scriptargs: '../data/PreGerrit.pkl ../data/PostGerrit.pkl ../doc/gerrit_fix_ups.eps', add-new-files: True, output-extensions: ['.eps', '.json']}
       - data/PreGerrit.pkl
       - data/PostGerrit.pkl
+    - src/ij-articles.py|py:
+      - py: { scriptargs: '../data/IJ-Cumulative-Article-2013.csv ../doc/insight_journal_submissions.eps', add-new-files: True, output-extensions: ['.eps']}
+      - data/IJ-Cumulative-Article-2013.csv
 
 doc/frontiers.tex|jinja|latex:
     - .cls
