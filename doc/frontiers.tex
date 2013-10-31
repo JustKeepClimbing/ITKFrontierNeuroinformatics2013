@@ -25,7 +25,6 @@
   Xiaoxiao Liu\,$^{1}$,
   Julien Jomier\,$^{2}$,
   Charles Marion\,$^{2}$,
-  Joshua Carp\,$^{3}$,
   and Luis Ibanez\,$^1$}
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
 % If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
@@ -35,9 +34,9 @@ $^{3}$University of Michigan, Ann Arbor, MI, USA\\
 }
 % The Corresponding Author should be marked with an asterisk
 % Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
-\def\corrAuthor{Luis Ibanez}
+\def\corrAuthor{Matthew McCormick
 \def\corrAddress{Medical Computing Group, Kitware Inc, Clifton Park, NY, USA}
-\def\corrEmail{luis.ibanez@kitware.com}
+\def\corrEmail{matt.mccormick@kitware.com}
 
 % \color{FrontiersColor} Is the color used in the Journal name, in the title, and the names of the sections
 
@@ -60,18 +59,6 @@ $^{3}$University of Michigan, Ann Arbor, MI, USA\\
 \section{}
 %As a primary goal, the abstract should render the general significance and conceptual advance of the work clearly accessible to a broad readership. References should not be cited in the abstract.
 %See the Summary Table at \\ \url{http://www.frontiersin.org/}\texttt{\journal}\url{/authorguidelines} \\for abstract requirement and length according to article type.
-The essential feature of the scientific method is the practice of verification of reproducibility.The large majority of research activity today is focused on generating novelty, and only in exceptional cases, concerned with the verification of reproducibility. The practice of peer-review has been assumed to be a suitable replacement for the verification of reproducibility, a mistake by which experimental work has been replaced by thought experiments and opinion-based evaluations that do little to further the scientific enterprise. This drift has denigrated, what used to be scientific work, back into the practice of the “natural philosophy” in which we simply imagine models of the natural word and evaluate them based on aesthetic appeals and desire for self-consistency.
-
-The Insight Toolkit (ITK) has made it possible to restore the true practice of the scientific method in the field of medical image analysis. By providing a common platform in which image analysis algorithms and processing techniques can be implemented and can be freely disseminated. ITK empowers all to verify the experimental work of image analysis research activities. This of course, requires that researchers adhere to the true practice of the scientific method and publish the full details of their methodology, including the source code, data, parameters and auxiliary documents that are required for a third party to independently repeat the work and verify the findings.
-
-The ITK community created in 2005 a scientific journal, the Insight Journal, truly fulfilling the practice of the scientific method, where all articles are required to provide the full set of source code, data and parameters needed to reproduce the finding of the authors. These materials are immediately made available to readers and reviewers, empowering them to indeed perform such verification with minimal effort and minimal loss of information.
-
-Other Journals, in particular Frontiers, PLoS, and more recently Nature, have embraced this restoration of the true practice of the scientific method.  With the support of the Reproducible Research movement, these progressive publication venues are creating the conditions for a new age of enlightenment in which the methodologies of practical research work will not be subject to secrecy, nor be subject to the veil of suspicion that many incidents of scientific fraud and data manufacturing that have left us with in recent months.
-
-The open source nature of ITK, the open access nature of the Insight Journal, and the public sharing of open data that is enabled by the Midas Platform in the ITK community, are the three pillars of Open Science that are transforming the way scientific research is done today.
-
-The technological challenges of reproducibility have all been solved. We now require a cultural change by which we must make simply unacceptable that any article in the domain of medical image analysis be published without the full set of source code, data and parameters that will enable an independent group to replicate the process and verify or refute the findings.
-
 
 \tiny
  \keyFont{ \section{Keywords:} Reproducibilty, ITK,Insight Journal, Code Review, Open Science} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -85,6 +72,45 @@ The technological challenges of reproducibility have all been solved. We now req
 %For Clinical Case Studies the Introduction should include symptoms at
 %presentation, physical exams and lab results.
 %
+The essential feature of the scientific method is the practice of verification
+of reproducibility.The large majority of research activity today is focused on
+generating novelty, and only in exceptional cases, concerned with the
+verification of reproducibility. The practice of peer-review has been assumed
+to be a suitable replacement for the verification of reproducibility, a mistake
+by which experimental work has been replaced by thought experiments and
+opinion-based evaluations that do little to further the scientific enterprise.
+This drift has denigrated, what used to be scientific work, back into the
+practice of the “natural philosophy” in which we simply imagine models of the
+natural word and evaluate them based on aesthetic appeals and desire for
+self-consistency.
+
+The Insight Toolkit (ITK) has made it possible to restore the true practice of
+the scientific method in the field of medical image analysis. By providing a
+common platform in which image analysis algorithms and processing techniques
+can be implemented and can be freely disseminated. ITK empowers all to verify
+the experimental work of image analysis research activities. This of course,
+requires that researchers adhere to the true practice of the scientific method
+and publish the full details of their methodology, including the source code,
+data, parameters and auxiliary documents that are required for a third party to
+independently repeat the work and verify the findings.
+
+The ITK community created in 2005 a scientific journal, the Insight Journal,
+truly fulfilling the practice of the scientific method, where all articles are
+required to provide the full set of source code, data and parameters needed to
+reproduce the finding of the authors. These materials are immediately made
+available to readers and reviewers, empowering them to indeed perform such
+verification with minimal effort and minimal loss of information.
+
+Other Journals, in particular Frontiers, PLoS, and more recently Nature, have
+embraced this restoration of the true practice of the scientific method.  With
+the support of the Reproducible Research movement, these progressive
+publication venues are creating the conditions for a new age of enlightenment
+in which the methodologies of practical research work will not be subject to
+secrecy, nor be subject to the veil of suspicion that many incidents of
+scientific fraud and data manufacturing that have left us with in recent
+months.
+
+
 The National Library of Medicine’s Insight Segmentation and Registration
 Toolkit (ITK) was conceived in 1999 to support analysis of The Visible Human
 Project data. In order to maximize its impact, the project embraced an open
@@ -132,7 +158,7 @@ system allows developers to keep track of the entire history of the software
 development with ease. Git is an open source distributed version control system
 designed to perform with speed and efficiency. It features with easy local
 branching, convenient staging areas, and multiple workflows, which are
-particularly useful for large open source projects like ITK. 
+particularly useful for large open source projects like ITK.
 
 When migrating the source code repository from CVS to Git, the history of the
 development was perserved and a simple Git workflow was customized for ITK
@@ -566,7 +592,10 @@ is proportional but considerably less than the number of submissions.
 
 
 \section{Discussion}
-The code review system helps catch bugs, results in design improvements, assists in the training of new developers, and provides a great communication platform for collaborative development. Since it has so many software quality advantages, code reviews are as critical to ITK as the creation of new patches.
+The code review system helps catch bugs, results in design improvements,
+assists in the training of new developers, and provides a great communication
+platform for collaborative development. Since it has so many software quality
+advantages, code reviews are as critical to ITK as the creation of new patches.
 
 
 The review graph indicates there is not a binary distribution of "users" and
@@ -649,6 +678,16 @@ accountability and transparency, it is known to discourage review
 activity \cite{Rooyen1999,Walsh2000}.
 
 
+The open source nature of ITK, the open access nature of the Insight Journal,
+and the public sharing of open data that is enabled by the Midas Platform in
+the ITK community, are the three pillars of Open Science that are transforming
+the way scientific research is done today.
+
+The technological challenges of reproducibility have all been solved. We now
+require a cultural change by which we must make simply unacceptable that any
+article in the domain of medical image analysis be published without the full
+set of source code, data and parameters that will enable an independent group
+to replicate the process and verify or refute the findings.
 
 \section*{Acknowledgements}
 
