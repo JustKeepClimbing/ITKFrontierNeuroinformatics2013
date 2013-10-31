@@ -118,32 +118,49 @@ The lists average 326 messages per month from October 2012 to October 2013.
 
 \section{Materials \& Methods}
 
-\subsection{Reproducibility Assuarance Practices}
+\subsection{Reproducibility Assurance Practices}
 
-To ensure the code quality of the toolkit and the growth of the community,
+The practice of reproducibility verification requires that the software
+platforms and tools used to support research activities be built in an
+environemnt that ensures their high quality, consistency and reliability. This
+leads to a continuous interplay between correctness and consistency. More
+explicitly, it would be ideal to expect that running an experiment multiple times
+would yield consistently the same results. It is ideal if this holds as more
+recent versions of software tools are used to support the given experiment.
+However, at the same time, software goes through a continuous process of
+improvement, modification and correction. Therefore, changes are flowing on a
+steady manner into the code base. To balance the benefits and challenges of
+this interplay, it is essential to use both a set of software quality support
+tools, and a set of community practices that make proper use of such tools.
+
+To ensure the code quality of the toolkit and the growth of the ITK community,
 adaptation to modern software practices are necessary. In particular, the
 recent modernization of ITK includes adopting a version control system (Git),
  a code review system (Gerrit), a Gerrit-integrated dashboard testing system
 (CDash@Home) and modularization of the toolkit.
 
-\subsubsection{Source Code Version Control: Git} Version control is the basic
-requirement for any reproducible knowledge. A good source code version control
-system allows developers to keep track of the entire history of the software
-development with ease. Git is an open source distributed version control system
-designed to perform with speed and efficiency. It features with easy local
-branching, convenient staging areas, and multiple workflows, which are
-particularly useful for large open source projects like ITK. 
+\subsubsection{Source Code Version Control: Git} Version control is an
+essential practice that must be applied to all software used to support the
+quest for knowledge in a reproducible research environment. A good source code
+version control system allows developers to easily keep track of the entire
+history of the software development. Git is an open source distributed version
+control system designed to perform with speed and efficiency. Its features
+include easy local branching, convenient staging areas, and multiple workflows,
+which are particularly useful for large open source projects like ITK.
 
-When migrating the source code repository from CVS to Git, the history of the
-development was perserved and a simple Git workflow was customized for ITK
-developers.  The adoption of Git empowered ITK developers to easily create
-flexible workflows of branching and merging. It also allows developers to make
-commits even when they are not connected to the network. Despite the initial
-learning curve to learn commonly used git commands, Git provides a superior
-welcoming collaboration platform for the community. It is becoming the new
-standards for source code version control. And more importantly, great tools that
-are base on Git are becoming available to ITK. For example, the code review
-system:Gerrit Review.
+The ITK community embraced the used of Git as part of the modernization activites
+leading to ITKv4 in 2010.  When migrating the source code repository from CVS
+to Git, the history of the development was preserved and a simple Git workflow
+was customized for ITK developers.  The adoption of Git empowered ITK
+developers to easily create flexible workflows of branching and merging. It
+also allowed developers to make commits in local repositories, and hence being
+able to work consistenly even when they are not connected to the network.
+
+Despite the initial step learning curve to learn commonly used git commands,
+Git provides a superior welcoming collaboration platform for the community. It
+has become the new standards for source code version control.  And more
+importantly, great tools that are base on Git are becoming available to ITK.
+For example, the code review system: Gerrit Review.
 
 \subsubsection{Open Review System: Gerrit Review} In the context of
 reproducible science, the detailed description of the methods and materials
@@ -160,19 +177,19 @@ able to replicate the reported work with a reasonable limited amount of effort.
 The code must therefore be subject to peer review processes similar to the ones
 currently used for scientific publications. Such reviews should examine both
 the quality and correctness of the code, as well as proceed to verify the
-reproducibility of the code through its execution.
+reproducibility of the code through its actual execution.
 
-Recently, recognition of software’s importance for the progress of science has
-elicited movements such as the Science Code Manifesto \cite{Barnes2011}. While
-a number of journals are beginning to adopt practices similar to The Insight
-Journal, where code is submitted along with the article, evaluation tools and
-procedures for peer review of the code are not in parity with those used for
-the article.  Commonplace practices have evolved to facilitate article review
-such as evaluation rubrics, instrumentation of the text with line and page
-numbers for reference during discussion, and a process to distribute an article
-to reviewers and communicate author replies.  While this provides the reviewers
-with a mechanism to evaluate the reproducibility, and therefore the merit, of
-the article, the technical nature of code solicits greater technical
+Recently, recognition of software's importance for the progress of science has
+elicited movements such as the ``Science Code Manifesto''~\cite{Barnes2011}.
+While a number of journals are beginning to adopt practices similar to The
+Insight Journal, where code is submitted along with the article, evaluation
+tools and procedures for peer review of the code are not in parity with those
+used for the article. Commonplace practices have evolved to facilitate article
+review such as evaluation rubrics, instrumentation of the text with line and
+page numbers for reference during discussion, and a process to distribute an
+article to reviewers and communicate author replies.  While this provides the
+reviewers with a mechanism to evaluate the reproducibility, and therefore the
+merit, of the article, the technical nature of code solicits greater technical
 capabilities of the tools and methods used to evaluate its reproducibility.
 
 While this problem is multi-faceted, some progress has been made through ITK’s
@@ -181,7 +198,7 @@ maintained by the Google Android mobile phone project. This systems enables a
 large community of developers to inspect and comment on the code changes that
 are proposed for inclusion in a software system. Not only has the ITK community
 embraced the use of Gerrit, it has also contributed fixes and features back to
-the Gerrit project.
+the upstream Gerrit project.
 
 Gerrit is implemented as a combination of a web-based front end with a Git
 repository backend. Most of the interactions that developers have with Gerrit,
