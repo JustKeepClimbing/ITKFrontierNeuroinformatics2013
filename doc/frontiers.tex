@@ -230,7 +230,7 @@ ITK code lines. This is well above the industry averages of 50\% code coverage.
 The collection of unit tests are executed nightly by computers contributed by
 community members all around the world, and reporting to a central online
 dashboard that summarizes the results. This web-based dashboard system (CDash)
-\cite{ITKDashboard} ensures ITK’s software quality as developers around the
+ \cite{ITKDashboard} ensures ITK’s software quality as developers around the
 world continuously make changes to the code base. Build status and regression
 test status are visualized in a tabular form. The dashboard is an important
 coordination and communication tool that empowers developers to share the
@@ -377,7 +377,7 @@ requires verification of reproducibility as part of the submission and review
 process. The importance of restoring the practice of reproducibility
 verification in scientific research has resurged in recent years in light of
 worrisome findings of inconsistency, lack of quality and even fraud in what
-were otherwise considered to be high-quality publications\cite{Begley2012}. By
+were otherwise considered to be high-quality publications \cite{Begley2012}. By
 adhering to a reproducibility verification requirement, the Insight Journal
 ensures that community members get rapid access to reliable publications that
 include open source software that they can readily use in their projects.
@@ -520,7 +520,7 @@ property of the graph and the closeness of all nodes.  This is further
 quantified in Figure~\ref{git:gerrit_closeness}.  Here an undirected version
 of the graph is used to compute the closeness centrality of each node against
 the logarithm of changes created.  Closeness centrality is defined
-as\cite{Freeman1979}
+as \cite{Freeman1979}
 
 \begin{equation}
    C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)},
@@ -530,7 +530,7 @@ where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
 is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
 average distance between nodes, i.e., how close the nodes are from each other
 or how long it will take to spread information from one node to all other
-nodes sequentially\cite{Newman2005}. Overall, this measure of communication is
+nodes sequentially \cite{Newman2005}. Overall, this measure of communication is
 rather high across the board, and individuals with a higher
 number of changes also have a higher centrality measure.  There are three
 outliers, but all other contributors are members of the primary connected
@@ -548,10 +548,6 @@ is proportional but considerably less than the number of submissions.
 Software Quality assurance
 The code review system helps catch bugs, results in design improvements, assists in the training of new developers, and provides a great communication platform for collaborative development. Since it has so many software quality advantages, code reviews are as critical to ITK as the creation of new patches.
 
-
-Insight Journal
-Past barriers from getting from the Insight Journal into the Toolkit.  Opinions on the
-non-blinded review effectiveness.
 
 The review graph indicates there is not a binary distribution of "users" and
 "developers", but there a continuous transition in contribution and experience
@@ -574,9 +570,67 @@ most experienced community members, encourages continuous improvement of even
 senior members while promoting civility. It discourages obstructionism and
 encourages collaboration by promoting reciprocal constructive criticism.
 
+While the Gerrit Code Review system provides fine-grained and thorough review
+of code as it enters into the Toolkit, the Insight Journal plays an important
+role in the high level introduction and presentation of new algorithms that
+are often relevant to the Toolkit. While the medical imaging and broader
+scientific community have recently embraced the open science movement that
+champions reproducible research through online open access to articles, open
+source code, and open data, the Insight Journal has had these qualities for
+many years, and there are lessons to be learned from its experiences.
+
+As indicated by the high number of views and downloads, the utility and value of
+articles published in the Insight Journal is high.  Unlike traditional
+journal articles that are accessible only to those priviledged with a
+subscription to penetrate their paywall, articles in are available to any
+researcher with an internet connection. Once the article, code, and data are
+obtained they offer much more value to the researcher.  Instead of only gathering a
+small level of information from a suspiciously reported text, the researcher
+can verify the results, understand the "devilish details" elucidated by the
+source code, and use both the code and data as a starting point for new
+avenues of research. Additionally, the researcher may not be interested in the
+theory underlying the reported algorithm at all -- the implementation provides
+a concrete solution to address a tangential problem at hand. Indeed,
+algorithms and solutions published in many academic journals are heralded for
+their ability to address important problems, but solutions often never see
+tranlation into pragmatic application because they are irreproducible and
+false or because they lack an easy to apply incarnation in quality, clean
+code.
+
+The age of the journal has revealed a practical challenge in source code
+submitted with articles. Since software is a constantly evolving creature that
+must be nutured and maintained, older articles will more often than not fail
+to build or run even if they passed their initial quality assurance testing.
+This can not be avoided as computer architectures progress, operating systems
+upgrade, and libraries mature. A recent flourishment of technologies such as
+operating system virtual machines and easy-to-use container systems may help
+archive submissions so they can be tested in their originally submitted
+environment.
+
+While the journal has seen a fair number of submissions, the submission rate
+has dropped significantly since 2010. In 2010, the funded efforts to support
+the toolkit were focused on the development of ITK version 4, with decreased
+attention paid to the broader community.  Since many researchers have been
+slow to acknowledge the Insight Journal as one of the traditional journals
+that drives the academic "publish or perish" career economy, the primary
+incentive to submit to the journal is impact on a vibrant research community.
+Consequently, visible activity on the mailing lists and the adoption of published
+articles into the Toolkit drove submission rates prior to 2010. Therefore, to
+drive activity upwards, efforts must be put forth to increase community
+vibrancy, give credence to the value of publications in the Insight Journal
+relative to traditional peer-reviewed journals, and promote and embrace more
+just incentive mechanisms for career advancement.
+
+It is also notable that the number of reviews is low relative to the number of
+submissions. Again, incentive mechanisms should improve to reward reviews.  It
+is notable that the journal has also had a non-blinded open review policy
+where the names of reviewers are made public. While this increases
+accountability and transparency, it is known to discourage review
+activity \cite{Rooyen1999,Walsh2000}.
 
 
-\section*{Acknowledgement}
+
+\section*{Acknowledgements}
 
 We would like to thank the Insight Toolkit community, which we are honored to
 be a participant in.
