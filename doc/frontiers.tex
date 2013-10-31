@@ -397,10 +397,10 @@ installation.
   \centering
     \includegraphics[width=1.0\textwidth]{itk_git_contributors.eps}
     \caption{Histogram of ITK contributors by number of commits in the repository since 2000.}
-    \label{fig:itk_git_contributors}
+    \label{fig:ITKGitContributors}
 \end{figure}
 
-Figure~\ref{fig:itk_git_contributions} shows the distribution of contributions
+Figure~\ref{fig:ITKGitContributors} shows the distribution of contributions
 to the source code base of the ITK toolkit. Every bar corresponds to an individual
 contributor. The height of the bar represents the number of commits that this
 contributor has authored. The figure shows the top 100 contributors, out of a
@@ -506,7 +506,7 @@ dramatically reduces the percent fix-up commits by approximately half for
 higher numbers.
 
 The underlying cause of this apparent reduction in errors is suggested by the
-graph visualization of Figure~\ref{git:gerrit_graph}. This graph represents
+graph visualization of Figure~\ref{fig:GerritGraph}. This graph represents
 the three years of reviews performed by the Insight Toolkit community. Each
 node is a community member, and the size of the node is logarithmically
 related to the accumulated number of changes created by that community member.
@@ -517,7 +517,7 @@ correspond to varying degrees of contribution. While there are some node pairs
 that have mutually strong connections, the reviews are generally well
 distributed.  Cohesiveness of the community is evident by the well-connected
 property of the graph and the closeness of all nodes.  This is further
-quantified in Figure~\ref{git:gerrit_closeness}.  Here an undirected version
+quantified in Figure~\ref{fig:GerritCloseness}.  Here an undirected version
 of the graph is used to compute the closeness centrality of each node against
 the logarithm of changes created.  Closeness centrality is defined
 as\cite{Freeman1979}
@@ -628,7 +628,7 @@ of the NLM's Insight Toolkit (ITK-v4)" contract number HHSN276201300003I.
       size of the circle at the node is related logarithmically to the number of changes
       created by that community member.  The widths of the edges in this directed
       graph are logarithmically proportional to the number of reviews performed.}
-    \label{fig:gerrit_graph}
+    \label{fig:GerritGraph}
 \end{figure}
 
 \begin{figure}
@@ -637,7 +637,7 @@ of the NLM's Insight Toolkit (ITK-v4)" contract number HHSN276201300003I.
     \caption{Normalized closeness centrality of peer code review graph versus
       the number of created changes.  Different connected components are shown
       in different colors.}
-    \label{fig:gerrit_closeness}
+    \label{fig:GerritCloseness}
 \end{figure}
 
 \begin{figure}
