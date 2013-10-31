@@ -393,7 +393,7 @@ classes were added to the toolkit. Once the core code of ITK surpassed the
 half-a-million lines of code, it became evident that a more modular approach
 was needed in order to support the future continued growth of the toolkit.
 
-\textbf{Figure 1.}{An illustration on ITK modules' dependencies.}\label{fig:01}
+\textbf{Figure 1. }{An illustration on ITK modules' dependencies.}\label{fig:01}
 
 Such modularization was implemented in 2010-2011 as part of the larger
 refactoring effort leading to ITKv4.  As a result of the modularization, the
@@ -419,10 +419,11 @@ of dissemination of emerging modules, as well as helping those modules mature
 faster through the rapid use, testing and commentary by early adopters. Currently
 there are four ITK remote modules hosted on GitHub.
 
-\textbf{Figure 2.}{ Code contribution process in ITK.}\label{fig:02} The
-modularization effort significantly improves the extensibility of the toolkit
+\textbf{Figure 2. }{Code contribution process in ITK.}\label{fig:02}
+
+The modularization effort significantly improves the extensibility of the toolkit
 and lowered the barrier of contribution. The recommended contribution process
-is illustrated in Figure 2\ref{fig:02}.  All new modules can be dropped into
+is illustrated in Figure 2.  All new modules can be dropped into
 the ITK source tree as external modules for testing, and they should be
 submitted to Insight Journal for review. Once the External module passes
 dashboard testing and peer review,  it can be made into a Remote module, which
@@ -491,14 +492,9 @@ installation.
 
 \subsection{Contribution Statistics}
 
-\begin{figure}
-  \centering
-    \includegraphics[width=1.0\textwidth]{itk_git_contributors.eps}
-    \caption{Histogram of ITK contributors by number of commits in the repository since 2000.}
-    \label{fig:ITKGitContributors}
-\end{figure}
+\textbf{Figure 3. }{Histogram of ITK contributors by number of commits in the repository since 2000.}\label{fig:03}
 
-Figure~\ref{fig:ITKGitContributors} shows the distribution of contributions
+Figure 3 shows the distribution of contributions
 to the source code base of the ITK toolkit. Every bar corresponds to an individual
 contributor. The height of the bar represents the number of commits that this
 contributor has authored. The figure shows the top 100 contributors, out of a
@@ -557,6 +553,10 @@ which is a remarkable level of testing compared to the average of the software
 industry, that is just above 50\% code coverage.
 
 \subsection{Open Review System: Gerrit Review}
+\textbf{Figure 4. }{Histogram of the number of revisions (Patch Sets) for a
+given change.}\label{fig:04}
+
+
 In the three years that the community has applied the Gerrit Code review
 system, << d['src/gerrit_results.json'].from_json()['changes'] >> changes have
 been submitted to the review server and
@@ -565,7 +565,7 @@ As a matter of policy, all merged changes should have at least one review,
 but the number of iterations on a change varies flexibly depending on the
 requirements. This results in a roughly negative exponential distribution in
 revisions, as evident in the histogram of revisions in
-Figure~\ref{fig:gerrit_patch_set_histogram}.  The highest number of reviews
+Figure 4.  The highest number of reviews
 for a single change was
 << d['src/gerrit_results.json'].from_json()['max_reviews'] >>.
 
@@ -575,9 +575,12 @@ publication systems where the code is never disseminated, and it likely
 exceeds validation systems where the code is published, but there are not
 incentives or checks that reviewers looked at or applied the code.
 
+\textbf{Figure 5. }{Fix-up commit percentage before and after peer code review.}
+\label{fig:05}
+
 The number of Patch Sets greater than one also implicitly indicates that
 improvements were made and errors were identified by this process.  This is
-hypothesis is further supported by Figure~\ref{fig:gerrit_fix_ups}.  In this
+hypothesis is further supported by Figure 5.  In this
 figure, the number of "fix-up" changes are quantified. A fix-up change is
 defined in an objective way that roughly captures changes that were likely
 intended to correct or improve a recent defect that was introduced.  Sections
@@ -596,15 +599,25 @@ to August 25th, 2013.  There were
 changes during the pre-peer code review period and
 << d['src/gerrit_results.json'].from_json()['post_gerrit_commits'] >>
 during the post-peer code review period.  As shown in
-Figure~\ref{fig:gerrit_fix_ups}, this reduces the number of
+Figure 5, this reduces the number of
 single fix-up commits from <<
 d['src/fix_up_bins.json'].from_json()['single_pre'] >>\%
 to << d['src/fix_up_bins.json'].from_json()['single_post'] >>\% and
 dramatically reduces the percent fix-up commits by approximately half for
 higher numbers.
 
+\textbf{Figure 6. } {Peer code reviews graph.  Nodes are individual community
+members and size of the circle at the node is related logarithmically to the
+number of changes created by that community member.  The widths of the edges in
+this directed graph are logarithmically proportional to the number of reviews
+performed.} \label{fig:06}
+
+\textbf{Figure 7. }{Normalized closeness centrality of peer code review graph
+versus the number of created changes.  Different connected components are shown
+in different colors.}\label{fig:07}
+
 The underlying cause of this apparent reduction in errors is suggested by the
-graph visualization of Figure~\ref{fig:GerritGraph}. This graph represents
+graph visualization of Figure 6. This graph represents
 the three years of reviews performed by the Insight Toolkit community. Each
 node is a community member, and the size of the node is logarithmically
 related to the accumulated number of changes created by that community member.
@@ -615,7 +628,7 @@ correspond to varying degrees of contribution. While there are some node pairs
 that have mutually strong connections, the reviews are generally well
 distributed.  Cohesiveness of the community is evident by the well-connected
 property of the graph and the closeness of all nodes.  This is further
-quantified in Figure~\ref{fig:GerritCloseness}.  Here an undirected version
+quantified in Figure 7.  Here an undirected version
 of the graph is used to compute the closeness centrality of each node against
 the logarithm of changes created.  Closeness centrality is defined
 as \cite{Freeman1979}
@@ -634,11 +647,14 @@ number of changes also have a higher centrality measure.  There are three
 outliers, but all other contributors are members of the primary connected
 component.
 
-Figure~\ref{fig:ij_submissions} displays the progression of submissions and
-reviews of articles in the Insight Journal since its inception in 2005.  There
-has generally been a linear increase in submissions and reviews since 2005
-with the rate of submissions tapering off since 2010.  The number of reviews
-is proportional but considerably less than the number of submissions.
+\textbf{Figure 8. }{Insight Journal submissions and reviews over the journal's
+likespan since 2005.} \label{fig:08}
+
+Figure 8 displays the progression of submissions and reviews of articles in the
+Insight Journal since its inception in 2005.  There has generally been a linear
+increase in submissions and reviews since 2005 with the rate of submissions
+tapering off since 2010.  The number of reviews is proportional but
+considerably less than the number of submissions.
 
 
 
@@ -767,6 +783,19 @@ Reinvestment Act of 2009 and "ITK Help Desk and Information Technology Support
 of the NLM's Insight Toolkit (ITK-v4)" contract number HHSN276201300003I.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 %----- all the figures ----------------
 \begin{figure}
   \centering
@@ -781,6 +810,15 @@ of the NLM's Insight Toolkit (ITK-v4)" contract number HHSN276201300003I.
     \caption{ Code contribution process in ITK.}
     \label{fig:itk_code_contribution}
 \end{figure}
+
+
+\begin{figure}
+  \centering
+    \includegraphics[width=1.0\textwidth]{itk_git_contributors.eps}
+    \caption{Histogram of ITK contributors by number of commits in the repository since 2000.}
+    \label{fig:ITKGitContributors}
+\end{figure}
+
 
 \begin{figure}
   \centering
@@ -823,8 +861,6 @@ of the NLM's Insight Toolkit (ITK-v4)" contract number HHSN276201300003I.
       likespan since 2005.}
     \label{fig:ij_submissions}
 \end{figure}
-
-
 
 
 
