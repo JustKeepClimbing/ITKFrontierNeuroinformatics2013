@@ -18,6 +18,8 @@ doc/frontiers.tex|jinja|latex:
     - .bst
     - .bbl
     - .BIB
+    - .bib:
+      - latex: { 'run-bibtex': True }
     - .sty
     - .eps
     - .png

@@ -105,9 +105,10 @@ changes made to the code, also known as commits, and the number of source code
 line additions or deletions. In its 14 years of history, ITK has received
 37,626 commits, in 13,184 files, by 209 different authors.
 
-Ohloh.net \cite{OhlohITK2013} is a public directory of open source projects that performs analytics on the code history of communities surrounding projects. According to its
-Project Cost Calculator, the effort in the toolkit is an
-estimated 730 person-years, amounting to an estimated cost of 40 million
+Ohloh.net \cite{OhlohITK2013} is a public directory of open source projects
+that performs analytics on the code history of communities surrounding
+projects. According to its Project Cost Calculator, the effort in the toolkit
+is an estimated 730 person-years, amounting to an estimated cost of 40 million
 dollars given an average salary of \$55,000 per year.
 
 As of October 29, 2013, the combined subscribers to the \textit{community},
@@ -160,7 +161,7 @@ the quality and correctness of the code, as well as proceed to verify the
 reproducibility of the code through its execution.
 
 Recently, recognition of software’s importance for the progress of science has
-elicited movements such as the Science Code Manifesto \cite{Barnes2010}. While
+elicited movements such as the Science Code Manifesto \cite{Barnes2011}. While
 a number of journals are beginning to adopt practices similar to The Insight
 Journal, where code is submitted along with the article, evaluation tools and
 procedures for peer review of the code are not in parity with those used for
@@ -229,7 +230,7 @@ ITK code lines. This is well above the industry averages of 50\% code coverage.
 The collection of unit tests are executed nightly by computers contributed by
 community members all around the world, and reporting to a central online
 dashboard that summarizes the results. This web-based dashboard system (CDash)
-\cite{ITK dashboard} ensures ITK’s software quality as developers around the
+\cite{ITKDashboard} ensures ITK’s software quality as developers around the
 world continuously make changes to the code base. Build status and regression
 test status are visualized in a tabular form. The dashboard is an important
 coordination and communication tool that empowers developers to share the
@@ -246,64 +247,98 @@ and hardware.
 
 \subsection{Sustainability}
 
+In order to facilitate the long term viability of a project, it is essential to
+cultivate an active community around it. The adoption of proper cultural
+practices by the community ensure the long term quality and sustainability of
+the project, in a manner that is consistent with the principles of
+reproducibility and therfore, with the practices of open science.
+
 \subsubsection{Community Enablement}
 
-In particular, we have successfully hosted a series of webinars to promote ITK
-and the new features available in ITKv4. The webinar videos received more than
-1,000 plays in total. We have begun moving to hosting more advanced topics,
-such as “Raspberry Pi Likes ITK” and “Raspberry Pi Likes ITK with VTK”. To
-empower new developers and lower the barrier of entry for new users, we have
-initiated a web framework to better distribute ITK examples and put together a
-large collection of examples on various ITK classes and filters.
+The ITK community has cultivated a number of practices intended to ensure that
+the demographics of contributors are continously renewed. In this way, the
+community remains active and vibrant, and can provide the manpower needed to
+maintain and improve the ITK toolkit. In particular, this involves welcoming
+new members and training them on:  technical skills, social rules, governance
+processes and cultural practices.
+
+On the training front, the ITK community has been hosting a series of webinars
+to promote ITK in general and the new features available in ITKv4 in
+particular. The webinar videos have been posted publicly, and have received
+more than 1,000 plays so far. As the number of webinars grow, they also start
+covering more advanced topics, such as the porting of ITK to devices based on
+the ARM architecture, with webinars such as ``Raspberry Pi Likes ITK'' and
+``Raspberry Pi Likes ITK with VTK'', that describe how to use ITK in the highly
+popular Raspberry Pi board.
+
+To empower new developers and lower the barrier of entry for new users, a web
+site was put in place to host and distribute a large collection of examples on
+various ITK classes and filters (\url{http://itk.org/ITKExamples}).
 
 In a very focused effort to grow the ITK community, an online space called
-ITKBarCamp was created to train new community members on the software
-technologies that are essential to ITK. This space provides a combination of
-source code, documentation and video tutorials that guide newcomers at their
-own pace through training materials aimed at honing their software development
-skills.
+ITKBarCamp (\url{http://insightsoftwareconsortium.github.io/ITKBarCamp-doc/})
+was created to train new community members on the software technologies that
+are essential to ITK. This space provides a combination of training materials,
+such as source code, documentation and video tutorials, that guide newcomers at
+their own pace through training activities aimed at honing their software
+development skills.
 
 One of the very active areas in the ITK BarCamp is a series of participatory,
 short YouTube.com videos with associated documentation covering various topics
-related to ITK, including: \begin{enumeruate} \item Mastery of the command line
-\item Basic C++ programming skills \item Good software practices, including
-unit testing \item Recommended tools and workflows for ITK development.
+related to ITK, including:
+
+\begin{enumerate}
+\item Mastery of the command line
+\item Basic C++ programming skills
+\item Good software practices, including unit testing
+\item Recommended tools and workflows for ITK development.
 \end{enumerate}
 
-So far we have created 29 short tutorial videos, which have received 2,234
+So far 29 short tutorial videos have been created, which have received 2,234
 views and attracted 30 subscribers. ITK Bar Camp materials are hosted in Github
-as written documentation and video archives. Information on previous and
-current webinars and hangouts can be found at
-http://www.itk.org/ITK/resources/webinars.html.
+as written documentation with references to video archives. Information on
+previous and current webinars and hangouts can be found at
+(\url{http://www.itk.org/ITK/resources/webinars.html}).
 
-We believe these efforts are crucial to attracting, training, and retaining new
-community members in the long run, and through that mechanism replenish the
-community with active members. We plan to continue collecting bar camp
-tutorials and encourage other community members to contribute to the
+These educational efforts are crucial to attracting, training, and retaining
+new community members in the long run, and through that mechanism replenish the
+community with active members. We plan to continue creating ITK Bar Camp
+tutorials and to encourage other community members to contribute to the
 repository.
 
-\subsubsection{Modularization} Since its inception in 2000, ITK was designed as
-a collection of about seven core libraries and about ten third party libraries.
-This monolithic organization of the code over time led to very large
-sub-libraries as more classes were added to the toolkit. Once the core code of
-ITK surpassed the half-a-million lines of code, it became evident that a more
-modular approach was needed in order to support the future continued growth of
-the toolkit.
+\subsubsection{Modularization}
+
+Since its inception in 2000, ITK was designed as a collection of about seven
+core libraries and about ten third party libraries.  This monolithic
+organization of the code led over time to very large sub-libraries, as more
+classes were added to the toolkit. Once the core code of ITK surpassed the
+half-a-million lines of code, it became evident that a more modular approach
+was needed in order to support the future continued growth of the toolkit.
 
 \textbf{Figure 1.}{An illustration on ITK modules' dependencies.}\label{fig:01}
 
-As a result of the modularization, the initial monolithic code base of about
-12,000 files was partitioned into more than 100 modules.  And as of Oct of
-2013, ITK contains 141 modules in total, four of which are remote modules
-\cite{remote modules}.  Dependencies \ref{fig:01} between modules were
-identified and explicitly declared in the CMake-based configuration system. By
-making the CMake-based configuration system aware of the new ITK
-modularization, the modularization empowers ITK adopters to select the pieces
-of ITK that they wanted to use in their own projects at configuration time.
-Support for integrating externally distributed modules was built into the
-modularization infrastructure.The Remote Module infrastructure enables fast
+Such modularization was implemented in 2010-2011 as part of the larger
+refactoring effort leading to ITKv4.  As a result of the modularization, the
+initial monolithic code base of about 12,000 files was partitioned into more
+than 100 modules.  And as of Oct of 2013, ITK contains 141 modules in total,
+four of which are remote modules.
+
+Dependencies \ref{fig:01} between modules were identified and explicitly
+declared in the CMake-based configuration system. By making the CMake-based
+configuration system aware of the new ITK modularization, ITK adopters became
+enabled to select, at configuration time, the pieces of ITK that they wanted to
+use in their own projects.
+
+Support for adding Remote Modules was also built into the ITK modularization
+infrastructure. These are custom modules that can be couple with a particular
+ITK source code installation, without having to be incorporated directly into
+the official ITK distribution. By making possible for adopters to integrate
+externally distributed modules, the Remote Module infrastructure enables fast
 dissemination of research code through ITK without increasing the size of the
-main repository.
+main repository. These Remote Modules can be exchanged across members of the
+community, based upon interest and need, making possible to accelerate the rate
+of dissemination of emerging modules, as well as helping those modules mature
+faster through the rapid use, testing and commentary by early adopters.
 
 
 \subsection{Open Publication: The Insight Journal}
@@ -318,7 +353,7 @@ do this, the ITK community relies on contributions made by its members, as they
 use the toolkit to support their own projects and run into situations where
 additions and improvement are required for them to achieve their goals. In
 order to absorb these contributions, the ITK community has used the Insight
-Journal \cite{Insight Journal} }since 2005. The online Insight Journal
+Journal \cite{InsightJournal} since 2005. The online Insight Journal
 publishes practical articles written by developers for developers, and requires
 those articles to be fully reproducible.
 
@@ -416,17 +451,13 @@ of the graph is used to compute the closeness centrality of each node against
 the logarithm of changes created.  Closeness centrality is defined
 as\cite{Freeman1979}
 
-    % TODO.. [1] Freeman, L.C., 1979. Centrality in networks: I.
-       %Conceptual clarification.  Social Networks 1, 215--239.
-       %http://www.soc.ucsb.edu/faculty/friedkin/Syllabi/Soc146/Freeman78.PDF
-
 \begin{equation}
    C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)},
 \end{equation}
 
 where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
-is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of the
-average distance between nodes, i.e., how close the nodes are from each other % TODO: https://en.wikipedia.org/wiki/Centrality#cite_note-7 into citations
+is normaled by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
+average distance between nodes, i.e., how close the nodes are from each other
 or how long it will take to spread information from one node to all other
 nodes sequentially\cite{Newman2005}. Overall, this measure of communication is
 rather high across the board, and individuals with a higher
