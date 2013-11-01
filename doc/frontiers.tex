@@ -187,10 +187,29 @@ this interplay, it is essential to use both a set of software quality support
 tools, and a set of community practices that make proper use of such tools.
 
 To ensure the code quality of the toolkit and the growth of the ITK community,
-adaptation to modern software practices are necessary. In particular, the
-recent modernization of ITK includes adopting a version control system (Git),
- a code review system (Gerrit), a Gerrit-integrated dashboard testing system
-(CDash@Home).
+adaptation to modern software practices are necessary. In particular, the high
+software quality and reproducibility relies on the combination of an automatic
+testing system (CDash), a version control system (Git), a code review system
+(Gerrit).
+
+\subsubsection{Open Dashboard: CDash}
+ITK has a stringent system of quality control that uses a combination of unit
+testing, regression testing, multi-platform verification, and continuous
+integration.The collection of unit tests are executed nightly by computers
+contributed by community members all around the world, and reporting to a
+central online dashboard that summarizes the results. This web-based dashboard
+system (CDash) \cite{ITKDashboard} ensures ITK$'$s software quality as
+developers around the world continuously make changes to the code base. Build
+status and regression test status are visualized in a tabular form. The
+dashboard is an important coordination and communication tool that empowers
+developers to share the results of a local test with other developers by
+pushing them to the online summary pages.
+
+Continuous builds triggered by patches submitted to the Gerrit code review
+system also give feedback to developers on the impact of recent changes.
+Nightly builds of the project spanning a wide variety of platforms and
+configurations ensure that ITK can be built on a diversity of operating systems
+and hardware.
 
 
 \subsubsection{Source Code Version Control: Git}
@@ -300,29 +319,6 @@ the corpus of Insight Toolkit knowledge, as embodied in the code repository,
 through experimentation as implemented in the unit tests and through peer
 review as exercised in the code reviews.
 
-
-\subsubsection{Open Dashboard}
-
-ITK has a stringent system of quality control that uses a combination of unit
-testing, regression testing, multi-platform verification, and continuous
-integration. The testing infrastructure of ITK includes more than 2,400 unit
-tests, which provide a code coverage of 84\% of ITK code lines.
-
-The collection of unit tests are executed nightly by computers contributed by
-community members all around the world, and reporting to a central online
-dashboard that summarizes the results. This web-based dashboard system (CDash)
- \cite{ITKDashboard} ensures ITK$'$s software quality as developers around the
-world continuously make changes to the code base. Build status and regression
-test status are visualized in a tabular form. The dashboard is an important
-coordination and communication tool that empowers developers to share the
-results of a local test with other developers by pushing them to the online
-summary pages.
-
-Continuous builds triggered by patches submitted to the Gerrit code review
-system also give feedback to developers on the impact of recent changes.
-Nightly builds of the project spanning a wide variety of platforms and
-configurations ensure that ITK can be built on a diversity of operating systems
-and hardware.
 
 
 \subsection{Sustainability}
@@ -483,59 +479,59 @@ installation.
 \section{Results}
 
 
-
-\subsection{Contribution Statistics}
+\subsection{Code Contribution Statistics}
 
 \textbf{Figure 3. }{Histogram of ITK contributors by number of commits in the repository since 2000.}\label{fig:03}
 
-Figure 3 shows the distribution of contributions
-to the source code base of the ITK toolkit. Every bar corresponds to an individual
-contributor. The height of the bar represents the number of commits that this
-contributor has authored. The figure shows the top 100 contributors, out of a
-total of 207. The ITK community follows a typical power-law distribution, where
-a concentrated number of contributors are responsible for the majority of the
-commits, while a large number of contributors make small contributions.  This
-phenomenon is known as the ``Long Tail'', and it is quite important for the
-structure of the community. The long tail of contributors who make small
-changes are an important strength of the community since they tend to provide
-the majority of the quality control after versions of the software have been
-released. The head and the tail of the distribution have interacting dynamics
-that complement each other and ensure that innovation makes its way into the
-software, while at the same time it matures and gets adjusted to the true needs
-of the larger number of adopters.
+Figure 3 shows the distribution of contributions to the source code of ITK.
+Every bar corresponds to an individual contributor. The height of the bar
+represents the number of commits that this contributor has authored.  The
+figure shows the top 100 contributors, out of a total of 207. The ITK community
+follows a typical power-law distribution, where a concentrated number of
+contributors are responsible for the majority of the commits, while a large
+number of contributors make small contributions.  This phenomenon is known as
+the ``Long Tail'', and it is quite important for the structure of the
+community. The long tail of contributors who make small changes are an
+important strength of the community since they tend to provide the majority of
+the quality control after versions of the software have been released. The head
+and the tail of the distribution have interacting dynamics that complement each
+other and ensure that innovation makes its way into the software, while at the
+same time it matures and gets adjusted to the true needs of the larger number
+of adopters.
 
 
 
 \subsection{Software Quality Assurance}
 
 When integrating the contributions of a large number of community members, it
-is vital to have in place a quality control mechanism. This
-eliminate defects in the code before they are introduced into the repository, and
-it also ensures consistency and coherency across the toolkit.
-The quality assurance infrastructure of ITK is implemented by a combination
-of several interacting tools. In particular: the configuration system CMake,
-the online quality control dashboard CDash, the revision control system Git,
-and the code review system Gerrit. This infrastructure is complemented by
-coordination and communication tools such as mailing lists, wikis,
-weekly phone calls, and regular online videoconference meetings.
+is vital to have in place a quality control mechanism. This eliminate defects
+in the code before they are introduced into the repository, and it also ensures
+consistency and coherency across the toolkit.  The quality assurance
+infrastructure of ITK is implemented by a combination of several interacting
+tools. In particular: the configuration system CMake, the online quality
+control dashboard CDash, the revision control system Git, and the code review
+system Gerrit. This infrastructure is complemented by coordination and
+communication tools such as mailing lists, wikis, weekly phone calls, and
+regular online videoconference meetings.
 
 The life cycle of a code change starts in the communication channels when
 community members raise issues in the code. These issues might relate to lack
 of correctness, or lack of desirable features, run-time performance
-bottlenecks, lack of support for specific platforms, or
-problems with specific types of data. Typically, the issues are discussed among
-community members until it is determined that changes in the code are required,
-and that one or several community members will take on the task of
-implementing the required changes.
+bottlenecks, lack of support for specific platforms, or problems with specific
+types of data. Typically, the issues are discussed among community members
+until it is determined that changes in the code are required, and that one or
+several community members will take on the task of implementing the required
+changes.
 
 Once community members prepare initial versions of the required changes, they
 commit them in their local clones of the Git repository, from where they can
-submit them to the peer code review tool, Gerrit. A group of two or three reviewers
-are invited to review and test the code contributions and a conversation
-ensues, where the submitters and reviewers iron out any limitations or
-imperfections in the suggested changes. During this exchanges, test builds are
-generated by an automated, cross-platform testing system, which are submitted to the CDash
-dashboard where they are publicly available for inspection.
+submit them to the peer code review tool, Gerrit. A group of two or three
+reviewers are invited to review and test the code contributions and a
+conversation ensues, where the submitters and reviewers iron out any
+limitations or imperfections in the suggested changes. During this exchanges,
+test builds are generated by an automated, cross-platform testing system, which
+are submitted to the CDash dashboard where they are publicly available for
+inspection.
 
 When the reviewers and submitters reach an agreement on the final version of
 the changes, they are merged into the official repository and are incorporated
@@ -544,8 +540,8 @@ into the code base for the upcoming release.
 This process is supported by stringent testing requirements. In ITK it is
 expected that every C++ class should have its own unit test and that
 algorithmic combinations should have additional tests. As a consequence, ITK
-carries more than 2,200 tests, which result in a code coverage higher than 84\%.
-
+carries about 2400 unit tests (by Oct 2013), which result in a code coverage
+higher than 84\%.
 
 
 \subsection{Open Science Publication and Review}
@@ -553,10 +549,10 @@ carries more than 2,200 tests, which result in a code coverage higher than 84\%.
 \textbf{Figure 4. }{Histogram of the number of revisions (Patch Sets) for a
 given change.}\label{fig:04}
 
-In the three years that the community has applied the Gerrit Code review
+During the three years that the community has been using the Gerrit code review
 system, << d['src/gerrit_results.json'].from_json()['changes'] >> changes have
-been submitted to the review server and
-<< d['src/gerrit_results.json'].from_json()['reviews'] >> were performed.
+been submitted to the Gerrit review server and
+<< d['src/gerrit_results.json'].from_json()['reviews'] >> reviews were performed.
 As a matter of policy, all merged changes should have at least one review,
 but the number of iterations on a change varies flexibly depending on the
 requirements. This results in a roughly negative exponential distribution in
