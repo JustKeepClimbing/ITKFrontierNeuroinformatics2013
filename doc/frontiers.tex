@@ -664,32 +664,31 @@ considerably less than the number of submissions.
 
 
 \section{Discussion}
-
-The code review system helps catch bugs, results in design improvements,
+The code review system helps to eliminate bugs, results in design improvements,
 assists in the training of new developers, and provides a great communication
 platform for collaborative development. Since it has so many software quality
-advantages, code reviews are as critical to ITK as the creation of new patches.
+advantages, code reviews are as critical to ITK as the creation of new features.
 
-The review graph indicates there is not a binary distribution of ``users'' and
-``developers'' but there is a continuous transition in contribution and experience
-by community members. There are not a few single nodes from which radiate all
-knowledge and advancement, but a bi-directional network where knowledge and
-experience can flow thoroughly.  Indeed, all the large nodes have many
-incoming edges. The graph is also not grouped into islands of
+The review graph (Figure 6) indicates there is not a binary distribution of
+``users'' and ``developers'' but there is a continuous transition in
+contribution and experience by community members. There are not a few nodes
+from which radiate all knowledge and advancement, but a bi-directional network
+where knowledge and experience can flow thoroughly.  Indeed, all the large
+nodes have many incoming edges. The graph is also not grouped into islands of
 isolated knowledge, but it is fully connected with few hops from any given
 community member to another community member.
 
 These properties are the result of policies and practices that encourage their
 emergence. Firstly, the adoption of the Gerrit Code Review tool places an
 explicit emphasis on code review.  Registration for an account is publicly
-available, and the default permissions allow community
-members to not only submit changes but also perform reviews. All community
-members, including the novice ones, are also highly encouraged to perform
-reviews in project documentation, which promotes the culture of open code
-review. Second, the policy of requiring a positive code review, even for the
-most experienced community members, encourages continuous improvement of even
-senior members while promoting civility. It discourages obstructionism and
-encourages collaboration by promoting reciprocal constructive criticism.
+available, and the default permissions allow community members to not only
+submit changes but also perform reviews. All community members, including the
+novice ones, are also highly encouraged to perform reviews in project
+documentation, which promotes the culture of open code review. Second, the
+policy of requiring a positive code review, even for the most experienced
+community members, encourages continuous improvement of even senior members
+while promoting civility. It discourages obstructionism and encourages
+collaboration by promoting reciprocal constructive criticism.
 
 While the Gerrit Code Review system provides fine-grained and thorough review
 of code as it enters into the Toolkit, the Insight Journal plays an important
@@ -705,18 +704,17 @@ articles published in the Insight Journal is high.  Unlike traditional
 journal articles that are accessible only to those privileged with a
 subscription to penetrate their paywall, articles in are available to any
 researcher with an internet connection. Once the article, code, and data are
-obtained, they offer much more value to a researcher. Instead of only gathering a
-small level of information from a suspiciously reported text, the researcher
+obtained, they offer much more value to a researcher. Instead of only gathering
+a small level of information from a suspiciously reported text, the researcher
 can verify the results, understand the ``devilish details'' elucidated by the
-source code, and use both the code and data as a starting point for new
-avenues of research. Additionally, the researcher may not be interested in the
-theory underlying the reported algorithm at all -- the implementation provides
-a concrete solution to address a tangential problem at hand. Indeed,
-algorithms and solutions published in many academic journals are heralded for
-their ability to address important problems, but solutions often never see
+source code, and use both the code and data as a starting point for new avenues
+of research. Additionally, the researcher may not be interested in the theory
+underlying the reported algorithm at all -- the implementation provides a
+concrete solution to address a tangential problem at hand. Indeed, algorithms
+and solutions published in many academic journals are heralded for their
+ability to address important problems, but solutions often never see
 translation into pragmatic application because they are irreproducible and
-false or because they lack an easy to apply incarnation in quality, clean
-code.
+false or because they lack an easy to apply incarnation in quality, clean code.
 
 The age of the journal has revealed a practical challenge in source code
 submitted with articles. Since software is a constantly evolving creature that
@@ -744,25 +742,24 @@ just alternative incentive mechanisms for funding and career advancement.
 
 It is also notable that the number of reviews is low relative to the number of
 submissions. Again, incentive mechanisms should improve to reward reviews.  It
-is notable that the journal has also had a non-blinded open review policy
-where the names of reviewers are made public. While this increases
-accountability and transparency, it is known to discourage review activity
+is notable that the journal has also had a non-blinded open review policy where
+the names of reviewers are made public. While this increases accountability and
+transparency, it is known to discourage review activity
 \cite{Rooyen1999,Walsh2000}. While many outstanding articles have been
 submitted to the toolkit, relatively few have been merged into the toolkit.
-The reflects the amount of effort required to reproduce another$'$s work
-during review.  To address this significant challenge, two approaches have been
-taken.  First, the standard, pluggable modular system,
-Figure~2, greatly lowers integration barriers.
-Second, authors are self-enabled with technologies such as Gerrit to directly respond
-to reproducibility barriers discovered during review. However, there is no
-complete transient solution to this
-problem; the scientific community must recognize that reproducible science
-requires time, effort, and resources.
+The reflects the amount of effort required to reproduce another$'$s work during
+review.  To address this significant challenge, two approaches have been taken.
+First, the standard, pluggable modular system (Section 2.2.2), greatly lowers
+integration barriers.  Second, authors are self-enabled with technologies such
+as Gerrit to directly respond to reproducibility barriers discovered during
+review. However, there is no complete transient solution to this problem; the
+scientific community must recognize that reproducible science requires time,
+effort, and resources.
 
 The open source nature of ITK, the open access nature of the Insight Journal,
-and the public sharing of open data that is enabled by the Midas Platform in
-the ITK community, are the three pillars of Open Science that are transforming
-the way scientific research is done today.
+and the public sharing of open data that is enabled by MIDAS
+(\url{midasplatform.org} in the ITK community, are the three pillars of Open
+Science that are transforming the way scientific research is done today.
 
 The technological challenges of reproducibility have all been solved. We now
 require a cultural change by which we must make it unacceptable that any
@@ -773,9 +770,9 @@ to replicate the process and verify or refute the findings.
 \section*{Acknowledgements}
 
 We would like to thank the Insight Toolkit community, which we are honored to
-participant in.
+participant in. 
 
-We would like to thank Dr. Ana Nelson for her training in the Dexy
+We also would like to thank Dr. Ana Nelson for her training in the Dexy
 (\url{http://www.dexy.it/}) reproducible research documentation tool for this
 article.  The data, code, and sources to build this article can be found at
 \url{https://github.com/luisibanez/ITKFrontierNeuroinformatics2013}.
