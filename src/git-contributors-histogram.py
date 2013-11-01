@@ -15,7 +15,7 @@ mpl.rcParams['ytick.labelsize'] = 'large'
 mpl.rcParams['figure.dpi'] = 900
 
 
-def plot_patchset_histogram(contributors, outputfile=None):
+def plot_contributors(contributors, outputfile=None):
     number_of_commits = []
     contributor_anonymous = []
     count = 1
@@ -28,7 +28,7 @@ def plot_patchset_histogram(contributors, outputfile=None):
     ax = fig.add_subplot(111)
     max_number_of_commits=np.max(number_of_commits)
     contributors = range(0,max_number_of_commits-1)
-    prettyplotlib.bar(ax, contributor_anonymous, number_of_commits, width=0.8, grid='y')
+    prettyplotlib.bar(ax, contributor_anonymous, number_of_commits, width=0.9, grid='y')
     ax.set_xlabel('ITK Contributors')
     ax.set_ylabel('Number of Commits')
     ax.set_xlim(0, 100)
@@ -53,4 +53,4 @@ if __name__ == '__main__':
             os.makedirs(dirname)
     else:
         outputfile = None
-    plot_patchset_histogram(data, outputfile)
+    plot_contributors(data, outputfile)
