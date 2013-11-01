@@ -563,25 +563,25 @@ for a single change was
 
 Two direct but notable conclusions follow from this data. First, at least one
 other person examined and reproduced a proposed code.  This certainly exceeds
-publication systems where the code is never disseminated, and it likely
-exceeds validation systems where the code is published, but there are not
-incentives or checks that reviewers looked at or applied the code.
+the publication systems where code is never disseminated. And it likely exceeds
+validation systems where the code is published, but there are not incentives or
+checks that reviewers looked at or applied the code.  Secondly, the number of
+Patch Sets greater than one also indicates that improvements were made and
+errors were identified during this process.
 
 \textbf{Figure 5. }{Fix-up commit percentage before and after peer code review.}
 \label{fig:05}
 
-Secondly, the number of Patch Sets greater than one also implicitly indicates that
-improvements were made and errors were identified by this process.  This is
-hypothesis is further supported by Figure 5.  In this
-figure, the number of ``fix-up'' changes are quantified. A fix-up change is
-defined in an objective way that roughly captures changes that were likely
-intended to correct or improve a recent defect that was introduced.  Sections
-of a patch, traditionally called hunks, that are additions or modification are
-identified, and all commits in the following five days are examined.  If
-content in the committed hunk is modified in that period, it is labeled as
-a fix-up commit.  If addition or modification hunks in the fix-up commit are again
-modified in the following five days, then the original change is said to have
-two fix-up commits, and so on.
+This hypothesis is further supported by Figure 5, in which the number of
+``fix-up'' changes are quantified. A fix-up change is defined in an objective
+way that roughly captures changes that intended to fix the bugs or improve the
+features that were introduced in the previous Patch Set.  Sections of a patch,
+traditionally called hunks, that are additions or modification are identified,
+and all commits in the following five days are examined.  If content in the
+committed hunk is modified in that period, it is labeled as a fix-up commit.
+If addition or modification hunks in the fix-up commit are again modified in
+the following five days, then the original change is said to have two fix-up
+commits, and so on.
 
 We computed fix-up commits in the ITK repository for a three year period
 preceding the adoption of the peer code review system from August 25th, 2007
@@ -595,7 +595,7 @@ Figure 5, this reduces the number of
 single fix-up commits from <<
 d['src/fix_up_bins.json'].from_json()['single_pre'] >>\%
 to << d['src/fix_up_bins.json'].from_json()['single_post'] >>\% and
-dramatically reduces the percent fix-up commits by approximately half for
+dramatically reduces the fix-up commits by approximately half for
 higher numbers.
 
 \textbf{Figure 6. } {Peer code reviews graph.  Nodes are individual community
@@ -609,28 +609,27 @@ versus the number of created changes.  Different connected components are shown
 in different colors.}\label{fig:07}
 
 The underlying cause of this apparent reduction in errors is suggested by the
-graph visualization of Figure 6. This graph represents
-the three years of reviews performed by the Insight Toolkit community. Each
-node is a community member, and the size of the node is logarithmically
-related to the accumulated number of changes created by that community member.
-The edges in the directed graph represent accumulated reviews given by one
-community to another. A number of high level observations can be made from
-this graph.  There is a spectrum of node sizes and connectivities that
-correspond to varying degrees of contribution. While there are some node pairs
-that have mutually strong connections, the reviews are generally well
-distributed.  Cohesiveness of the community is evident by the well-connected
-property of the graph and the closeness of all nodes.  This is further
-quantified in Figure 7.  Here an undirected version
-of the graph is used to compute the closeness centrality of each node against
-the logarithm of changes created.  Closeness centrality is defined
-as \cite{Freeman1979}
+graph visualization of Figure 6. This graph represents the three years of
+reviews performed by the ITK community. Each node in this graph representation
+of the code reviewers' network is a community member, and the size of the node is
+logarithmically related to the accumulated number of changes created by that
+community member.  The edges in the directed graph represent accumulated
+reviews given by one community to another. A number of high level observations
+can be made from this graph.  There is a spectrum of node sizes and
+connectivities that correspond to varying degrees of collaborations. While there
+are some node pairs that have mutually strong connections, the reviews are
+generally well distributed.  Cohesiveness of the community is evident by the
+well-connected property of the graph and the closeness of all nodes.  This is
+further quantified in Figure 7.  Here an undirected version of the graph is
+used to compute the closeness centrality of each node against the logarithm of
+changes created.  Closeness centrality is defined as \cite{Freeman1979}
 
 \begin{equation}
    C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)},
 \end{equation}
 
 where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
-is normalized by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
+is normalized by $n-1$ nodes in the graph. This measures the reciprocal of th-
 average distance between nodes; i.e., how close the nodes are from each other
 or how long it will take to spread information from one node to all other
 nodes sequentially \cite{Newman2005}. Overall, this measure of communication is
@@ -639,8 +638,6 @@ number of changes also have a higher centrality measure.  There are three
 outliers, but all other contributors are members of the primary connected
 component.
 
-\textbf{Figure 8. }{Insight Journal submissions and reviews over the journal's
-lifespan since 2005.} \label{fig:08}
 
 %  the following statistics were obtained with the script
 %
@@ -655,12 +652,14 @@ readers. Just the top five most popular articles have been downloaded more than
 of 71,500 views. Since August, 2013, there have been over 360,000 downloads of
 the articles and over 1,790,000 views.
 
+\textbf{Figure 8. }{Insight Journal submissions and reviews over the journal's
+lifespan since 2005.} \label{fig:08}
+
 Figure 8 displays the progression of submissions and reviews of articles in the
 Insight Journal since its inception in 2005.  There has generally been a linear
 increase in submissions and reviews since 2005 with the rate of submissions
 tapering off since 2010.  The number of reviews is proportional but
 considerably less than the number of submissions.
-
 
 
 
