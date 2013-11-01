@@ -92,7 +92,6 @@ developed over the past 14 years of the project is presented.
 
 
 \section{Introduction}
-
 The essential feature of the scientific method is the practice of verification
 of reproducibility. The large majority of research activity today is focused on
 generating novelty, and, only in exceptional cases, concerned with the
@@ -105,22 +104,31 @@ practice of the ``natural philosophy'', in which we simply imagine models of the
 natural word and evaluate them based on aesthetic appeals and desire for
 self-consistency.
 
-The Insight Toolkit (ITK) has made it possible to restore the true practice of
-the scientific method in the field of medical image analysis. By providing a
-common platform in which image analysis algorithms and processing techniques
-can be implemented and can be freely disseminated, ITK empowers all to verify
-the experimental work of image analysis research activities. This
-requires that researchers adhere to the true practice of the scientific method
-and publish the full details of their methodology, including the source code,
-data, parameters and auxiliary documents that are required for a third party to
-independently repeat the work and verify its findings.
+The National Library of Medicine$’$s Insight Segmentation and Registration
+Toolkit (ITK) was conceived in 1999 to support analysis of The Visible Human
+Project data. In order to maximize its impact, the project embraced an open
+source development model from its inception. Not only was the project
+successful in its original objective, it also extended far beyond its original
+goals and became a foundational component of many National Institutes of Health
+(NIH) research projects, as well as evolved into a technology underlying many
+medical image analysis commercial products worldwide.
+
+ITK has made it possible to restore the true practice of the scientific method
+in the field of medical image analysis. By providing a common platform in which
+image analysis algorithms and processing techniques can be implemented and can
+be freely disseminated, ITK empowers all to verify the experimental work of
+image analysis research activities. This requires that researchers adhere to
+the true practice of the scientific method and publish the full details of
+their methodology, including the source code, data, parameters and auxiliary
+documents that are required for a third party to independently repeat the work
+and verify its findings.
 
 In 2005, The ITK community created a scientific journal, the Insight Journal,
-to truly fulfil the practice of the scientific method.  In this journal, all articles are
-required to provide the full set of source code, data and parameters needed to
-reproduce the finding of the authors. These materials are immediately made
-available to readers and reviewers, empowering them to indeed perform such
-verification with minimal effort and minimal loss of information.
+to truly fulfil the practice of the scientific method.  In this journal, all
+articles are required to provide the full set of source code, data and
+parameters needed to reproduce the finding of the authors. These materials are
+immediately made available to readers and reviewers, empowering them to indeed
+perform such verification with minimal effort and minimal loss of information.
 
 Other Journals, in particular Frontiers, PLoS, and more recently Nature, have
 embraced this restoration of the true practice of the scientific
@@ -131,19 +139,23 @@ methodologies of practical research work will not be subject to secrecy, nor be
 subject to the veil of suspicion that many incidents of scientific fraud and
 data manufacturing reported in recent months~\cite{Sandve2013}.
 
-The National Library of Medicine$’$s Insight Segmentation and Registration
-Toolkit (ITK) was conceived in 1999 to support analysis of The Visible Human
-Project data. In order to maximize its impact, the project embraced an open
-source development model from its inception. Not only was the project
-successful in its original objective, it also extended far beyond its original
-goals and became a foundational component of many National Institutes of Health
-(NIH) research projects, as well as evolved into a technology underlying many
-medical image analysis commercial products worldwide.
-
 %
 %The following numbers were computed with the script:
 %src/git-lines-of-code-statistics.sh
 %
+
+This article describes the methods employed in ITK to enable reproducible
+research in the medical imaging community, including version control, peer code
+review, an online dashboard to display test results, community enablement for
+sustainability, modularization, and the Insight Journal.  Next, the results of
+these methods are presented, including test code coverage, the impact of peer
+review on code quality, knowledge propagation implicit in a graph
+representation of the code reviewers, and contributions and utilization of the
+Insight Journal.  Finally, a high level reflection on these experiences is
+presented.
+
+
+\section{Materials \& Methods}
 The ITK repository currently contains over 2.5 million lines of source code
 (including 1.2 million lines of third-party code added to the repository).
 Contributions to this repository can be measured by the number of logical
@@ -155,26 +167,10 @@ Ohloh.net \cite{OhlohITK2013} is a public directory of open source projects
 that performs analytics on the code history of communities surrounding
 projects. According to its Project Cost Calculator, the effort in the toolkit
 is an estimated 730 person-years, amounting to an estimated cost of 40 million
-dollars given an average salary of \$55,000 per year.
-
-As of October 29, 2013, the combined subscribers to the \textit{community},
-\textit{insight-users}, and \textit{insight-developers} mailing lists are 2,698.
-The lists average 326 messages per month from October 2012 to October 2013.
-
-This article describes the methods employed in ITK to enable reproducible
-research in the medical imaging community, including version control, peer
-code review, an online dashboard to display test results, community enablement
-for sustainability, modularization, and the Insight Journal.  Next, the
-results of these methods are presented, including test code coverage, the impact
-of peer review on finding errors, knowledge propagation implicit in a graph
-representation of peer code review, and contributions and utilization of the
-Insight Journal.  Finally, a high level reflection on these experiences is
-presented.
-
-
-
-\section{Materials \& Methods}
-
+dollars given an average salary of \$55,000 per year.  As of October 29, 2013,
+the combined subscribers to the \textit{community}, \textit{insight-users}, and
+\textit{insight-developers} mailing lists are 2,698.  The lists average 326
+messages per month from October 2012 to October 2013.
 
 
 \subsection{Reproducibility Assurance Practices}
