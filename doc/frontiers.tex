@@ -18,7 +18,7 @@
 
 \def\journal{Neuroinformatics}%%% write here for which journal %%%
 \def\DOI{}
-\def\articleType{Technology Report}
+\def\articleType{Research Article}
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{McCormick {et~al.}} %use et al only if is more than 1 author
 \def\Authors{Matthew McCormick\,$^{1,*}$,
@@ -51,25 +51,25 @@ $^{3}$University of Michigan, Ann Arbor, MI, USA\\
 \correspondance{}
 \extraAuth{}% If there are more than 1 additional author, comment this line and uncomment the next one
 %\extraAuth{corresponding Author2 \\ Laboratory X2, Institute X2, Department X2, Organization X2, Street X2, City X2 , State XX2 (only USA, Canada and Australia), Zip Code2, X2 Country X2, email2@uni2.edu}
-\topic{Neuroinformatics with the Insight Toolkit}
+\topic{Research Topic}
 
 \maketitle
 \begin{abstract}
 
 Reproducibility verification is essential to the practice of the scientific
-method. Researchers report their finding, which are strengthened as other
+method. Researchers report their findings, which are strengthened as other
 independent groups in the scientific community share similar outcomes.  In the
 many scientific fields where software has become a fundamental tool for
 capturing and analyzing data, this requirement of reproducibility implies that
 reliable and comprehensive software platforms and tools should be made
 available to the scientific community. The tools will empower them and the public to
-verify in practice the reproducibility of observations that are reported in
+verify, through practice, the reproducibility of observations that are reported in
 the scientific literature.
 
 Medical image analysis is one of the fields in which the use of computational
 resources, both software and hardware, are an essential platform for performing
 experimental work. In this arena, the introduction of the Insight Toolkit (ITK)
-in 1999 has transformed the field, and facilitates its progress by accelerating
+in 1999 has transformed the field and facilitates its progress by accelerating
 the rate at which algorithmic implementations are developed, tested,
 disseminated and improved. By building on the efficiency and quality of open
 source methodologies, ITK has provided the medical image community with an
@@ -82,7 +82,7 @@ order to become one of the research communities with the most modern reproducibi
 verification infrastructure. Some of the elements described here include
 software development methodologies, advanced publishing practices, and a
 cohesive community culture. An analysis of the data and statistics that have
-developed over the past 14 years of the project is presented.
+developed over the past fourteen years of the project is presented.
 \section{}
 
 \tiny
@@ -100,7 +100,7 @@ by which experimental work has been replaced by thought experiments and
 opinion-based evaluations that deviate from empirical evidence.
 This drift has denigrated what used to be scientific work, back to the
 practice of the ``natural philosophy'', in which we simply imagine models of the
-natural word and evaluate them based on aesthetic appeals and desire for
+natural world and evaluate them based on aesthetic appeals and desire for
 self-consistency.
 
 The National Library of Medicine$’$s Insight Segmentation and Registration
@@ -114,8 +114,8 @@ medical image analysis commercial products worldwide.
 
 ITK has made it possible to restore the true practice of the scientific method
 in the field of medical image analysis. By providing a common platform in which
-image analysis algorithms and processing techniques can be implemented and can
-be freely disseminated, ITK empowers all to verify the experimental work of
+image analysis algorithms and processing techniques can be implemented and
+freely disseminated, ITK empowers all to verify the experimental work of
 image analysis research activities. This requires that researchers adhere to
 the true practice of the scientific method and publish the full details of
 their methodology, including the source code, data, parameters and auxiliary
@@ -123,20 +123,20 @@ documents that are required for a third party to independently repeat the work
 and verify its findings.
 
 In 2005, The ITK community created a scientific journal, the Insight Journal,
-to truly fulfil the practice of the scientific method.  In this journal, all
+to  fulfill the practice of the scientific method.  In this journal, all
 articles are required to provide the full set of source code, data and
 parameters needed to reproduce the finding of the authors. These materials are
-immediately made available to readers and reviewers, empowering them to indeed
+immediately made available to readers and reviewers, empowering them to
 perform such verification with minimal effort and minimal loss of information.
 
-Other journals, in particular Frontiers, PLoS, and more recently Nature, have
+Other Journals, in particular Frontiers, PLoS, and more recently Nature, have
 embraced this restoration of the true practice of the scientific
-method~\cite{Stodden2013,NatureEditorial2013,NatureEditorial2012,Mobley2013}.  With the
+method~\cite{NatureEditorial2013,NatureEditorial2012,Mobley2013}.  With the
 support of the Reproducible Research movement, these progressive publication
 venues are creating the conditions for a new age of enlightenment in which the
-methodologies of practical research work will not be subject to secrecy. Nor
-will they be subject to the veil of suspicion caused by many incidents of scientific fraud and
-data manufacturing that have been reported in recent months~\cite{Sandve2013}.
+methodologies of practical research work will not be subject to secrecy, nor be
+subject to the veil of suspicion that many incidents of scientific fraud and
+data manufacturing reported in recent months~\cite{Sandve2013}.
 
 %
 %The following numbers were computed with the script:
@@ -150,7 +150,7 @@ sustainability, modularization, and the Insight Journal.  Next, the results of
 these methods are presented, including test code coverage, the impact of peer
 review on code quality, knowledge propagation implicit in a graph
 representation of the code reviewers, and contributions and utilization of the
-Insight Journal.  Finally, a high level reflection on these experiences is
+Insight Journal.  Finally, a high-level reflection on these experiences is
 presented.
 
 
@@ -173,12 +173,13 @@ messages per month from October 2012 to October 2013.
 
 
 \subsection{Reproducibility Assurance Practices}
+
 The practice of reproducibility verification requires that the software
 platforms and tools used to support research activities be built in an
-environment that ensures high quality, consistency and reliability. This
+environment that ensures their high quality, consistency and reliability. This
 leads to a continuous interplay between correctness and consistency. More
 explicitly, it would be ideal to expect that running an experiment multiple times
-would yield consistently the same results. It is ideal if this holds as more
+would yield the same results consistently. It is ideal if this holds as more
 recent versions of software tools are used to support the given experiment.
 However, at the same time, software goes through a continuous process of
 improvement, modification and correction. Therefore, changes are flowing on a
@@ -186,53 +187,35 @@ steady manner into the code base. To balance the benefits and challenges of
 this interplay, it is essential to use both a set of software quality support
 tools, and a set of community practices that make proper use of such tools.
 
-To ensure the code quality of the toolkit and the growth of the ITK community,
-adaptation to modern software practices are necessary. In particular, the high
-software quality and reproducibility relies on the combination of an automatic
-testing system (CDash), a version control system (Git), a code review system
-(Gerrit).
-
-\subsubsection{Open Dashboard: CDash}
-ITK has a stringent system of quality control that uses a combination of unit
-testing, regression testing, multi-platform verification, and continuous
-integration.The collection of unit tests are executed nightly by computers
-contributed by community members all around the world, and reporting to a
-central online dashboard that summarizes the results. This web-based dashboard
-system (CDash) \cite{ITKDashboard} ensures ITK$'$s software quality as
-developers around the world continuously make changes to the code base. Build
-status and regression test status are visualized in a tabular form. The
-dashboard is an important coordination and communication tool that empowers
-developers to share the results of a local test with other developers by
-pushing them to the online summary pages.
-
-Continuous builds triggered by patches submitted to the Gerrit code review
-system also give feedback to developers on the impact of recent changes.
-Nightly builds of the project spanning a wide variety of platforms and
-configurations ensure that ITK can be built on a diversity of operating systems
-and hardware.
+To ensure the code quality of the toolkit and growth of the ITK community,
+adaptation to modern software practices are necessary. In particular, the
+recent modernization of ITK includes adopting a version control system (Git),
+ a code review system (Gerrit), a Gerrit-integrated dashboard testing system
+(CDash@Home), and modularization of the toolkit.
 
 
 \subsubsection{Source Code Version Control: Git}
-Version control is an essential practice that must be applied to all software
-used to support the quest for knowledge in a reproducible research environment.
-A good source code version control system allows developers to easily keep
-track of the entire history of the software development. Researchers can
-reference the complete state of experimental source code, and a reviewer can
-reliably and easily check out that archived state for examination.  Git is an
-open source, distributed version control system designed to perform with speed
-and efficiency. Its features include easy local branching, convenient staging
-areas, and multiple workflows, which are particularly useful for large open
-source projects like ITK.
 
-The ITK community embraced the used of Git as part of the modernization
-activities leading to ITKv4 in 2010.  When migrating the source code repository
-from CVS to Git, the history of the development was preserved and a simple Git
-workflow was customized for ITK developers.  The adoption of Git empowered ITK
+Version control is an
+essential practice that must be applied to all software used to support the
+quest for knowledge in a reproducible research environment. A good source code
+version control system allows developers to easily keep track of the entire
+history of the software development. Researchers can reference the complete
+state of experimental source code, and a reviewer can reliably and easily
+check out that archived state for examination.  Git is an open source, distributed version
+control system designed to perform with speed and efficiency. Its features
+include easy local branching, convenient staging areas, and multiple workflows,
+which are particularly useful for large open source projects like ITK.
+
+The ITK community embraced the use of Git as part of the modernization activities
+leading to ITKv4 in 2010.  When migrating the source code repository from CVS
+to Git, the history of the development was preserved and a simple Git workflow
+was customized for ITK developers.  The adoption of Git empowered ITK
 developers to easily create flexible workflows of branching and merging. It
 also allowed developers to make commits in local repositories, and hence
 enabled them to work consistently even when not connected to the network.
 
-Despite the initial step learning curve to learn commonly used Git commands,
+Despite the initial steep learning curve to learn commonly used Git commands,
 Git provides a superior, welcoming collaboration platform for the community. It
 has become the new standard for source code version control.  And more
 importantly, great tools that are base on Git are accessible to ITK, such as
@@ -241,17 +224,17 @@ the peer code review system: Gerrit Review.
 
 \subsubsection{Open Review System: Gerrit Review}
 
-In the context of reproducible science, the detailed description of the methods
-and materials used to perform an experiment are a fundamental piece of the
-article that disseminates the results. As research activities become more and
-more dependent on software for the preparation, execution and analysis of
-experiments, it becomes necessary to include all the details related to the
-software as part of a reproducible publication. Given the complexities of
-software implementation, mere algorithmic descriptions, or even pseudo-code,
-are not sufficient to ensure reproducibility through reimplementation. Only the
-delivery of original source code can provide enough assurances that the
-recipient of the materials will be able to replicate the reported work with a
-reasonably limited amount of effort.
+In the context of
+reproducible science, the detailed description of the methods and materials
+used to perform an experiment are a fundamental piece of the article that
+disseminates the results. As research activities become more and more dependent
+on software for the preparation, execution and analysis of experiments, it
+becomes necessary to include all the details related to the software as part of
+a reproducible publication. Given the complexities of software implementation,
+mere algorithmic descriptions, or even pseudo-code, are not sufficient to ensure
+reproducibility through reimplementation. Only the delivery of original source
+code can provide enough assurances that the recipient of the materials will be
+able to replicate the reported work with a reasonably limited amount of effort.
 
 The code must therefore be subject to peer review processes similar to the ones
 currently used for scientific publications. Such reviews should examine both
@@ -265,22 +248,22 @@ Insight Journal, where code is submitted along with the article, evaluation
 tools and procedures for peer review of the code are not in parity with those
 used for the article. Commonplace practices have evolved to facilitate article
 review such as evaluation rubrics, instrumentation of the text with line and
-page numbers for reference during discussion, and a process to distribute an
-article to reviewers and communicate author replies.  While this provides the
-reviewers with a mechanism to evaluate the reproducibility, and therefore the
-merit, of the article, the technical nature of code solicits greater technical
-capabilities of the tools and methods used to evaluate its reproducibility.
+page numbers as references during discussion, and a process to distribute an
+article to reviewers and communicate author replies.  Documentation is a mechanism
+through which reviewers can evaluate reproducibility. However,  the technical
+nature of code solicits greater technical capabilities of the tools and methods
+used to evaluate its reproducibility.
 
 While this problem is multi-faceted, some progress has been made through ITK’s
 adoption of the Gerrit Code Review system.  Gerrit is an open source project
-maintained by the Google Android mobile phone project. This systems enables a
+maintained by the Google Android mobile phone project. This system enables a
 large community of developers to inspect and comment on the code changes that
 are proposed for inclusion in a software system. Not only has the ITK community
 embraced the use of Gerrit, it has also contributed fixes and features back to
 the upstream Gerrit project.
 
 Gerrit is implemented as a combination of a web-based front end with a Git
-repository back-end. Most of the interactions that developers have with Gerrit,
+repository back end. Most of the interactions that developers have with Gerrit,
 happen with the web-based front end server. The Gerrit server provides a
 mechanism to effectively evaluate code changes, obtain and test those changes
 locally, and perform notification and transmission of the changes and comments
@@ -289,7 +272,7 @@ merges.
 
 Gerrit is a technology that is built around the Git distributed version control
 system.  With Git, contributors can independently develop and test patches that
-are put in topic branches created out of the ITK master branch.  Next, the
+are put in topic branches created out of the ITK master branch.  The
 patch can be shared with the community by pushing the topic branch to the
 Gerrit server \cite{ITKGerrit}.  Once in the server, the change is publicly
 accessible via the web-based front end.  Developers can then use a web-browser
@@ -320,6 +303,30 @@ through experimentation as implemented in the unit tests and through peer
 review as exercised in the code reviews.
 
 
+\subsubsection{Open Dashboard}
+
+ITK has a stringent system of quality control
+that uses a combination of unit testing, regression testing, multi-platform
+verification, and continuous integration. The testing infrastructure of ITK
+includes more than 2,400 unit tests, which provide a code coverage of 84\% of
+ITK code lines.
+
+The collection of unit tests are executed nightly by computers contributed by
+community members all around the world, and reporting to a central online
+dashboard that summarizes the results. This web-based dashboard system (CDash)
+ \cite{ITKDashboard} ensures ITK$'$s software quality as developers around the
+world continuously make changes to the code base. Build status and regression
+test status are visualized in a tabular form. The dashboard is an important
+coordination and communication tool that empowers developers to share the
+results of a local test with other developers by pushing them to the online
+summary pages.
+
+Continuous builds triggered by patches submitted to the Gerrit code review
+system also give feedback to developers on the impact of recent changes.
+Nightly builds of the project spanning a wide variety of platforms and
+configurations ensure that ITK can be built on a diversity of operating systems
+and hardware.
+
 
 \subsection{Sustainability}
 
@@ -335,7 +342,7 @@ The ITK community has cultivated a number of practices intended to ensure that
 the demographics of contributors are continuously renewed. In this way, the
 community remains active and vibrant, and can provide the manpower needed to
 maintain and improve the Insight Toolkit. In particular, this involves welcoming
-new members and training them on:  technical skills, social rules, governance
+new members and training them on  technical skills, social rules, governance
 processes, and cultural practices.
 
 On the training front, the ITK community has been hosting a series of webinars
@@ -359,9 +366,10 @@ such as source code, documentation and video tutorials, that guide newcomers at
 their own pace through training activities aimed at honing their software
 development skills.
 
-One of the very active areas in the ITK Bar Camp is a series of participatory,
+One of the very active areas in the ITK BarCamp is a series of participatory,
 short YouTube.com videos with associated documentation covering various topics
 related to ITK, including:
+
 \begin{enumerate}
 \item Mastery of the command line
 \item Basic C++ programming skills
@@ -376,8 +384,8 @@ previous and current webinars and hangouts can be found at
 (\url{http://www.itk.org/ITK/resources/webinars.html}).
 
 These educational efforts are crucial to attracting, training, and retaining
-new community members in the long run, and through that mechanism replenish the
-community with active members.
+new community members in the long run, and through that mechanism replenish
+and sustain the community with active members.
 
 \subsubsection{Modularization}
 
@@ -388,24 +396,24 @@ classes were added to the toolkit. Once the core code of ITK surpassed
 half-a-million lines of code, it became evident that a more modular approach
 was needed in order to support the future continued growth of the toolkit.
 
-\textbf{Figure 1. }{An illustration of the dependencies among ITK modules.}\label{fig:01}
+\textbf{Figure 1. }{An illustration of ITK modules' dependencies.}\label{fig:01}
 
 Such modularization was implemented in 2010-2011 as part of the larger
-refactoring effort leading to ITKv4.  As a result of the modularization, the
+refactoring effort that culminated into ITKv4.  As a result of the modularization, the
 initial monolithic code base of about 12,000 files was partitioned into more
-than 100 modules.  And as of Oct of 2013, ITK's main code repository contains
+than 100 modules.  And, as of October 2013, ITK main code repository contains
 137 modules in total.
 
-Module dependencies (see Figure 1) were identified and explicitly declared in
-the CMake-based \cite{CMake} configuration system. By making the CMake-based
-configuration system aware of the new ITK modularization, ITK adopters became
-enabled to select, at configuration time, the pieces of ITK that they wanted to
-use in their own projects.
+Dependencies, Figure \ref{fig:01}), between modules were identified and
+explicitly declared in the CMake-based \cite{CMake} configuration system. By making the
+CMake-based configuration system aware of the new ITK modularization, ITK
+adopters became enabled to select, at configuration time, the pieces of ITK
+that they wanted to use in their own projects.
 
 Support for adding Remote Modules was also built into the ITK modularization
 infrastructure. These are modules that can be coupled with a particular
-ITK source code installation, whose source code are distributed seperately from
-the main ITK repository. By making it possible to easily integrate
+ITK source code installation, without the requirement to be incorporated directly into
+the official ITK repository. By making it possible for adopters to integrate
 new modules, the Remote Module infrastructure enables fast
 dissemination of research code through ITK without increasing the size of the
 main repository. These Remote Modules can be exchanged across members of the
@@ -418,26 +426,26 @@ there are four ITK remote modules hosted on GitHub.
 
 The modularization effort significantly improves the extensibility of the
 toolkit and lowered the barrier of contribution. A recommended contribution
-process is illustrated in Figure 2.  All new modules can be dropped
+process is illustrated in Figure \ref{fig:02}.  All new modules can be dropped
 into the ITK source tree as external modules for testing, and they should be
 submitted to Insight Journal for review. Once the External module passes
 dashboard testing and peer review, it can be submitted as a Remote module. As
 a result, it will be disseminated from ITK itself while its source code is
 maintained independent of the main ITK repository. Specifically, the source
-code of a Remote module can be downloaded via CMake at configuration
+code of a Remote module can be downloaded via CMake at CMake configuration
 time, which makes it a convenient method to distribute modular source code
 without increasing the size of the main repository. After the Remote Module
 has experienced sufficient testing and community members express broad
 interests in the contribution, the submitter can then move the contribution
 into the ITK repository via Gerrit code review.  It is possible but not
 recommended to directly submit a module to Gerrit for review without
-submitting to Insight Journal first. An Insight Journal article describing the
-background, functionalities, and the design behind the module is a great way
+submitting to Insight Journal first. An Insight Journal article that describes the
+background, functionalities, and design behind the module is a great way
 to provide extra documentation.
 
 
 \subsection{Open Publication: The Insight Journal}
-ITK was conceived as a usable encyclopedia of image analysis algorithms
+ITK was conceived as an encyclopedia of image analysis algorithms
 that are of particular utility to the medical imaging community. Given the
 rapid pace at which technology develops in this area, and the proliferation of
 both generic and specialized image analysis algorithms, it is important for ITK
@@ -456,16 +464,16 @@ medical image processing and visualization. It enables community members to
 publish their contributions to medical projects for open peer-review, full
 reproducibility verification, and open-rating by readers worldwide.
 
-The Insight Journal is currently the only technical publication in the domain
-of image analysis that not only allows but also requires verification of
-reproducibility as part of the submission and review process. The importance of
-restoring the practice of reproducibility verification in scientific research
-has resurged in recent years in light of worrisome findings of inconsistency,
-lack of quality and even fraud in what were otherwise considered to be
-high-quality publications \cite{Begley2012}. By adhering to a reproducibility
-verification requirement, the Insight Journal ensures that community members
-get rapid access to reliable publications that include open source software
-that they can readily use in their projects.
+The Insight Journal is currently the only technical
+publication in the domain of image analysis that not only allows but also
+requires verification of reproducibility as part of the submission and review
+process. The importance of restoring the practice of reproducibility
+verification in scientific research has resurged in recent years in light of
+worrisome findings of inconsistency, lack of quality and even fraud in what
+were otherwise considered to be high-quality publications \cite{Begley2012}. By
+adhering to a reproducibility verification requirement, the Insight Journal
+ensures that community members get rapid access to reliable publications that
+include open source software that they can readily use in their projects.
 
 The Insight Journal now accepts ITK module submissions. This feature empowers
 community members to take advantage of the new modular structure in ITK and
@@ -479,69 +487,69 @@ installation.
 \section{Results}
 
 
-\subsection{Code Contribution Statistics}
+
+\subsection{Contribution Statistics}
 
 \textbf{Figure 3. }{Histogram of ITK contributors by number of commits in the repository since 2000.}\label{fig:03}
 
-Figure 3 shows the distribution of contributions to the source code of ITK.
-Every bar corresponds to an individual contributor. The height of the bar
-represents the number of commits that this contributor has authored.  The
-figure shows the top 100 contributors, out of a total of 207. The ITK community
-follows a typical power-law distribution, where a concentrated number of
-contributors are responsible for the majority of the commits, while a large
-number of contributors make small contributions.  This phenomenon is known as
-the ``Long Tail'', and it is quite important for the structure of the
-community. The long tail of contributors who make small changes are an
-important strength of the community since they tend to provide the majority of
-the quality control after versions of the software have been released. The head
-and the tail of the distribution have interacting dynamics that complement each
-other and ensure that innovation makes its way into the software, while at the
-same time it matures and gets adjusted to the true needs of the larger number
-of adopters.
+Figure 3 shows the distribution of contributions
+to the source code base of the ITK toolkit. Every bar corresponds to an individual
+contributor. The height of the bar represents the number of commits that this
+contributor has authored. The figure shows the top 100 contributors, out of a
+total of 207. The ITK community follows a typical power-law distribution, where
+a concentrated number of contributors are responsible for the majority of the
+commits, while a large number of contributors make small contributions.  This
+phenomenon is known as the ``Long Tail'', and it is quite important for the
+structure of the community. The long tail of contributors who make small
+changes are an important strength of the community since they tend to provide
+the majority of the quality control after versions of the software have been
+released. The head and the tail of the distribution have interacting dynamics
+that complement each other and ensure that innovation makes its way into the
+software, while at the same time it matures and gets adjusted to the true needs
+of the larger number of adopters.
 
 
 
 \subsection{Software Quality Assurance}
 
 When integrating the contributions of a large number of community members, it
-is vital to have in place a quality control mechanism. This eliminate defects
-in the code before they are introduced into the repository, and it also ensures
-consistency and coherency across the toolkit.  The quality assurance
-infrastructure of ITK is implemented by a combination of several interacting
-tools. In particular: the configuration system CMake, the online quality
-control dashboard CDash, the revision control system Git, and the code review
-system Gerrit. This infrastructure is complemented by coordination and
-communication tools such as mailing lists, wikis, weekly phone calls, and
-regular online videoconference meetings.
+is vital to have a quality control mechanism in place. This
+eliminates defects in the code before they are introduced into the repository, and
+it also ensures consistency and coherency across the toolkit.
+The quality assurance infrastructure of ITK is implemented by a combination
+of several interacting tools. In particular, the configuration system CMake,
+the online quality control dashboard CDash, the revision control system Git,
+and the code review system Gerrit. This infrastructure is complemented by
+coordination and communication tools such as mailing lists, wikis,
+weekly phone calls, and regular online videoconference meetings.
 
 The life cycle of a code change starts in the communication channels when
 community members raise issues in the code. These issues might relate to lack
 of correctness, or lack of desirable features, run-time performance
-bottlenecks, lack of support for specific platforms, or problems with specific
-types of data. Typically, the issues are discussed among community members
-until it is determined that changes in the code are required, and that one or
-several community members will take on the task of implementing the required
-changes.
+bottlenecks, lack of support for specific platforms, or
+problems with specific types of data. Typically, the issues are discussed among
+community members until it is determined that changes in the code are required,
+and that one or several community members will take on the task of
+implementing the required changes.
 
 Once community members prepare initial versions of the required changes, they
 commit them in their local clones of the Git repository, from where they can
-submit them to the peer code review tool, Gerrit. A group of two or three
-reviewers are invited to review and test the code contributions and a
-conversation ensues, where the submitters and reviewers iron out any
-limitations or imperfections in the suggested changes. During this exchanges,
-test builds are generated by an automated, cross-platform testing system, which
-are submitted to the CDash dashboard where they are publicly available for
-inspection.
+submit them to the peer code review tool, Gerrit. A group of two or three reviewers
+is invited to review and test the code contributions and a conversation
+ensues, where the submitters and reviewers discuss any limitations or
+imperfections in the suggested changes. During these exchanges, test builds are
+generated by an automated, cross-platform testing system, which are submitted to the CDash
+dashboard where they are publicly available for inspection.
 
 When the reviewers and submitters reach an agreement on the final version of
 the changes, they are merged into the official repository and are incorporated
 into the code base for the upcoming release.
 
-This process is supported by stringent testing requirements. In ITK it is
+This process is supported by stringent testing requirements. In ITK, it is
 expected that every C++ class should have its own unit test and that
 algorithmic combinations should have additional tests. As a consequence, ITK
-carries about 2400 unit tests (by Oct 2013), which result in a code coverage
-higher than 84\%.
+carries more than 2,200 tests, which result in a code coverage higher than 84\%.
+
 
 
 \subsection{Open Science Publication and Review}
@@ -549,10 +557,10 @@ higher than 84\%.
 \textbf{Figure 4. }{Histogram of the number of revisions (Patch Sets) for a
 given change.}\label{fig:04}
 
-During the three years that the community has been using the Gerrit code review
+In the three years that the community has applied the Gerrit Code review
 system, << d['src/gerrit_results.json'].from_json()['changes'] >> changes have
-been submitted to the Gerrit review server and
-<< d['src/gerrit_results.json'].from_json()['reviews'] >> reviews were performed.
+been submitted to the review server and
+<< d['src/gerrit_results.json'].from_json()['reviews'] >> were performed.
 As a matter of policy, all merged changes should have at least one review,
 but the number of iterations on a change varies flexibly depending on the
 requirements. This results in a roughly negative exponential distribution in
@@ -563,25 +571,25 @@ for a single change was
 
 Two direct but notable conclusions follow from this data. First, at least one
 other person examined and reproduced a proposed code.  This certainly exceeds
-the publication systems where code is never disseminated. And it likely exceeds
-validation systems where the code is published, but there are not incentives or
-checks that reviewers looked at or applied the code.  Secondly, the number of
-Patch Sets greater than one also indicates that improvements were made and
-errors were identified during this process.
+publication systems where the code is never disseminated, and it likely
+exceeds validation systems where the code is published, but there are not
+incentives or checks that reviewers looked at or applied the code.
 
 \textbf{Figure 5. }{Fix-up commit percentage before and after peer code review.}
 \label{fig:05}
 
-This hypothesis is further supported by Figure 5, in which the number of
-``fix-up'' changes are quantified. A fix-up change is defined in an objective
-way that roughly captures changes that intended to fix the bugs or improve the
-features that were introduced in the previous Patch Set.  Sections of a patch,
-traditionally called hunks, that are additions or modification are identified,
-and all commits in the following five days are examined.  If content in the
-committed hunk is modified in that period, it is labeled as a fix-up commit.
-If addition or modification hunks in the fix-up commit are again modified in
-the following five days, then the original change is said to have two fix-up
-commits, and so on.
+Secondly, the number of Patch Sets greater than one also implicitly indicates that
+improvements were made and errors were identified by this process.  This is
+hypothesis is further supported by Figure 5.  In this
+figure, the number of ``fix-up'' changes are quantified. A fix-up change is
+defined in an objective way that roughly captures changes that were likely
+intended to correct or improve a recent defect that was introduced.  Sections
+of a patch, traditionally called hunks, that are additions or modification are
+identified, and all commits in the following five days are examined.  If
+content in the committed hunk is modified in that period, it is labeled as
+a fix-up commit.  If addition or modification hunks in the fix-up commit are again
+modified in the following five days, then the original change is said to have
+two fix-up commits, and so on.
 
 We computed fix-up commits in the ITK repository for a three year period
 preceding the adoption of the peer code review system from August 25th, 2007
@@ -595,7 +603,7 @@ Figure 5, this reduces the number of
 single fix-up commits from <<
 d['src/fix_up_bins.json'].from_json()['single_pre'] >>\%
 to << d['src/fix_up_bins.json'].from_json()['single_post'] >>\% and
-dramatically reduces the fix-up commits by approximately half for
+dramatically reduces the percent fix-up commits by approximately half for
 higher numbers.
 
 \textbf{Figure 6. } {Peer code reviews graph.  Nodes are individual community
@@ -609,27 +617,28 @@ versus the number of created changes.  Different connected components are shown
 in different colors.}\label{fig:07}
 
 The underlying cause of this apparent reduction in errors is suggested by the
-graph visualization of Figure 6. This graph represents the three years of
-reviews performed by the ITK community. Each node in this graph representation
-of the code reviewers' network is a community member, and the size of the node is
-logarithmically related to the accumulated number of changes created by that
-community member.  The edges in the directed graph represent accumulated
-reviews given by one community to another. A number of high level observations
-can be made from this graph.  There is a spectrum of node sizes and
-connectivities that correspond to varying degrees of collaborations. While there
-are some node pairs that have mutually strong connections, the reviews are
-generally well distributed.  Cohesiveness of the community is evident by the
-well-connected property of the graph and the closeness of all nodes.  This is
-further quantified in Figure 7.  Here an undirected version of the graph is
-used to compute the closeness centrality of each node against the logarithm of
-changes created.  Closeness centrality is defined as \cite{Freeman1979}
+graph visualization of Figure 6. This graph represents
+the three years of reviews performed by the Insight Toolkit community. Each
+node is a community member, and the size of the node is logarithmically
+related to the accumulated number of changes created by that community member.
+The edges in the directed graph represent accumulated reviews given by one
+community to another. A number of high level observations can be made from
+this graph.  There is a spectrum of node sizes and connectivities that
+correspond to varying degrees of contribution. While there are some node pairs
+that have mutually strong connections, the reviews are generally well
+distributed.  Cohesiveness of the community is evident by the well-connected
+property of the graph and the closeness of all nodes.  This is further
+quantified in Figure 7.  Here an undirected version
+of the graph is used to compute the closeness centrality of each node against
+the logarithm of changes created.  Closeness centrality is defined
+as \cite{Freeman1979}
 
 \begin{equation}
    C(u) = \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)},
 \end{equation}
 
 where $d(v, u)$ the shortest path distance from node $u$ to node $v$, and it
-is normalized by $n-1$ nodes in the graph. This measures the reciprocal of th-
+is normalized by $n-1$ nodes in the graph. This quantifies the reciprocal of th-
 average distance between nodes; i.e., how close the nodes are from each other
 or how long it will take to spread information from one node to all other
 nodes sequentially \cite{Newman2005}. Overall, this measure of communication is
@@ -638,6 +647,8 @@ number of changes also have a higher centrality measure.  There are three
 outliers, but all other contributors are members of the primary connected
 component.
 
+\textbf{Figure 8. }{Insight Journal submissions and reviews over the journal's
+lifespan since 2005.} \label{fig:08}
 
 %  the following statistics were obtained with the script
 %
@@ -652,9 +663,6 @@ readers. Just the top five most popular articles have been downloaded more than
 of 71,500 views. Since August, 2013, there have been over 360,000 downloads of
 the articles and over 1,790,000 views.
 
-\textbf{Figure 8. }{Insight Journal submissions and reviews over the journal's
-lifespan since 2005.} \label{fig:08}
-
 Figure 8 displays the progression of submissions and reviews of articles in the
 Insight Journal since its inception in 2005.  There has generally been a linear
 increase in submissions and reviews since 2005 with the rate of submissions
@@ -663,36 +671,38 @@ considerably less than the number of submissions.
 
 
 
+
 \section{Discussion}
-The code review system helps to eliminate bugs, results in design improvements,
+
+The code review system helps catch bugs, results in design improvements,
 assists in the training of new developers, and provides a great communication
 platform for collaborative development. Since it has so many software quality
-advantages, code reviews are as critical to ITK as the creation of new features.
+advantages, code reviews are as critical to ITK as the creation of new patches.
 
-The review graph (Figure 6) indicates there is not a binary distribution of
-``users'' and ``developers'' but there is a continuous transition in
-contribution and experience by community members. There are not a few nodes
-from which radiate all knowledge and advancement, but a bi-directional network
-where knowledge and experience can flow thoroughly.  Indeed, all the large
-nodes have many incoming edges. The graph is also not grouped into islands of
-isolated knowledge, but it is fully connected with few hops from any given
+The review graph indicates there is not a binary distribution of ``users'' and
+``developers'' but there is a continuous transition in contribution and experience
+by community members. There are not a few individual nodes from which radiate all
+knowledge and advancement, but, rather, a bi-directional network where knowledge and
+experience can flow thoroughly.  Indeed, all the large nodes have many
+incoming edges. The graph is also not grouped into islands of
+isolated knowledge, but instead fully connected, with few hops from any given
 community member to another community member.
 
 These properties are the result of policies and practices that encourage their
-emergence. Firstly, the adoption of the Gerrit Code Review tool places an
+emergence. The adoption of the Gerrit Code Review tool places an
 explicit emphasis on code review.  Registration for an account is publicly
-available, and the default permissions allow community members to not only
-submit changes but also perform reviews. All community members, including the
-novice ones, are also highly encouraged to perform reviews in project
-documentation, which promotes the culture of open code review. Second, the
-policy of requiring a positive code review, even for the most experienced
-community members, encourages continuous improvement of even senior members
-while promoting civility. It discourages obstructionism and encourages
-collaboration by promoting reciprocal constructive criticism.
+available, and the default permissions allow community
+members to not only submit changes but also perform reviews. All community
+members, including the novice ones, are also highly encouraged to perform
+reviews in project documentation, which promotes the culture of open code
+review. Second, the policy of requiring a positive code review, even for the
+most experienced community members, encourages continuous improvement of even
+senior members while promoting civility. It discourages obstructionism and
+encourages collaboration by promoting reciprocal constructive criticism.
 
 While the Gerrit Code Review system provides fine-grained and thorough review
 of code as it enters into the Toolkit, the Insight Journal plays an important
-role in the high level introduction and presentation of new algorithms that
+role in the high-level introduction and presentation of new algorithms that
 are often relevant to the Toolkit. While the medical imaging and broader
 scientific community have recently embraced the open science movement that
 champions reproducible research through online open access to articles, open
@@ -704,24 +714,25 @@ articles published in the Insight Journal is high.  Unlike traditional
 journal articles that are accessible only to those privileged with a
 subscription to penetrate their paywall, articles in are available to any
 researcher with an internet connection. Once the article, code, and data are
-obtained, they offer much more value to a researcher. Instead of only gathering
-a small level of information from a suspiciously reported text, the researcher
+obtained, they offer much more value to a researcher. Instead of only gathering a
+small level of information from a suspiciously reported text, the researcher
 can verify the results, understand the ``devilish details'' elucidated by the
-source code, and use both the code and data as a starting point for new avenues
-of research. Additionally, the researcher may not be interested in the theory
-underlying the reported algorithm at all -- the implementation provides a
-concrete solution to address a tangential problem at hand. Indeed, algorithms
-and solutions published in many academic journals are heralded for their
-ability to address important problems, but solutions often never see
+source code, and use both the code and data as a starting point for new
+avenues of research. Additionally, the researcher may not be interested in the
+theory underlying the reported algorithm at all -- the implementation provides
+a concrete solution to address a tangential problem at hand. Indeed,
+algorithms and solutions published in many academic journals are heralded for
+their ability to address important problems, but solutions often never see
 translation into pragmatic application because they are irreproducible and
-false or because they lack an easy to apply incarnation in quality, clean code.
+false or because they lack an easy-to-apply incarnation in quality, clean
+code.
 
 The age of the journal has revealed a practical challenge in source code
 submitted with articles. Since software is a constantly evolving creature that
 must be nurtured and maintained, older articles will more often than not fail
 to build or run even if they passed their initial quality assurance testing.
 This can not be avoided as computer architectures progress, operating systems
-upgrade, and libraries mature. A recent flourishing of technologies such as
+upgrade, and libraries mature. A recent flourishment of technologies such as
 operating system virtual machines and easy-to-apply container systems may help
 archive submissions so they can be tested in their originally submitted
 environment.
@@ -742,24 +753,25 @@ just alternative incentive mechanisms for funding and career advancement.
 
 It is also notable that the number of reviews is low relative to the number of
 submissions. Again, incentive mechanisms should improve to reward reviews.  It
-is notable that the journal has also had a non-blinded open review policy where
-the names of reviewers are made public. While this increases accountability and
-transparency, it is known to discourage review activity
+is notable that the journal has also had a non-blinded open review policy
+where the names of reviewers are made public. While this increases
+accountability and transparency, it is known to discourage review activity
 \cite{Rooyen1999,Walsh2000}. While many outstanding articles have been
 submitted to the toolkit, relatively few have been merged into the toolkit.
-The reflects the amount of effort required to reproduce another$'$s work during
-review.  To address this significant challenge, two approaches have been taken.
-First, the standard, pluggable modular system (Section 2.2.2), greatly lowers
-integration barriers.  Second, authors are self-enabled with technologies such
-as Gerrit to directly respond to reproducibility barriers discovered during
-review. However, there is no complete transient solution to this problem; the
-scientific community must recognize that reproducible science requires time,
-effort, and resources.
+The reflects the amount of effort required to reproduce anothers work in
+review.  To address this significant challenge, two approaches have been
+taken.  First, the standard, pluggable modular system,
+Figure~2, greatly lowers integration barriers.
+Second, authors are self-enabled with technologies such as Gerrit to directly respond
+to reproducibility barriers discovered during review. However, there is no
+complete transient solution to this
+problem; the scientific community must recognize that reproducible science
+requires time, effort, and resources.
 
 The open source nature of ITK, the open access nature of the Insight Journal,
-and the public sharing of open data that is enabled by MIDAS
-(\url{midasplatform.org}) in the ITK community, are the three pillars of Open
-Science that are transforming the way scientific research is done today.
+and the public sharing of open data that is enabled by the Midas Platform in
+the ITK community, are the three pillars of Open Science that are transforming
+the way scientific research is done today.
 
 The technological challenges of reproducibility have all been solved. We now
 require a cultural change by which we must make it unacceptable that any
@@ -770,9 +782,9 @@ to replicate the process and verify or refute the findings.
 \section*{Acknowledgements}
 
 We would like to thank the Insight Toolkit community, which we are honored to
-participant in. 
+participant in.
 
-We also would like to thank Dr. Ana Nelson for her training in the Dexy
+We would like to thank Dr. Ana Nelson for her training in the Dexy
 (\url{http://www.dexy.it/}) reproducible research documentation tool for this
 article.  The data, code, and sources to build this article can be found at
 \url{https://github.com/luisibanez/ITKFrontierNeuroinformatics2013}.
