@@ -173,10 +173,9 @@ messages per month from October 2012 to October 2013.
 
 
 \subsection{Reproducibility Assurance Practices}
-
 The practice of reproducibility verification requires that the software
 platforms and tools used to support research activities be built in an
-environment that ensures their high quality, consistency and reliability. This
+environment that ensures high quality, consistency and reliability. This
 leads to a continuous interplay between correctness and consistency. More
 explicitly, it would be ideal to expect that running an experiment multiple times
 would yield consistently the same results. It is ideal if this holds as more
@@ -191,26 +190,25 @@ To ensure the code quality of the toolkit and the growth of the ITK community,
 adaptation to modern software practices are necessary. In particular, the
 recent modernization of ITK includes adopting a version control system (Git),
  a code review system (Gerrit), a Gerrit-integrated dashboard testing system
-(CDash@Home), and modularization of the toolkit.
+(CDash@Home).
 
 
 \subsubsection{Source Code Version Control: Git}
+Version control is an essential practice that must be applied to all software
+used to support the quest for knowledge in a reproducible research environment.
+A good source code version control system allows developers to easily keep
+track of the entire history of the software development. Researchers can
+reference the complete state of experimental source code, and a reviewer can
+reliably and easily check out that archived state for examination.  Git is an
+open source, distributed version control system designed to perform with speed
+and efficiency. Its features include easy local branching, convenient staging
+areas, and multiple workflows, which are particularly useful for large open
+source projects like ITK.
 
-Version control is an
-essential practice that must be applied to all software used to support the
-quest for knowledge in a reproducible research environment. A good source code
-version control system allows developers to easily keep track of the entire
-history of the software development. Researchers can reference the complete
-state of experimental source code, and a reviewer can reliably and easily
-check out that archived state for examination.  Git is an open source, distributed version
-control system designed to perform with speed and efficiency. Its features
-include easy local branching, convenient staging areas, and multiple workflows,
-which are particularly useful for large open source projects like ITK.
-
-The ITK community embraced the used of Git as part of the modernization activities
-leading to ITKv4 in 2010.  When migrating the source code repository from CVS
-to Git, the history of the development was preserved and a simple Git workflow
-was customized for ITK developers.  The adoption of Git empowered ITK
+The ITK community embraced the used of Git as part of the modernization
+activities leading to ITKv4 in 2010.  When migrating the source code repository
+from CVS to Git, the history of the development was preserved and a simple Git
+workflow was customized for ITK developers.  The adoption of Git empowered ITK
 developers to easily create flexible workflows of branching and merging. It
 also allowed developers to make commits in local repositories, and hence
 enabled them to work consistently even when not connected to the network.
@@ -224,17 +222,17 @@ the peer code review system: Gerrit Review.
 
 \subsubsection{Open Review System: Gerrit Review}
 
-In the context of
-reproducible science, the detailed description of the methods and materials
-used to perform an experiment are a fundamental piece of the article that
-disseminates the results. As research activities become more and more dependent
-on software for the preparation, execution and analysis of experiments, it
-becomes necessary to include all the details related to the software as part of
-a reproducible publication. Given the complexities of software implementation,
-mere algorithmic descriptions, or even pseudo-code, are not sufficient to ensure
-reproducibility through reimplementation. Only the delivery of original source
-code can provide enough assurances that the recipient of the materials will be
-able to replicate the reported work with a reasonably limited amount of effort.
+In the context of reproducible science, the detailed description of the methods
+and materials used to perform an experiment are a fundamental piece of the
+article that disseminates the results. As research activities become more and
+more dependent on software for the preparation, execution and analysis of
+experiments, it becomes necessary to include all the details related to the
+software as part of a reproducible publication. Given the complexities of
+software implementation, mere algorithmic descriptions, or even pseudo-code,
+are not sufficient to ensure reproducibility through reimplementation. Only the
+delivery of original source code can provide enough assurances that the
+recipient of the materials will be able to replicate the reported work with a
+reasonably limited amount of effort.
 
 The code must therefore be subject to peer review processes similar to the ones
 currently used for scientific publications. Such reviews should examine both
@@ -263,7 +261,7 @@ embraced the use of Gerrit, it has also contributed fixes and features back to
 the upstream Gerrit project.
 
 Gerrit is implemented as a combination of a web-based front end with a Git
-repository backend. Most of the interactions that developers have with Gerrit,
+repository back-end. Most of the interactions that developers have with Gerrit,
 happen with the web-based front end server. The Gerrit server provides a
 mechanism to effectively evaluate code changes, obtain and test those changes
 locally, and perform notification and transmission of the changes and comments
@@ -305,11 +303,10 @@ review as exercised in the code reviews.
 
 \subsubsection{Open Dashboard}
 
-ITK has a stringent system of quality control
-that uses a combination of unit testing, regression testing, multi-platform
-verification, and continuous integration. The testing infrastructure of ITK
-includes more than 2,400 unit tests, which provide a code coverage of 84\% of
-ITK code lines.
+ITK has a stringent system of quality control that uses a combination of unit
+testing, regression testing, multi-platform verification, and continuous
+integration. The testing infrastructure of ITK includes more than 2,400 unit
+tests, which provide a code coverage of 84\% of ITK code lines.
 
 The collection of unit tests are executed nightly by computers contributed by
 community members all around the world, and reporting to a central online
@@ -366,10 +363,9 @@ such as source code, documentation and video tutorials, that guide newcomers at
 their own pace through training activities aimed at honing their software
 development skills.
 
-One of the very active areas in the ITK BarCamp is a series of participatory,
+One of the very active areas in the ITK Bar Camp is a series of participatory,
 short YouTube.com videos with associated documentation covering various topics
 related to ITK, including:
-
 \begin{enumerate}
 \item Mastery of the command line
 \item Basic C++ programming skills
@@ -396,24 +392,24 @@ classes were added to the toolkit. Once the core code of ITK surpassed
 half-a-million lines of code, it became evident that a more modular approach
 was needed in order to support the future continued growth of the toolkit.
 
-\textbf{Figure 1. }{An illustration of ITK modules' dependencies.}\label{fig:01}
+\textbf{Figure 1. }{An illustration of the dependencies  among ITK modules.}\label{fig:01}
 
 Such modularization was implemented in 2010-2011 as part of the larger
 refactoring effort leading to ITKv4.  As a result of the modularization, the
 initial monolithic code base of about 12,000 files was partitioned into more
-than 100 modules.  And as of Oct of 2013, ITK main code repository contains
+than 100 modules.  And as of Oct of 2013, ITK's main code repository contains
 137 modules in total.
 
-Dependencies, Figure \ref{fig:01}), between modules were identified and
-explicitly declared in the CMake-based \cite{CMake} configuration system. By making the
-CMake-based configuration system aware of the new ITK modularization, ITK
-adopters became enabled to select, at configuration time, the pieces of ITK
-that they wanted to use in their own projects.
+Module dependencies (see Figure 1) were identified and explicitly declared in
+the CMake-based \cite{CMake} configuration system. By making the CMake-based
+configuration system aware of the new ITK modularization, ITK adopters became
+enabled to select, at configuration time, the pieces of ITK that they wanted to
+use in their own projects.
 
 Support for adding Remote Modules was also built into the ITK modularization
 infrastructure. These are modules that can be coupled with a particular
-ITK source code installation, without the requirement to be incorporated directly into
-the official ITK repository. By making it possible for adopters to integrate
+ITK source code installation, whose source code are distributed seperately from
+the main ITK repository. By making it possible to easily integrate
 new modules, the Remote Module infrastructure enables fast
 dissemination of research code through ITK without increasing the size of the
 main repository. These Remote Modules can be exchanged across members of the
@@ -426,7 +422,7 @@ there are four ITK remote modules hosted on GitHub.
 
 The modularization effort significantly improves the extensibility of the
 toolkit and lowered the barrier of contribution. A recommended contribution
-process is illustrated in Figure \ref{fig:02}.  All new modules can be dropped
+process is illustrated in Figure 2.  All new modules can be dropped
 into the ITK source tree as external modules for testing, and they should be
 submitted to Insight Journal for review. Once the External module passes
 dashboard testing and peer review, it can be submitted as a Remote module. As
@@ -464,16 +460,16 @@ medical image processing and visualization. It enables community members to
 publish their contributions to medical projects for open peer-review, full
 reproducibility verification, and open-rating by readers worldwide.
 
-The Insight Journal is currently the only technical
-publication in the domain of image analysis that not only allows but also
-requires verification of reproducibility as part of the submission and review
-process. The importance of restoring the practice of reproducibility
-verification in scientific research has resurged in recent years in light of
-worrisome findings of inconsistency, lack of quality and even fraud in what
-were otherwise considered to be high-quality publications \cite{Begley2012}. By
-adhering to a reproducibility verification requirement, the Insight Journal
-ensures that community members get rapid access to reliable publications that
-include open source software that they can readily use in their projects.
+The Insight Journal is currently the only technical publication in the domain
+of image analysis that not only allows but also requires verification of
+reproducibility as part of the submission and review process. The importance of
+restoring the practice of reproducibility verification in scientific research
+has resurged in recent years in light of worrisome findings of inconsistency,
+lack of quality and even fraud in what were otherwise considered to be
+high-quality publications \cite{Begley2012}. By adhering to a reproducibility
+verification requirement, the Insight Journal ensures that community members
+get rapid access to reliable publications that include open source software
+that they can readily use in their projects.
 
 The Insight Journal now accepts ITK module submissions. This feature empowers
 community members to take advantage of the new modular structure in ITK and
